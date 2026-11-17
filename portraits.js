@@ -6,7 +6,7 @@ window.PPC_PLAYER_PORTRAITS={
 "p-gary":"./assets/players/gary.webp",
 "p-sean":"./assets/players/sean.webp",
 "p-ciaran":"./assets/players/ciaran.webp",
-"p-james":"./assets/players/james.webp",
+"p-james":"./assets/players/james.webp?v=20261117-james",
 "p-geraldo":"./assets/players/geraldo.webp",
 "p-dan":"./assets/players/dan.webp",
 "p-peter":"./assets/players/peter.webp",
