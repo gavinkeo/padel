@@ -147,7 +147,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   for(const e of events.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup [1-4]$/);
   assert.ok(!/\bPPC [IVX]+\b/.test(html));
   assert.ok(!app.includes('const roman ='));
-  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
+  const ids=['countdown','honoursList','meritList','archiveList','playerList','unrankedPlayerList','playerCount','rankedCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDocument={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDocument,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
