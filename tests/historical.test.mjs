@@ -147,7 +147,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   for(const e of events.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup [1-4]$/);
   assert.ok(!/\bPPC [IVX]+\b/.test(html));
   assert.ok(!app.includes('const roman ='));
-  const ids=['countdown','confirmedPlayers','tournamentGap','honoursList','meritList','archiveList','playerList','playerCount'];
+  const ids=['countdown','confirmedPlayers','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDocument={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDocument,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -156,7 +156,6 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   await new Promise(resolve=>setImmediate(resolve));
   assert.match(nodes.countdown.innerHTML,/Days/);
   assert.match(nodes.countdown.innerHTML,/Seconds/);
-  assert.equal(nodes.tournamentGap.textContent,'630 days between tournaments');
   assert.doesNotMatch(nodes.meritList.innerHTML,/<small>(Geraldo|Dan)<\/small>/);
   assert.match(nodes.honoursList.innerHTML,/James O/);
   assert.match(nodes.honoursList.innerHTML,/Daniel McCarthy/);
@@ -167,7 +166,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
 });
 
 test('Median rankings require two PPC appearances, keep other players visible',async()=>{
-  const ids=['countdown','confirmedPlayers','tournamentGap','honoursList','meritList','archiveList','playerList','playerCount'];
+  const ids=['countdown','confirmedPlayers','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDoc={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDoc,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -198,7 +197,7 @@ test('Compact tournament banner and provisional rankings text',()=>{
   assert.ok(html.includes('<h2>Tournaments</h2>'));
   assert.ok(html.includes('>Champions</a>'));
   assert.ok(html.includes('>Tournaments</a>'));
-  assert.ok(html.includes('PPC 5 <span>·</span> The Return'));
+  assert.ok(html.includes('<h1 id="next-heading">PPC 5</h1>'));
   assert.ok(html.includes('Friday 4 December 2026'));
   assert.ok(!html.includes('The return <span>·</span> 4 December 2026'));
   const css=readFileSync(new URL('../styles.css',import.meta.url),'utf8');

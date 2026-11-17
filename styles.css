@@ -29,7 +29,6 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .eyebrow.dark{color:var(--blue)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow)}
 .event-main h1{font:900 clamp(40px,5vw,65px)/1 var(--heading);margin:11px 0 12px;letter-spacing:-.015em}
-.event-main h1 span{color:var(--yellow)}
 .event-main p{color:#dbeeff;line-height:1.65;font-size:12px;margin:0;max-width:530px}
 .sep{opacity:.55;margin:0 4px}
 .event-countdown{background:#ffffff15;border:1px solid #ffffff43;padding:17px 21px 18px;border-radius:12px;max-width:390px;width:100%;justify-self:end}
@@ -255,10 +254,8 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .next-layout{grid-template-columns:minmax(0,1fr) 305px;gap:24px;padding-block:19px}
 .event-main h1{font-size:clamp(30px,3.1vw,43px);line-height:1.02;margin:6px 0 8px}
 .event-main p{font-size:12px;line-height:1.55;max-width:none}
-.event-main .event-gap:not(:empty){margin-top:5px;color:var(--yellow);font-weight:700}
 .event-main p strong{font-weight:800;color:#fff}
-.event-venue{color:#d7eaff}
-.event-mobile-break{display:none}
+.event-venue{display:block;color:#d7eaff}
 .event-countdown{padding:11px 15px;border-radius:9px;max-width:305px}
 .countdown-caption{display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.11em;margin:0 0 6px}
 .serve-icon{width:26px;height:26px;flex:none;color:var(--yellow)}
@@ -270,7 +267,6 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
  .next-layout{grid-template-columns:minmax(0,1fr);gap:12px;padding-block:18px}
  .event-main h1{font-size:38px;margin:7px 0 6px}
  .event-main p{font-size:12px;line-height:1.45}
- .event-venue{display:block;margin-top:2px}
  .event-countdown{max-width:none;display:flex;align-items:center;gap:14px;padding:9px 12px;border-radius:8px}
  .countdown-caption{margin:0;min-width:64px;max-width:64px;line-height:1.3;font-size:9px;text-align:left}
  .countdown{flex:1;gap:3px}
@@ -301,3 +297,6 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .confirmed-lineup button:hover span{text-decoration:underline}
 
 img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
+
+.event-heading{display:flex;align-items:center;gap:clamp(8px,3vw,18px);margin-top:6px}
+.event-main .event-heading h1{flex:none;margin:0;white-space:nowrap}

@@ -51,16 +51,6 @@
   };
   let events = [];
 
-  function renderTournamentGap() {
-    const lastDate = events.reduce((latest, event) =>
-      /^\d{4}-\d{2}-\d{2}$/.test(event.date || '') && event.date > latest ? event.date : latest, '');
-    if (!lastDate) return;
-
-    const nextDate = new Date(NEXT_EVENT).toISOString().slice(0, 10);
-    const days = (Date.parse(nextDate) - Date.parse(lastDate)) / 86400000;
-    if (days > 0) $('tournamentGap').textContent = days + ' days between tournaments';
-  }
-
   function countdown() {
     const difference = NEXT_EVENT - Date.now();
     if (difference <= 0) {
@@ -282,12 +272,11 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-geraldo-name', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-event-details', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
       events=json.events;
-      renderTournamentGap();
       renderHonours();renderMerit();renderArchive();renderPlayers();
     } catch (error) {
       const message='<p class="empty-note">Unable to load tournament records. Please refresh the page.</p>';
