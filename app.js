@@ -250,9 +250,6 @@
 
   async function init() {
     const confirmedPlayers = ['p-gavin', 'p-james', 'p-geraldo', 'p-gary', 'p-sean'];
-    const remainingSpots = 8 - confirmedPlayers.length;
-    $('confirmedPlayersHeading').textContent =
-      'Confirmed Players ' + confirmedPlayers.length + ' · Remaining Spots ' + remainingSpots;
     $('confirmedPlayers').innerHTML = confirmedPlayers.map(id => {
       const player = getPlayer(id);
       return '<li><button type="button" data-player="' + esc(id) + '" aria-label="View ' +
@@ -276,7 +273,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-lineup-dot', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-lineup-label', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
