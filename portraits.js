@@ -1,7 +1,7 @@
 /* Arcade-style portraits recreated from the labelled crew group photograph. */
 window.PPC_PLAYER_PORTRAITS={
 "p-gavin":"./assets/players/gavin.webp?v=20261117-gavin",
-"p-eric":"./assets/players/eric.webp",
+"p-eric":"./assets/players/eric.webp?v=20261117-eric",
 "p-kennedy":"./assets/players/kennedy.webp?v=20261117-kennedy",
 "p-gary":"./assets/players/gary.webp?v=20261117-gary",
 "p-sean":"./assets/players/sean.webp?v=20261117-sean",
