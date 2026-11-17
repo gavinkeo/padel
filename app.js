@@ -154,7 +154,7 @@
         '<span class="ranking-position">'+(i+1)+'</span>'+
         '<img class="ranking-avatar" src="'+esc(portrait(p.id))+'" alt="" loading="lazy">'+
         '<span class="ranking-name">'+esc(p.name)+'</span>'+
-        '<strong class="ranking-points">'+number(r.score)+'</strong></button>';
+        '<strong class="ranking-points">'+r.score.toFixed(1)+'</strong></button>';
     }).join('');
   }
 
@@ -272,7 +272,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-event-align', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-rankings', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');

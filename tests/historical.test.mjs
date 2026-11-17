@@ -183,15 +183,16 @@ test('Median rankings require two PPC appearances, keep other players visible',a
   assert.ok(unranked.some(p=>p.player.id==='p-connell-mcbride'));
   assert.ok(unranked.some(p=>p.player.id==='p-bean'));
   assert.ok(nodes.playerList.innerHTML.includes('119.5'));
+  assert.match(nodes.playerList.innerHTML, />141\.0<\/strong>/);
   assert.ok(!nodes.playerList.innerHTML.includes('Connell McBride'));
   assert.ok(!nodes.playerList.innerHTML.includes('Ciaran Barry'));
   assert.ok(!nodes.meritList.innerHTML.includes('merit-played'));
   assert.ok(!html.includes('<span>Events</span><span>Points</span>'));
-  assert.ok(html.includes('<h2>Provisional Rankings</h2>'));
+  assert.ok(html.includes('<h2>Rankings</h2>'));
 });
 
 test('Compact tournament banner and provisional rankings text',()=>{
-  assert.ok(html.includes('<h2>Provisional Rankings</h2>'));
+  assert.ok(html.includes('<h2>Rankings</h2>'));
   assert.ok(html.includes('>Rankings</a>'));
   assert.ok(html.includes('<h2>Champions</h2>'));
   assert.ok(html.includes('<h2>Tournaments</h2>'));
