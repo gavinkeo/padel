@@ -18,7 +18,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .brand{justify-self:center;text-align:center;margin:13px var(--header-gutter);display:flex;align-items:center;min-width:0}
 .brand>span{font:900 25px/.93 var(--heading);color:var(--navy);letter-spacing:.01em}
 .brand>span>b{color:var(--blue)}
-.brand small{display:block;font:700 10px var(--body);letter-spacing:.13em;color:var(--sub);margin-top:6px}
+.brand small{display:inline-block;white-space:nowrap;font:700 10px var(--body);letter-spacing:.13em;color:var(--sub);margin-inline-start:6px}
 .main-nav{display:flex;align-items:center;padding:4px var(--header-gutter);background:var(--ice)}
 .main-nav a{position:relative;display:flex;align-items:center;min-height:38px;padding:8px 16px;font-size:12px;font-weight:800;color:#214b76;white-space:nowrap}
 .main-nav a+a::before{content:'';position:absolute;left:0;top:25%;height:50%;border-left:1px solid #c5d6e8}
@@ -209,7 +209,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 @media(max-width:700px){
  
  .brand>span{font-size:21px;line-height:1;white-space:nowrap}
- .brand small{font-size:9px;margin-top:4px}
+ .brand small{font-size:9px}
  .main-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;overflow:visible}
  .main-nav a{display:flex;justify-content:center;align-items:center;min-width:0;min-height:42px;padding:9px 3px;text-align:center;white-space:normal;line-height:1.15;font-size:11px}
  .next-layout{gap:16px}
