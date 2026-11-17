@@ -121,7 +121,7 @@ test('Public homepage is read-only with profiles at bottom and compact countdown
     assert.ok(!app.includes(legacy),'unexpected legacy JS '+legacy);
   assert.ok(app.includes("Member of the HipEx team who won the B2Cup in 2025."));
   assert.ok(app.includes("'p-bean', 'Ciaran Barry'"));
-  assert.ok(app.includes('Tournaments played'));
+  assert.ok(app.includes('<small>Tournaments</small>'));
   assert.ok(app.includes('records.length + (team?1:0)'));
 });
 
