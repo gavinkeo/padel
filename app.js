@@ -50,7 +50,7 @@
   function ppc1Cup(){
     const standings=PPC1_STANDINGS.map(([handle,wins,draws,losses,points,against,pd])=>({
       id:ID(handle),wins,draws,losses,played:7,points,against,pd,
-      ...(handle==='Geraldo'?{sourceLabel:"GER O'BRIEN (identity to confirm)"}:{})
+      ...(handle==='Geraldo'?{sourceLabel:"GER O'BRIEN"}:{})
     }));
     const matches=PPC1_FIXTURES.map(([teamA,teamB],i)=>({
       id:'ppc-1-m'+(i+1),round:Math.floor(i/2)+1,court:i%2===0?2:3,
@@ -115,7 +115,7 @@
     return [ppc1Cup(),a,b,c];
   }
 
-  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke'],['Geraldo','Geraldo'],['Sean','Sean Kelly'],['Cian','Cian'],['Dan','Dan'],['Peter','Peter'],['James',"James O'Leary"],['Rob','Rob'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='James'?'PPC I & IV CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Pinnacle Padel Cup competitor. Full profile coming soon.',avatar:i%12+1}));
+  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian','Cian'],['Dan','Dan'],['Peter','Peter'],['James',"James O'Leary"],['Rob','Rob'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Geraldo'?'GERALDO':handle==='James'?'PPC I & IV CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Pinnacle Padel Cup competitor. Full profile coming soon.',avatar:i%12+1}));
   const defaultState = () => ({version:3,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Pinnacle Comeback Cup',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
   const safeLoad = () => {const defaults=defaultState();try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaults;const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected)){
     const oldById=new Map(parsed.players.map(p=>[p.id,p]));

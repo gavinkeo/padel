@@ -7,3 +7,10 @@ test('PPC I scores, standings, date, and results reconcile',()=>{const e=x.find(
 test('All verified match scores total 32 or 48 points',()=>{for(const e of x){assert.equal(e.matches.length,e.kind==='team'?15:14);for(const m of e.matches){if(m.scoreA==null||m.scoreB==null)continue;assert.equal(m.scoreA+m.scoreB,e.pointsPerMatch)}}});
 test('B2Cup 411–309 result',()=>{const e=x.find(e=>e.id==='b2-cup');assert.equal(e.matches.reduce((n,m)=>n+m.scoreA,0),411);assert.equal(e.matches.reduce((n,m)=>n+m.scoreB,0),309);for(const r of e.rounds){const ms=e.matches.filter(m=>m.round===r.round);assert.equal(ms.reduce((n,m)=>n+m.scoreA,0),r.a);assert.equal(ms.reduce((n,m)=>n+m.scoreB,0),r.b)}});
 test('Every Americano partnership and opponent is balanced',()=>{for(const e of x.filter(e=>e.kind==='americano')){const p={},o={};for(const m of e.matches){for(const ids of [m.a,m.b]){const k=[...ids].sort().join('/');p[k]=(p[k]||0)+1}for(const a of m.a)for(const b of m.b){const k=[a,b].sort().join('/');o[k]=(o[k]||0)+1}}assert.equal(Object.keys(p).length,28);assert.ok(Object.values(p).every(v=>v===1));assert.ok(Object.values(o).every(v=>v===2))}});
+
+test("Ger O'Brien is Geraldo in PPC I and all cups",()=>{
+  const ppc1=x.find(e=>e.id==='ppc-1'); const ger=ppc1.standings.find(p=>p.id==='p-geraldo');
+  assert.equal(ger.sourceLabel,"GER O'BRIEN");assert.equal(ger.nickname,'Geraldo');
+  const subsequent=x.filter(e=>['ppc-3','b2-cup'].includes(e.id));
+  for(const cup of subsequent)assert.ok(cup.participants.includes('p-geraldo'));
+});

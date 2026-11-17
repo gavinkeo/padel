@@ -1,5 +1,5 @@
 {
-  "provenance": "PPC I: photographs of historical fixture sheet and standings, plus source link to Padelution. PPC III/IV and B2Cup: photo of original scores. PPC I matches are listed with null scores because exact results were not accessible.",
+  "provenance": "PPC I: original Padelution tournament page and photographed original schedule/standings; all 14 match scores verified against the final totals. PPC III/IV and B2Cup: photographed original score sheets. Ger O'Brien is confirmed by the organiser as Geraldo, with all results linked to player ID p-geraldo.",
   "events": [
     {
       "id": "ppc-1",
@@ -77,7 +77,9 @@
           "points": 112,
           "against": 112,
           "pd": 0,
-          "sourceLabel": "GER O'BRIEN (identity to confirm)"
+          "sourceLabel": "GER O'BRIEN",
+          "displayName": "Ger O'Brien",
+          "nickname": "Geraldo"
         },
         {
           "id": "p-kennedy",
@@ -1236,5 +1238,12 @@
       ],
       "pointsPerMatch": 48
     }
-  ]
+  ],
+  "playerAliases": {
+    "p-geraldo": {
+      "fullName": "Ger O'Brien",
+      "nickname": "Geraldo",
+      "verifiedBy": "Club organiser confirmation"
+    }
+  }
 }
