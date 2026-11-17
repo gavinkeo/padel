@@ -58,6 +58,10 @@ The PPC is an independent workplace social group, not affiliated with or endorse
 
 ## Median-based PPC Rankings (minimum two appearances)
 
-The bottom section is **PPC Rankings** rather than a roster in alphabetical order. Its qualified players are ordered by the rolling median of their individual PPC tournament points, recalculated from all official results as new ones are added. At least **two individual PPC events** are required. The tie-break is the player's best single-tournament score, followed by name. A separate **Not yet ranked** subsection retains every player with 0 or 1 PPC appearances, so B2Cup-only players and one-off guests are still accessible. B2Cup team points never count toward the ranking.
+The first section below the countdown is **Rankings**, showing one horizontal row per eligible player: rank, image, name and median tournament points. Its qualified players are ordered by the rolling median of their individual PPC tournament points, recalculated from all official results as new ones are added. At least **two individual PPC events** are required. The tie-break is the player's best single-tournament score, followed by name. Players with fewer than two PPC appearances are excluded from the public Rankings section. B2Cup team points never count toward the ranking.
 
 The Order of Merit is unchanged in its scoring but no longer displays the appearances column — only the player and lifetime PPC points.
+
+## Homepage ordering
+
+Below the countdown: **Rankings** (one row per eligible player), **Order of Merit** (lifetime points), **Roll of Honour** (tournament titles), and **The Record Book** (past tournaments). There is no unranked-players section. Rankings show rank, portrait, name and median PPC points only.

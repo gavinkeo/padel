@@ -223,22 +223,32 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 }
 @media(max-width:370px){.brand>span{font-size:19px}.main-nav a{font-size:10px}}
 
-/* PPC rankings: median points, two individual PPC events required */
-.merit-head,.merit-row{grid-template-columns:minmax(0,1fr) 145px}
-.merit-head span:last-child{text-align:right}
-.player-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-.ranking-group-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:6px 0 13px}
-.ranking-group-heading h3{font:900 25px var(--heading);color:var(--navy);margin:0}
-.ranking-group-heading>span{font-size:11px;color:var(--sub);text-align:right}
-.ranking-group-heading.unranked-heading{margin-top:32px;border-top:1px solid #c9deee;padding-top:23px}
-.tile-avatar{position:relative;display:block;width:100%}
-.tile-avatar img{width:100%;aspect-ratio:1/1;display:block;object-fit:cover;background:#e8edf5;border-radius:6px}
-.player-rank{position:absolute;top:7px;left:7px;background:var(--yellow);color:var(--navy);border-radius:5px;padding:4px 6px;font:900 18px/1 var(--heading);box-shadow:0 1px 6px #071b302b}
-.player-rank.pending-rank{background:#e7edf3;color:#72859c}
-.ranked-tile:first-child{border-color:#a9cf6a;background:#fcfff5}
-.unranked-tile{opacity:.82}
-.unranked-tile:hover{opacity:1}
-.player-title small{font-size:11px;color:var(--blue);font-weight:700}
-.unranked-tile .player-title small{color:var(--sub);font-weight:500}
-@media(max-width:700px){.merit-head,.merit-row{grid-template-columns:minmax(0,1fr) 85px}}
-@media(max-width:420px){.ranking-group-heading{align-items:flex-start;flex-direction:column;gap:4px}.ranking-group-heading>span{text-align:left}.player-rank{font-size:16px}}
+
+/* Compact one-player-per-row median rankings */
+.rankings-board{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rankings-head,.ranking-row{display:grid;grid-template-columns:42px 48px minmax(0,1fr) 112px;align-items:center;gap:12px}
+.rankings-head{background:var(--navy);color:#eaf5ff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:12px 18px}
+.rankings-head span:first-child{grid-column:1/4}
+.rankings-head span:last-child{text-align:right}
+.ranking-row{border:0;border-bottom:1px solid #e1eaf5;background:#fff;width:100%;min-width:0;color:var(--text);padding:10px 18px;text-align:left}
+.ranking-row:last-child{border-bottom:0}
+.ranking-row:hover,.ranking-row:focus-visible{background:#eff7ff}
+.ranking-row:first-child{background:#f8fdee}
+.ranking-row:first-child:hover{background:#f2fcdb}
+.ranking-position{font:900 24px/1 var(--heading);color:var(--blue);text-align:center}
+.ranking-avatar{width:46px;height:46px;border-radius:8px;object-fit:cover;background:#e8edf5}
+.ranking-name{font-size:14px;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
+.ranking-points{text-align:right;font:900 27px/1 var(--heading);color:var(--blue)}
+.players-section{background:#eaf3fd}
+.merit-section{background:#f5f8fd}
+.honours-section{background:#fff}
+.history-section{background:#f5f8fd}
+@media(max-width:700px){
+ .rankings-head,.ranking-row{grid-template-columns:26px 40px minmax(0,1fr) 65px;gap:9px}
+ .rankings-head{padding:11px 12px;font-size:10px}
+ .ranking-row{padding:9px 12px}
+ .ranking-position{font-size:21px}
+ .ranking-avatar{width:40px;height:40px}
+ .ranking-name{font-size:12px}
+ .ranking-points{font-size:23px}
+}

@@ -110,9 +110,9 @@ test('Median is robust to a single low tournament',()=>{
 });
 
 test('Public homepage is read-only with profiles at bottom and compact countdown',()=>{
-  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
-  assert.ok(html.indexOf('id="merit"')<html.indexOf('id="history"'));
-  assert.ok(html.indexOf('id="history"')<html.indexOf('id="players"'));
+  assert.ok(html.indexOf('id="players"')<html.indexOf('id="merit"'));
+  assert.ok(html.indexOf('id="merit"')<html.indexOf('id="honours"'));
+  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="history"'));
   assert.ok(html.includes('Days')&&html.includes('Hours')&&html.includes('Minutes'));
   assert.ok(html.includes('id="playerDialog"'));
   for(const legacy of ['generateBtn','finalizeBtn','addPlayerBtn','addHistoryBtn','importBtn','exportBtn','score-input','match-centre'])
@@ -147,7 +147,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   for(const e of events.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup [1-4]$/);
   assert.ok(!/\bPPC [IVX]+\b/.test(html));
   assert.ok(!app.includes('const roman ='));
-  const ids=['countdown','honoursList','meritList','archiveList','playerList','unrankedPlayerList','playerCount','rankedCount'];
+  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDocument={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDocument,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -160,11 +160,11 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   assert.match(nodes.meritList.innerHTML,/Gavin Keohane/);
   assert.match(nodes.archiveList.innerHTML,/PPC 1/);
   assert.match(nodes.archiveList.innerHTML,/PPC 4/);
-  assert.match(nodes.unrankedPlayerList.innerHTML,/Ciaran Barry/);
+  assert.match(nodes.playerList.innerHTML,/James O/);
 });
 
 test('Median rankings require two PPC appearances, keep other players visible',async()=>{
-  const ids=['countdown','honoursList','meritList','archiveList','playerList','unrankedPlayerList','playerCount','rankedCount'];
+  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDoc={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDoc,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -180,10 +180,10 @@ test('Median rankings require two PPC appearances, keep other players visible',a
   assert.ok(unranked.every(p=>p.events<2));
   assert.ok(unranked.some(p=>p.player.id==='p-connell-mcbride'));
   assert.ok(unranked.some(p=>p.player.id==='p-bean'));
-  assert.ok(nodes.playerList.innerHTML.includes('Median 119.5 pts'));
-  assert.ok(nodes.unrankedPlayerList.innerHTML.includes('Connell McBride'));
-  assert.ok(nodes.unrankedPlayerList.innerHTML.includes('Ciaran Barry'));
+  assert.ok(nodes.playerList.innerHTML.includes('119.5'));
+  assert.ok(!nodes.playerList.innerHTML.includes('Connell McBride'));
+  assert.ok(!nodes.playerList.innerHTML.includes('Ciaran Barry'));
   assert.ok(!nodes.meritList.innerHTML.includes('merit-played'));
   assert.ok(!html.includes('<span>Events</span><span>Points</span>'));
-  assert.ok(html.includes('<h2>PPC Rankings</h2>'));
+  assert.ok(html.includes('<h2>Rankings</h2>'));
 });

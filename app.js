@@ -144,21 +144,17 @@
     return {ranked,unranked};
   }
   function renderPlayers() {
-    const {ranked,unranked}=calculateRankings();
-    $('playerCount').textContent=ranked.length+' ranked · '+unranked.length+' unranked';
-    $('rankedCount').textContent=ranked.length+' eligible players · Median PPC points';
-    const card=(r,index,eligible)=>{
+    const {ranked}=calculateRankings();
+    $('playerCount').textContent=ranked.length+' players eligible · 2 PPC events minimum';
+    $('playerList').innerHTML=ranked.map((r,i)=>{
       const p=r.player;
-      const tag=eligible?'#'+String(index+1).padStart(2,'0'):'—';
-      const stats=eligible?'Median '+number(r.score)+' pts':(r.events===1?'1 PPC event':'No PPC events');
-      return '<button class="player-tile'+(eligible?' ranked-tile':' unranked-tile')+
-        '" type="button" data-player="'+esc(p.id)+'" aria-label="View '+esc(p.name)+' player statistics">'+
-        '<span class="tile-avatar"><img src="'+esc(portrait(p.id))+'" alt="" loading="lazy">'+
-        '<span class="player-rank'+(eligible?'':' pending-rank')+'">'+tag+'</span></span>'+
-        '<span class="player-title"><strong>'+esc(p.name)+'</strong><small>'+stats+'</small></span></button>';
-    };
-    $('playerList').innerHTML=ranked.map((r,i)=>card(r,i,true)).join('');
-    $('unrankedPlayerList').innerHTML=unranked.map((r,i)=>card(r,i,false)).join('');
+      return '<button class="ranking-row" type="button" data-player="'+esc(p.id)+
+        '" aria-label="View '+esc(p.name)+' player statistics">'+
+        '<span class="ranking-position">'+(i+1)+'</span>'+
+        '<img class="ranking-avatar" src="'+esc(portrait(p.id))+'" alt="" loading="lazy">'+
+        '<span class="ranking-name">'+esc(p.name)+'</span>'+
+        '<strong class="ranking-points">'+number(r.score)+'</strong></button>';
+    }).join('');
   }
 
   function profile(id) {
@@ -266,7 +262,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-rankings1', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-rankings2', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
