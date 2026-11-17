@@ -135,11 +135,11 @@
     const sorted = [...PLAYERS].sort((a,b)=>a.name.localeCompare(b.name));
     $('playerCount').textContent = PLAYERS.length + ' players · Tap to view stats';
     $('playerList').innerHTML=sorted.map(p => {
-      const apps=pointList(events,p.id).length;
+      const apps=pointList(events,p.id).length + (b2Team(events,p.id)?1:0);
       return '<button class="player-tile" type="button" data-player="' + esc(p.id) + '">' +
         '<img src="' + esc(portrait(p.id)) + '" alt="" loading="lazy">' +
         '<span class="player-title"><strong>' + esc(p.name) + '</strong>' +
-        '<small>' + apps + ' PPC ' + (apps===1?'event':'events') + '</small></span></button>';
+        '<small>' + apps + ' ' + (apps===1?'tournament':'tournaments') + '</small></span></button>';
     }).join('');
   }
 
@@ -156,7 +156,7 @@
     $('playerDialogBody').innerHTML =
       '<div class="profile-metrics">' +
       '<div><small>Highest PPC score</small><strong>' + (high??'—') + '</strong></div>' +
-      '<div><small>PPC events played</small><strong>' + records.length + '</strong></div>' +
+      '<div><small>Tournaments played</small><strong>' + (records.length + (team?1:0)) + '</strong></div>' +
       '<div><small>Median PPC score</small><strong>' + (typical===null?'—':number(typical)) + '</strong></div>' +
       '</div>' +
       '<p class="median-explainer">' + (scores.length===0?'No PPC individual scores recorded.':
