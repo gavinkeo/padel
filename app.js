@@ -25,7 +25,7 @@
 
   /* Verified from photographs of PPC III, PPC IV and the HipEx v Poly B2Cup.
      Exact event dates are not printed. Keep them unknown until confirmed. */
-  const ID = name => 'p-'+name.toLowerCase().replace(/[^a-z0-9]/g,'');
+  const ID = name => 'p-'+name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 
   // PPC I: source images of original fixtures and standings. Individual scores are still unverified.
   const PPC1_STANDINGS=[
@@ -117,11 +117,11 @@
     return [ppc1Cup(),ppc2Cup(),a,b,c];
   }
 
-  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke Murphy'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian',"Cian O'Connor"],['Dan','Daniel McCarthy'],['Peter','Peter Gilroy'],['James',"James O'Leary"],['Rob','Rob McKenzie'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Connell McBride'?'PPC II · ONE-OFF GUEST':handle==='Geraldo'?'GERALDO':handle==='James'?'3-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PLAYER',style:'PLAYER',bio:'Padel Pinnacle Cup competitor. ',avatar:i%12+1}));
+  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke Murphy'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian',"Cian O'Connor"],['Dan','Daniel McCarthy'],['Peter','Peter Gilroy'],['James',"James O'Leary"],['Rob','Rob McKenzie'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Connell McBride'?'PPC II · ONE APPEARANCE':handle==='Geraldo'?'GERALDO':handle==='James'?'3-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PLAYER',style:'PLAYER',bio:'',avatar:i%12+1}));
   const defaultState = () => ({version:4,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Padel Pinnacle Cup · The Big Return',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
   const safeLoad = () => {const defaults=defaultState();try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaults;const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected)){
 
-    const normalizeId=id=>id==='p-daniel-mccarthy'?'p-dan':id;
+    const normalizeId=id=>id==='p-daniel-mccarthy'?'p-dan':id==='p-connellmcbride'?'p-connell-mcbride':id;
     parsed.selected=[...new Set(parsed.selected.map(normalizeId))];
     parsed.active.participants=(parsed.active.participants||[]).map(normalizeId);
     (parsed.active.fixtures||[]).flat().forEach(m=>{m.a=m.a.map(normalizeId);m.b=m.b.map(normalizeId)});
@@ -129,7 +129,7 @@
     const oldById=new Map();for(const p of parsed.players){const id=normalizeId(p.id);if(!oldById.has(id))oldById.set(id,{...p,id})}
 
     parsed.players=defaults.players.map(p=>{const prev=oldById.get(p.id);if(!prev)return p;const oldName=p.id.slice(2);const defaultOldName=oldName.charAt(0).toUpperCase()+oldName.slice(1);return {...p,...prev,name:prev.name===defaultOldName?p.name:prev.name};})
-      .concat(parsed.players.filter(p=>p.id!=='p-daniel-mccarthy'&&!defaults.players.some(d=>d.id===p.id)));
+      .concat(parsed.players.filter(p=>!['p-daniel-mccarthy','p-connellmcbride'].includes(p.id)&&!defaults.players.some(d=>d.id===p.id)));
     const official=new Set(defaults.archive.map(e=>e.id));
     parsed.archive=[...defaults.archive,...parsed.archive.filter(e=>!official.has(e.id))];
     parsed.version=4;return parsed;

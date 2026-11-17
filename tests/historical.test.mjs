@@ -54,3 +54,12 @@ test('Large player portraits, fallback and profile viewer are wired up',()=>{
  assert.ok(app.includes("[days,'Days']")&&app.includes("[hours,'Hours']")&&app.includes("[minutes,'Minutes']"));
  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
 });
+
+test('Connell McBride has one canonical player ID and PPC II appearance',()=>{
+ const event=x.find(e=>e.id==='ppc-2');
+ assert.ok(event.participants.includes('p-connell-mcbride'));
+ assert.equal(event.standings.find(p=>p.id==='p-connell-mcbride').points,118);
+ const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+ assert.ok(app.includes("replace(/[^a-z0-9]+/g,'-')"));
+ assert.ok(app.includes("id==='p-connellmcbride'?'p-connell-mcbride'"));
+});
