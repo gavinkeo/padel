@@ -1,56 +1,57 @@
 # Padel Pinnacle Cup (PPC)
 
-Independent workplace padel group website. Return event: Friday 4 December 2026, 10:00–12:00, at Padel Tennis Ireland, Carrigtwohill, Cork.
+A public, read-only archive for a workplace padel group in Cork, Ireland.
 
-## Confirmed results from paper score sheets
+**Website:** https://gavinkeo.github.io/padel/
 
-- **PPC III:** Dan 137 points, Gavin runner-up with 121.
-- **PPC IV:** James 140 points, Dan runner-up with 136.
-- **B2Cup:** HipEx 411–309 Poly (three courts, five rounds).
+The next tournament, PPC V, is scheduled for **Friday 4 December 2026, 10:00–12:00**, at Padel Tennis Ireland, Carrigtwohill. The homepage features a compact countdown.
 
-Individual PPC matches award **32 combined points**; the special B2Cup matches awarded **48**. Every round and score has been preserved in the Hall of Fame and in `data/official-results.json`.
+## Homepage
 
-Event dates are **not visible** on the sheets, so are kept unconfirmed. PPC I and II are pending authentic records. The December 4 participant list is **not** confirmed; the organiser must select exactly eight participants to generate the draw.
+- Roll of Honour: James O'Leary **3 titles** (PPC I, II, IV); Daniel McCarthy **1 title** (PPC III).
+- Order of Merit: all-time individual PPC points (B2Cup excluded because it uses a separate 48-point team format).
+- Previous tournaments: clickable standings, real match results, and the PPC II scheduling note.
+- Player profiles: compact avatar cards at the bottom. Clicking shows highest PPC score, number of PPC events, **median** PPC score, tournament-by-tournament results and B2Cup honours.
 
-## Project files
+The **median** of individual PPC event totals is displayed as a robust typical score. A single unusually poor result has less influence on the median than on the arithmetic mean. With two events, it is the average of the two; with one event, it equals that event's score. This does **not** discard actual results from the lifetime Order of Merit.
 
-- `index.html`: page structure and archive overlays
-- `styles.css`: visual design and responsive layout
-- `app.js`: seed historic data, game-card editor, fixture engine, scoring, leaderboard, archive
-- `avatars.js`: 12 original fictional arcade-style character images, embedded as data URLs for hosting simplicity
-- `data/official-results.json`: machine-readable copy of historic scores
-- `tests/historical.test.mjs`: tests of historic records
+The six winning HipEx B2Cup players were Gavin Keohane, James O'Leary, Ger O'Brien ("Geraldo"), Sean Kelly, Gary Foolkes and Kennedy Murphy. The six Poly participants were Daniel McCarthy ("Dan"), Jack, Cian O'Connor, Ciaran Kearney, Luke Murphy and Ciaran Barry ("Bean").
 
-## GitHub Pages
+## Historical dates
 
-Open **Settings → Pages → Build and deployment → Source: GitHub Actions**, then push to main (or manually start the deployment workflow). Expected URL: https://gavinkeo.github.io/padel/
+The club organiser confirmed the dates below:
 
-The site is static, with no backend. Player edits and new scores save **to the organiser's current browser only**, not to GitHub or other phones. Use EXPORT/IMPORT data backup after each event. A hosted database and authentication will be needed for shared real-time leaderboards and administrator controls.
+| Event | Date | Champion |
+|---|---|---|
+| PPC I | 10 December 2024 | James O'Leary (151 points) |
+| PPC II | 20 December 2024 | James O'Leary (141 points) |
+| B2Cup | 21 January 2025 | HipEx, 411–309 |
+| PPC III | 11 February 2025 | Daniel McCarthy (137 points) |
+| PPC IV | 14 March 2025 | James O'Leary (140 points) |
 
-This is an independent group, not an official site of Johnson & Johnson, DePuy Synthes, or the venue. Cartoon portraits are fictional and **not likenesses**. Obtain player permission before sharing real photos or full names publicly.
+**Date discrepancy:** The earlier Padelution screenshot for PPC I displayed *22 November 2024*, which conflicts with the organiser's later confirmation of *10 December 2024*. The website uses the organiser-confirmed date while preserving the original Padelution link and verified scores.
 
-## PPC I — complete, 22 November 2024
+PPC I includes 14 verified match scores, PPC II has standings only (its individual match sheets were not provided), PPC III and IV each have 14 matches, and B2Cup has 15 matches across five rounds.
 
-The original Padelution [match record](https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281) identifies the date as **22 November 2024**. The organiser provided a screenshot of all **14 match scores**: seven rounds across Courts 2 and 3, each 32 points. All 14 results have been transcribed and verified mathematically against the eight-player standings. **James O'Leary** won with 151 points (6–1), ahead of Sean Kelly (120) and Gavin Keohane (118). Round 6 Court 3 is **9–23**, which reconciles every player's official totals.
+## Read-only site
 
-**Confirmed identity:** Ger O'Brien and Geraldo are the same player. His PPC I match and standings entry is **Ger O'Brien**, his nickname is **Geraldo**, and all historic events use the stable `p-geraldo` player ID.
-## PPC II: final standings and the organiser's incident report
+Tournament creation, fixture generation, score editing, profile editing and local-only export/import have been removed from the public interface. Historical records are maintained in GitHub and deployed through GitHub Pages.
 
-PPC II final standings (supplied screenshot): James O'Leary **141 points (7–0)**, Connell McBride **118**, Daniel McCarthy **116**, Gary Foolkes **115**, Sean Kelly **115**, Kennedy Murphy **99**, Gavin Keohane **96**, and Ger O'Brien (“Geraldo”) **96**. All played seven matches; points total 896, points differences sum to zero. The original round-by-round fixtures, scores and event date are **not available** and have not been invented.
+Files:
+- `index.html` — homepage, results/profile dialogs
+- `styles.css` — responsive blue/white/tennis-ball-yellow styling
+- `app.js` — view rendering, median and player statistics
+- `portraits.js` — links to the existing high-resolution cartoon portraits
+- `assets/players/default.svg` — grey anonymous avatar for players without custom artwork
+- `data/official-results.json` — official historical results and organiser-confirmed dates
+- `tests/historical.test.mjs` — integrity and interface checks
 
-The organiser reports that **an administrative scheduling error caused Gavin to face No. 1 seed and eventual champion James O'Leary three times rather than the intended twice**. The organiser also confirms Gavin competed while suffering **man flu**. The archive notes these mitigating circumstances beside the official seventh-place finish without altering the standings.
+Run checks: `node --test tests/historical.test.mjs`.
 
-**Confirmed by the organiser:** Daniel McCarthy is Dan, combining all his PPC II–IV career points. Connell McBride played PPC II only.
+To preview locally, serve the repository directory over HTTP (for example `python -m http.server 8000`). Some browsers block the JSON fetch when opening `index.html` directly with a file URL.
 
-## 2026 Homepage design
-A simplified royal-blue, white and tennis-ball-yellow homepage: countdown to Friday 4 December 2026, live cumulative all-time Order of Merit, and clickable four PPC tournaments plus the B2Cup. The player roster and Americano scoring tools remain available inside the collapsible Club HQ panel to keep the public homepage uncluttered.
+## GitHub Pages deployment
 
-The Order of Merit sums scored points from **individual PPC events with verified final standings** (PPC I–IV), not the 48-point team B2Cup. It shows appearances and titles separately. The all-time totals at launch include Gavin Keohane 467, Kennedy Murphy 433, James O'Leary 432, and Daniel McCarthy 389 points. Historic tournament dates are not invented.
+In the repository's Settings → Pages, set **Source: GitHub Actions**. The deployment workflow runs the tests and copies the site **including the data folder** into the GitHub Pages artifact.
 
-## Roll of Honour
-
-The homepage now shows the **Roll of Honour** before Order of Merit. Individual PPC title winners are calculated from the verified archive: James O'Leary **3 titles** (PPC I, II, IV) and Daniel McCarthy / Dan **1 title** (PPC III). The HipEx v Poly B2Cup is a separate team contest, excluded from individual title counts. The cards update when future tournaments are archived; the cup badges open the original match archive.
-
-## Profile portrait and interface update (November 2026)
-
-The eight original cartoon illustrations are now their matching 1000×1000 high-resolution sources, with no change of art style. A ninth matching portrait was created for Daniel McCarthy. Players without a custom portrait use the grey anonymous avatar at `assets/players/default.svg`, **not** a random or duplicate player's face. Opening a player card shows a high-resolution portrait and career statistics; editing is now under an optional expandable section. Countdown labels read **Days, Hours, Minutes** and the public homepage language was simplified. All results, Order of Merit, Hall of Fame and club scoring functionality remain intact.
+The PPC is an independent workplace social group, not affiliated with or endorsed by its employer, manufacturers or the venue.

@@ -1,4 +1,4 @@
-name: Deploy Pinnacle Padel Cup
+name: Deploy Padel Pinnacle Cup
 on:
   push:
     branches: [main]
@@ -18,13 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify historic results
+      - name: Verify historical results and site behavior
         run: node --test tests/historical.test.mjs
-      - name: Assemble static site
+      - name: Assemble static website
         run: |
           mkdir -p dist
-          cp index.html styles.css avatars.js portraits.js app.js dist/
-          cp -r assets dist/
+          cp index.html styles.css portraits.js app.js dist/
+          cp -r assets data dist/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
