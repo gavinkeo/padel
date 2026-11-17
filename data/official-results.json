@@ -1,0 +1,917 @@
+{
+  "provenance": "Organizer-provided photographed historic result sheets; dates unknown",
+  "events": [
+    {
+      "id": "ppc-3",
+      "name": "Pinnacle Padel Cup III",
+      "number": 3,
+      "order": 3,
+      "kind": "americano",
+      "date": null,
+      "dateLabel": "2024–25 · DATE TO CONFIRM",
+      "source": "Photographed original tournament sheet",
+      "champions": [
+        "p-dan"
+      ],
+      "runnerUpId": "p-gavin",
+      "winningPoints": 137,
+      "participants": [
+        "p-dan",
+        "p-gavin",
+        "p-ciaran",
+        "p-cian",
+        "p-sean",
+        "p-geraldo",
+        "p-kennedy",
+        "p-luke"
+      ],
+      "standings": [
+        {
+          "id": "p-dan",
+          "points": 137,
+          "against": 87,
+          "wins": 6,
+          "played": 7,
+          "draws": 0,
+          "pd": 50
+        },
+        {
+          "id": "p-gavin",
+          "points": 121,
+          "against": 103,
+          "wins": 5,
+          "played": 7,
+          "draws": 0,
+          "pd": 18
+        },
+        {
+          "id": "p-ciaran",
+          "points": 114,
+          "against": 110,
+          "wins": 4,
+          "played": 7,
+          "draws": 1,
+          "pd": 4
+        },
+        {
+          "id": "p-cian",
+          "points": 111,
+          "against": 113,
+          "wins": 2,
+          "played": 7,
+          "draws": 0,
+          "pd": -2
+        },
+        {
+          "id": "p-sean",
+          "points": 106,
+          "against": 118,
+          "wins": 3,
+          "played": 7,
+          "draws": 1,
+          "pd": -12
+        },
+        {
+          "id": "p-geraldo",
+          "points": 104,
+          "against": 120,
+          "wins": 2,
+          "played": 7,
+          "draws": 1,
+          "pd": -16
+        },
+        {
+          "id": "p-kennedy",
+          "points": 103,
+          "against": 121,
+          "wins": 3,
+          "played": 7,
+          "draws": 0,
+          "pd": -18
+        },
+        {
+          "id": "p-luke",
+          "points": 100,
+          "against": 124,
+          "wins": 1,
+          "played": 7,
+          "draws": 1,
+          "pd": -24
+        }
+      ],
+      "matches": [
+        {
+          "id": "ppc-3-m1",
+          "round": 1,
+          "court": 2,
+          "a": [
+            "p-gavin",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-ciaran",
+            "p-luke"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-3-m2",
+          "round": 1,
+          "court": 3,
+          "a": [
+            "p-geraldo",
+            "p-sean"
+          ],
+          "b": [
+            "p-cian",
+            "p-dan"
+          ],
+          "scoreA": 10,
+          "scoreB": 22
+        },
+        {
+          "id": "ppc-3-m3",
+          "round": 2,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-gavin"
+          ],
+          "b": [
+            "p-cian",
+            "p-sean"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-3-m4",
+          "round": 2,
+          "court": 3,
+          "a": [
+            "p-dan",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-kennedy",
+            "p-luke"
+          ],
+          "scoreA": 22,
+          "scoreB": 10
+        },
+        {
+          "id": "ppc-3-m5",
+          "round": 3,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-cian"
+          ],
+          "b": [
+            "p-dan",
+            "p-luke"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-3-m6",
+          "round": 3,
+          "court": 3,
+          "a": [
+            "p-geraldo",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-sean",
+            "p-gavin"
+          ],
+          "scoreA": 13,
+          "scoreB": 19
+        },
+        {
+          "id": "ppc-3-m7",
+          "round": 4,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-dan"
+          ],
+          "b": [
+            "p-geraldo",
+            "p-gavin"
+          ],
+          "scoreA": 19,
+          "scoreB": 13
+        },
+        {
+          "id": "ppc-3-m8",
+          "round": 4,
+          "court": 3,
+          "a": [
+            "p-kennedy",
+            "p-sean"
+          ],
+          "b": [
+            "p-luke",
+            "p-cian"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-3-m9",
+          "round": 5,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-kennedy",
+            "p-cian"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-3-m10",
+          "round": 5,
+          "court": 3,
+          "a": [
+            "p-sean",
+            "p-luke"
+          ],
+          "b": [
+            "p-gavin",
+            "p-dan"
+          ],
+          "scoreA": 10,
+          "scoreB": 22
+        },
+        {
+          "id": "ppc-3-m11",
+          "round": 6,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-sean",
+            "p-dan"
+          ],
+          "scoreA": 13,
+          "scoreB": 19
+        },
+        {
+          "id": "ppc-3-m12",
+          "round": 6,
+          "court": 3,
+          "a": [
+            "p-luke",
+            "p-gavin"
+          ],
+          "b": [
+            "p-cian",
+            "p-geraldo"
+          ],
+          "scoreA": 19,
+          "scoreB": 13
+        },
+        {
+          "id": "ppc-3-m13",
+          "round": 7,
+          "court": 2,
+          "a": [
+            "p-ciaran",
+            "p-sean"
+          ],
+          "b": [
+            "p-luke",
+            "p-geraldo"
+          ],
+          "scoreA": 16,
+          "scoreB": 16
+        },
+        {
+          "id": "ppc-3-m14",
+          "round": 7,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-cian"
+          ],
+          "b": [
+            "p-dan",
+            "p-kennedy"
+          ],
+          "scoreA": 14,
+          "scoreB": 18
+        }
+      ],
+      "pointsPerMatch": 32
+    },
+    {
+      "id": "ppc-4",
+      "name": "Pinnacle Padel Cup IV",
+      "number": 4,
+      "order": 4,
+      "kind": "americano",
+      "date": null,
+      "dateLabel": "2024–25 · DATE TO CONFIRM",
+      "source": "Photographed original tournament sheet",
+      "champions": [
+        "p-james"
+      ],
+      "runnerUpId": "p-dan",
+      "winningPoints": 140,
+      "participants": [
+        "p-james",
+        "p-dan",
+        "p-gavin",
+        "p-kennedy",
+        "p-cian",
+        "p-luke",
+        "p-peter",
+        "p-rob"
+      ],
+      "standings": [
+        {
+          "id": "p-james",
+          "points": 140,
+          "against": 84,
+          "wins": 6,
+          "played": 7,
+          "draws": 0,
+          "pd": 56
+        },
+        {
+          "id": "p-dan",
+          "points": 136,
+          "against": 88,
+          "wins": 5,
+          "played": 7,
+          "draws": 0,
+          "pd": 48
+        },
+        {
+          "id": "p-gavin",
+          "points": 132,
+          "against": 92,
+          "wins": 5,
+          "played": 7,
+          "draws": 0,
+          "pd": 40
+        },
+        {
+          "id": "p-kennedy",
+          "points": 120,
+          "against": 104,
+          "wins": 4,
+          "played": 7,
+          "draws": 0,
+          "pd": 16
+        },
+        {
+          "id": "p-cian",
+          "points": 98,
+          "against": 126,
+          "wins": 3,
+          "played": 7,
+          "draws": 0,
+          "pd": -28
+        },
+        {
+          "id": "p-luke",
+          "points": 94,
+          "against": 130,
+          "wins": 2,
+          "played": 7,
+          "draws": 0,
+          "pd": -36
+        },
+        {
+          "id": "p-peter",
+          "points": 90,
+          "against": 134,
+          "wins": 1,
+          "played": 7,
+          "draws": 0,
+          "pd": -44
+        },
+        {
+          "id": "p-rob",
+          "points": 86,
+          "against": 138,
+          "wins": 2,
+          "played": 7,
+          "draws": 0,
+          "pd": -52
+        }
+      ],
+      "matches": [
+        {
+          "id": "ppc-4-m1",
+          "round": 1,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-cian",
+            "p-luke"
+          ],
+          "scoreA": 25,
+          "scoreB": 7
+        },
+        {
+          "id": "ppc-4-m2",
+          "round": 1,
+          "court": 2,
+          "a": [
+            "p-peter",
+            "p-james"
+          ],
+          "b": [
+            "p-rob",
+            "p-dan"
+          ],
+          "scoreA": 14,
+          "scoreB": 18
+        },
+        {
+          "id": "ppc-4-m3",
+          "round": 2,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-cian"
+          ],
+          "b": [
+            "p-peter",
+            "p-dan"
+          ],
+          "scoreA": 17,
+          "scoreB": 15
+        },
+        {
+          "id": "ppc-4-m4",
+          "round": 2,
+          "court": 2,
+          "a": [
+            "p-rob",
+            "p-james"
+          ],
+          "b": [
+            "p-luke",
+            "p-kennedy"
+          ],
+          "scoreA": 19,
+          "scoreB": 13
+        },
+        {
+          "id": "ppc-4-m5",
+          "round": 3,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-dan"
+          ],
+          "b": [
+            "p-kennedy",
+            "p-rob"
+          ],
+          "scoreA": 25,
+          "scoreB": 7
+        },
+        {
+          "id": "ppc-4-m6",
+          "round": 3,
+          "court": 2,
+          "a": [
+            "p-luke",
+            "p-james"
+          ],
+          "b": [
+            "p-peter",
+            "p-cian"
+          ],
+          "scoreA": 22,
+          "scoreB": 10
+        },
+        {
+          "id": "ppc-4-m7",
+          "round": 4,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-rob"
+          ],
+          "b": [
+            "p-james",
+            "p-cian"
+          ],
+          "scoreA": 11,
+          "scoreB": 21
+        },
+        {
+          "id": "ppc-4-m8",
+          "round": 4,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-dan"
+          ],
+          "b": [
+            "p-peter",
+            "p-luke"
+          ],
+          "scoreA": 23,
+          "scoreB": 9
+        },
+        {
+          "id": "ppc-4-m9",
+          "round": 5,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-james"
+          ],
+          "b": [
+            "p-dan",
+            "p-luke"
+          ],
+          "scoreA": 21,
+          "scoreB": 11
+        },
+        {
+          "id": "ppc-4-m10",
+          "round": 5,
+          "court": 2,
+          "a": [
+            "p-peter",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-rob",
+            "p-cian"
+          ],
+          "scoreA": 21,
+          "scoreB": 11
+        },
+        {
+          "id": "ppc-4-m11",
+          "round": 6,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-luke"
+          ],
+          "b": [
+            "p-peter",
+            "p-rob"
+          ],
+          "scoreA": 22,
+          "scoreB": 10
+        },
+        {
+          "id": "ppc-4-m12",
+          "round": 6,
+          "court": 2,
+          "a": [
+            "p-james",
+            "p-dan"
+          ],
+          "b": [
+            "p-cian",
+            "p-kennedy"
+          ],
+          "scoreA": 22,
+          "scoreB": 10
+        },
+        {
+          "id": "ppc-4-m13",
+          "round": 7,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-peter"
+          ],
+          "b": [
+            "p-james",
+            "p-kennedy"
+          ],
+          "scoreA": 11,
+          "scoreB": 21
+        },
+        {
+          "id": "ppc-4-m14",
+          "round": 7,
+          "court": 2,
+          "a": [
+            "p-dan",
+            "p-cian"
+          ],
+          "b": [
+            "p-luke",
+            "p-rob"
+          ],
+          "scoreA": 22,
+          "scoreB": 10
+        }
+      ],
+      "pointsPerMatch": 32
+    },
+    {
+      "id": "b2-cup",
+      "name": "B2Cup · HipEx vs Poly",
+      "kind": "team",
+      "order": 5,
+      "date": null,
+      "dateLabel": "DATE TO CONFIRM",
+      "source": "Photographed original Ryder Cup-style team sheet",
+      "winningTeam": "HipEx",
+      "losingTeam": "Poly",
+      "winningScore": 411,
+      "losingScore": 309,
+      "champions": [],
+      "participants": [
+        "p-gavin",
+        "p-james",
+        "p-dan",
+        "p-jack",
+        "p-geraldo",
+        "p-sean",
+        "p-cian",
+        "p-ciaran",
+        "p-gary",
+        "p-kennedy",
+        "p-luke",
+        "p-bean"
+      ],
+      "matches": [
+        {
+          "id": "b2-m1",
+          "round": 1,
+          "court": 2,
+          "a": [
+            "p-gavin",
+            "p-james"
+          ],
+          "b": [
+            "p-dan",
+            "p-jack"
+          ],
+          "scoreA": 31,
+          "scoreB": 17
+        },
+        {
+          "id": "b2-m2",
+          "round": 1,
+          "court": 3,
+          "a": [
+            "p-geraldo",
+            "p-sean"
+          ],
+          "b": [
+            "p-cian",
+            "p-ciaran"
+          ],
+          "scoreA": 27,
+          "scoreB": 21
+        },
+        {
+          "id": "b2-m3",
+          "round": 1,
+          "court": 4,
+          "a": [
+            "p-gary",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-luke",
+            "p-bean"
+          ],
+          "scoreA": 26,
+          "scoreB": 22
+        },
+        {
+          "id": "b2-m4",
+          "round": 2,
+          "court": 2,
+          "a": [
+            "p-james",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-dan",
+            "p-luke"
+          ],
+          "scoreA": 28,
+          "scoreB": 20
+        },
+        {
+          "id": "b2-m5",
+          "round": 2,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-gary"
+          ],
+          "b": [
+            "p-cian",
+            "p-bean"
+          ],
+          "scoreA": 25,
+          "scoreB": 23
+        },
+        {
+          "id": "b2-m6",
+          "round": 2,
+          "court": 4,
+          "a": [
+            "p-sean",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-jack",
+            "p-ciaran"
+          ],
+          "scoreA": 31,
+          "scoreB": 17
+        },
+        {
+          "id": "b2-m7",
+          "round": 3,
+          "court": 2,
+          "a": [
+            "p-james",
+            "p-sean"
+          ],
+          "b": [
+            "p-jack",
+            "p-cian"
+          ],
+          "scoreA": 36,
+          "scoreB": 12
+        },
+        {
+          "id": "b2-m8",
+          "round": 3,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-ciaran",
+            "p-luke"
+          ],
+          "scoreA": 23,
+          "scoreB": 25
+        },
+        {
+          "id": "b2-m9",
+          "round": 3,
+          "court": 4,
+          "a": [
+            "p-geraldo",
+            "p-gary"
+          ],
+          "b": [
+            "p-dan",
+            "p-bean"
+          ],
+          "scoreA": 20,
+          "scoreB": 28
+        },
+        {
+          "id": "b2-m10",
+          "round": 4,
+          "court": 2,
+          "a": [
+            "p-james",
+            "p-gary"
+          ],
+          "b": [
+            "p-dan",
+            "p-ciaran"
+          ],
+          "scoreA": 25,
+          "scoreB": 23
+        },
+        {
+          "id": "b2-m11",
+          "round": 4,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-sean"
+          ],
+          "b": [
+            "p-jack",
+            "p-bean"
+          ],
+          "scoreA": 23,
+          "scoreB": 25
+        },
+        {
+          "id": "b2-m12",
+          "round": 4,
+          "court": 4,
+          "a": [
+            "p-geraldo",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-cian",
+            "p-luke"
+          ],
+          "scoreA": 27,
+          "scoreB": 21
+        },
+        {
+          "id": "b2-m13",
+          "round": 5,
+          "court": 2,
+          "a": [
+            "p-james",
+            "p-kennedy"
+          ],
+          "b": [
+            "p-ciaran",
+            "p-bean"
+          ],
+          "scoreA": 30,
+          "scoreB": 18
+        },
+        {
+          "id": "b2-m14",
+          "round": 5,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-jack",
+            "p-luke"
+          ],
+          "scoreA": 31,
+          "scoreB": 17
+        },
+        {
+          "id": "b2-m15",
+          "round": 5,
+          "court": 4,
+          "a": [
+            "p-sean",
+            "p-gary"
+          ],
+          "b": [
+            "p-dan",
+            "p-cian"
+          ],
+          "scoreA": 28,
+          "scoreB": 20
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "time": "10:00",
+          "a": 84,
+          "b": 60
+        },
+        {
+          "round": 2,
+          "time": "10:24",
+          "a": 84,
+          "b": 60
+        },
+        {
+          "round": 3,
+          "time": "10:48",
+          "a": 79,
+          "b": 65
+        },
+        {
+          "round": 4,
+          "time": "11:12",
+          "a": 75,
+          "b": 69
+        },
+        {
+          "round": 5,
+          "time": "11:36",
+          "a": 89,
+          "b": 55
+        }
+      ],
+      "pointsPerMatch": 48
+    }
+  ]
+}
