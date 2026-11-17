@@ -7,11 +7,11 @@
       "number": 1,
       "order": 1,
       "kind": "americano",
-      "date": null,
-      "dateLabel": "2024–25 · DATE TO CONFIRM",
-      "source": "Original photographed fixture sheet and final standings",
+      "date": "2024-11-22",
+      "dateLabel": "22 NOV 2024",
+      "source": "Padelution original 22 November 2024 event: match-results screenshot and photographed official standings",
       "sourceUrl": "https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281",
-      "matchScoresVerified": false,
+      "matchScoresVerified": true,
       "champions": [
         "p-james"
       ],
@@ -123,8 +123,8 @@
             "p-gavin",
             "p-sean"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 12,
+          "scoreB": 20
         },
         {
           "id": "ppc-1-m2",
@@ -138,8 +138,8 @@
             "p-gary",
             "p-geraldo"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 13,
+          "scoreB": 19
         },
         {
           "id": "ppc-1-m3",
@@ -153,8 +153,8 @@
             "p-james",
             "p-geraldo"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 13,
+          "scoreB": 19
         },
         {
           "id": "ppc-1-m4",
@@ -168,8 +168,8 @@
             "p-sean",
             "p-ciaran"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 17,
+          "scoreB": 15
         },
         {
           "id": "ppc-1-m5",
@@ -183,8 +183,8 @@
             "p-eric",
             "p-ciaran"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 28,
+          "scoreB": 4
         },
         {
           "id": "ppc-1-m6",
@@ -198,8 +198,8 @@
             "p-geraldo",
             "p-gavin"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 18,
+          "scoreB": 14
         },
         {
           "id": "ppc-1-m7",
@@ -213,8 +213,8 @@
             "p-gary",
             "p-gavin"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 13,
+          "scoreB": 19
         },
         {
           "id": "ppc-1-m8",
@@ -228,8 +228,8 @@
             "p-ciaran",
             "p-james"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 14,
+          "scoreB": 18
         },
         {
           "id": "ppc-1-m9",
@@ -243,8 +243,8 @@
             "p-sean",
             "p-james"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 6,
+          "scoreB": 26
         },
         {
           "id": "ppc-1-m10",
@@ -258,8 +258,8 @@
             "p-gavin",
             "p-eric"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 13,
+          "scoreB": 19
         },
         {
           "id": "ppc-1-m11",
@@ -273,8 +273,8 @@
             "p-geraldo",
             "p-eric"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 19,
+          "scoreB": 13
         },
         {
           "id": "ppc-1-m12",
@@ -288,8 +288,8 @@
             "p-james",
             "p-gary"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 9,
+          "scoreB": 23
         },
         {
           "id": "ppc-1-m13",
@@ -303,8 +303,8 @@
             "p-ciaran",
             "p-gary"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 20,
+          "scoreB": 12
         },
         {
           "id": "ppc-1-m14",
@@ -318,8 +318,8 @@
             "p-eric",
             "p-sean"
           ],
-          "scoreA": null,
-          "scoreB": null
+          "scoreA": 24,
+          "scoreB": 8
         }
       ],
       "pointsPerMatch": 32

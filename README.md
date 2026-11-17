@@ -29,10 +29,8 @@ The site is static, with no backend. Player edits and new scores save **to the o
 
 This is an independent group, not an official site of Johnson & Johnson, DePuy Synthes, or the venue. Cartoon portraits are fictional and **not likenesses**. Obtain player permission before sharing real photos or full names publicly.
 
-## PPC I recovered
+## PPC I — complete, 22 November 2024
 
-The first championship's photographic standings and fixture sheet show James O'Leary winning with 151 points, 6 wins and 1 loss; Sean Kelly finished second on 120, Gavin Keohane third on 118. All 8 complete standings and 14 pairings are preserved. Individual match scores are unknown; the Padelution source has been linked but its content could not be fetched. Unverified match scores are intentionally blank. The recorded date remains unconfirmed.
+The original Padelution [match record](https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281) identifies the date as **22 November 2024**. The organiser provided a screenshot of all **14 match scores**: seven rounds across Courts 2 and 3, each 32 points. All 14 results have been transcribed and verified mathematically against the eight-player standings. **James O'Leary** won with 151 points (6–1), ahead of Sean Kelly (120) and Gavin Keohane (118). Round 6 Court 3 is **9–23**, which reconciles every player's official totals.
 
-Source: https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281
-
-Eight arcade-style portraits derived from a labelled group photograph are in `assets/players/`. `portraits.js` maps them to the eight identified colleagues, while unidentified players keep generic illustrations. Confirm whether the original paper standings name “Ger O'Brien” corresponds to the colleague known as “Geraldo” before treating that alias as definitive.
+**Name pending confirmation:** Padelution names one participant **Ger O'Brien**, while other historic tournaments refer to **Geraldo**. The site still uses the existing provisional roster link but preserves the original spelling as source metadata; identity should be confirmed by the organiser before definitive lifetime stats are combined.

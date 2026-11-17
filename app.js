@@ -43,6 +43,10 @@
     ['Kennedy/Sean','Geraldo/Eric'],['Ciaran/Gavin','James/Gary'],
     ['Kennedy/Geraldo','Ciaran/Gary'],['Gavin/James','Eric/Sean']
   ];
+  /* PPC I, 22 Nov 2024: all 14 results from the organizer's Padelution screenshot.
+     Round 6, Court 3 is 9–23; the full match totals reconcile exactly with
+     the Padelution final table (James 151, Sean 120, Gavin 118, etc.). */
+  const PPC1_SCORES=[[12,20],[13,19],[13,19],[17,15],[28,4],[18,14],[13,19],[14,18],[6,26],[13,19],[19,13],[9,23],[20,12],[24,8]];
   function ppc1Cup(){
     const standings=PPC1_STANDINGS.map(([handle,wins,draws,losses,points,against,pd])=>({
       id:ID(handle),wins,draws,losses,played:7,points,against,pd,
@@ -51,13 +55,13 @@
     const matches=PPC1_FIXTURES.map(([teamA,teamB],i)=>({
       id:'ppc-1-m'+(i+1),round:Math.floor(i/2)+1,court:i%2===0?2:3,
       a:teamA.split('/').map(ID),b:teamB.split('/').map(ID),
-      scoreA:null,scoreB:null
+      scoreA:PPC1_SCORES[i][0],scoreB:PPC1_SCORES[i][1]
     }));
     return {id:'ppc-1',name:'Pinnacle Padel Cup I',number:1,order:1,kind:'americano',
-      date:null,dateLabel:'2024–25 · DATE TO CONFIRM',
-      source:'Original photographed fixture sheet and final standings',
+      date:'2024-11-22',dateLabel:'22 NOV 2024',
+      source:'Padelution original 22 November 2024 event: match-results screenshot and photographed official standings',
       sourceUrl:'https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281',
-      matchScoresVerified:false,
+      matchScoresVerified:true,
       champions:['p-james'],runnerUpId:'p-sean',winningPoints:151,
       participants:standings.map(p=>p.id),standings,matches,pointsPerMatch:32};
   }
@@ -197,7 +201,7 @@
     el('archiveDialogMeta').textContent=(a.date?dateFormat(a.date):(a.dateLabel||'DATE NOT RECORDED'))+' · '+(team?'3 COURTS / 5 ROUNDS':'2 COURTS / 7 ROUNDS');
     const pending=a.matchScoresVerified===false;
     const sourceLink=a.sourceUrl?`<p class="archive-caveat"><a class="historic-source-link" href="${esc(a.sourceUrl)}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL PADELUTION EVENT ↗</a></p>`:'';
-    const provenance=pending?'Original pairings and standings transcribed from paper. Individual scores are not yet verified; all scores intentionally left blank.':'Source: photographed original score sheet. Event date not verified.';
+    const provenance=pending?'Individual match scores have not yet been verified.':a.id==='ppc-1'?'All 14 match results transcribed from the original Padelution screenshot and checked against the final standings. Event date: 22 November 2024.':'Source: photographed original score sheet. Event date not verified.';
     el('archiveDialogBody').innerHTML=summary+standings+'<div class="archive-detail-title">'+(pending?'ORIGINAL FIXTURES · MATCH SCORES PENDING':'ORIGINAL MATCH RESULTS')+'</div>'+matchHTML+'<p class="archive-caveat">'+provenance+'</p>'+sourceLink;
     el('archiveDialog').showModal();
   }
