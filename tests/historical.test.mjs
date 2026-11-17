@@ -29,3 +29,13 @@ test('Dan is Daniel McCarthy across PPC II–IV, with no duplicate IDs',()=>{
  assert.equal(x.find(e=>e.id==='ppc-2').participants.filter(id=>id==='p-connell-mcbride').length,1);
 });
 test('All official tournament records use Padel Pinnacle Cup',()=>{for(const e of x.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup/);});
+
+test('Roll of Honour shows James three titles and Dan one, excluding B2Cup',()=>{
+  const titles={};
+  for(const e of x.filter(e=>e.kind==='americano'))for(const p of e.champions||[])titles[p]=(titles[p]||0)+1;
+  assert.deepEqual(titles,{'p-james':3,'p-dan':1});
+  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+  const js=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
+  assert.ok(js.includes('renderHonours();renderMerit();'));
+});

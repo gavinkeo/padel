@@ -183,6 +183,31 @@
   function renderLeaderboard(){const rows=calculate();if(!rows.length){el('leaderboard').innerHTML='<div class="leaderboard-empty">Select eight contenders to activate the leaderboard. The historic championships are already loaded below.</div>';return}el('leaderboard').innerHTML=`<table class="leaderboard-table"><thead><tr><th>#</th><th>PLAYER</th><th>PTS</th><th>W</th><th>PD</th></tr></thead><tbody>${rows.map((t,i)=>{const p=getPlayer(t.id);return `<tr><td><span class="table-rank">${String(i+1).padStart(2,'0')}</span></td><td><span class="leader-identity"><img src="${imgFor(p)}" alt=""/><span title="${esc(p.name)}">${esc(p.name)}</span></span></td><td>${t.points}</td><td>${t.wins}</td><td>${t.pd>0?'+':''}${t.pd}</td></tr>`}).join('')}</tbody></table>`}
 
 
+
+  function renderHonours(){
+    const champions=new Map();
+    for(const event of state.archive.filter(e=>e.kind==='americano')){
+      const winners=Array.isArray(event.champions)?event.champions:(event.championId?[event.championId]:[]);
+      for(const id of winners){
+        if(!champions.has(id))champions.set(id,{id,titles:0,events:[]});
+        const rec=champions.get(id);rec.titles++;rec.events.push(event);
+      }
+    }
+    const rows=[...champions.values()].sort((a,b)=>b.titles-a.titles||getPlayer(a.id).name.localeCompare(getPlayer(b.id).name));
+    const n=rows.reduce((acc,r)=>acc+r.titles,0);
+    el('honoursSummary').textContent=`${n} TITLE${n===1?'':'S'} · ${rows.length} CHAMPION${rows.length===1?'':'S'}`;
+    el('honoursList').innerHTML=rows.length?rows.map((r,i)=>{
+      const p=getPlayer(r.id);
+      const romans=['','I','II','III','IV','V','VI','VII','VIII','IX','X'];
+      const links=[...r.events].sort((a,b)=>(a.number||999)-(b.number||999)).map(e=>{
+        const label=e.number&&romans[e.number]?'PPC '+romans[e.number]:e.name;
+        return `<button class="honour-cup" type="button" data-honour-event="${esc(e.id)}" title="View ${esc(e.name)} results">${esc(label)} ↗</button>`;
+      }).join('');
+      return `<article class="honour-card ${i===0?'honour-leader':''}"><div class="honour-card-top"><span>${i===0?'MOST DECORATED PLAYER':'PPC CHAMPION'}</span><span class="honour-icon" aria-hidden="true">★</span></div><div class="honour-profile"><img src="${imgFor(p)}" alt="Cartoon avatar of ${esc(p.name)}"/><div class="honour-identity"><h3>${esc(p.name)}</h3><p>${esc(p.nickname||'PPC CHAMPION')}</p></div></div><div class="honour-count"><strong>${r.titles}</strong><span>PPC TITLE${r.titles===1?'':'S'}</span></div><div class="honour-cups"><span>CHAMPIONSHIP WINS</span><div class="honour-tournaments">${links}</div></div></article>`;
+    }).join(''):'<p class="muted">No individual champions recorded yet.</p>';
+    el('honoursList').querySelectorAll('[data-honour-event]').forEach(b=>b.addEventListener('click',()=>openArchive(b.dataset.honourEvent)));
+  }
+
   function renderMerit(){
     // Only individual PPC Americanos; B2Cup is a separate 48-point team format.
     const events=state.archive.filter(e=>e.kind==='americano'&&Array.isArray(e.standings)&&e.standings.length>0);
@@ -241,7 +266,7 @@
     el('archiveDialogBody').innerHTML=summary+standings+specialReport+'<div class="archive-detail-title">'+(pending?'ORIGINAL FIXTURES · MATCH SCORES PENDING':'ORIGINAL MATCH RESULTS')+'</div>'+matchHTML+'<p class="archive-caveat">'+provenance+'</p>'+sourceLink;
     el('archiveDialog').showModal();
   }
-  function renderAll(){el('tournamentName').value=(state.active.name==='Pinnacle Comeback Cup'?'Padel Pinnacle Cup · The Big Return':state.active.name)||'Padel Pinnacle Cup · The Big Return';el('tournamentDate').value=state.active.date||'2026-12-04';renderRoster();renderPicker();renderRounds();renderLeaderboard();renderMerit();renderHistory()}
+  function renderAll(){el('tournamentName').value=(state.active.name==='Pinnacle Comeback Cup'?'Padel Pinnacle Cup · The Big Return':state.active.name)||'Padel Pinnacle Cup · The Big Return';el('tournamentDate').value=state.active.date||'2026-12-04';renderRoster();renderPicker();renderRounds();renderLeaderboard();renderHonours();renderMerit();renderHistory()}
   function generateTournament(){if(state.selected.length!==8){el('setupMessage').textContent='You need exactly eight players before generating fixtures.';return}
     if(completeMatches()>0&&!confirm('Generate new fixtures? This will clear all existing scores for the current tournament.'))return;
     const name=el('tournamentName').value.trim()||'Padel Pinnacle Cup';const date=el('tournamentDate').value||'2026-12-04';

@@ -46,3 +46,7 @@ The organiser reports that **an administrative scheduling error caused Gavin to 
 A simplified royal-blue, white and tennis-ball-yellow homepage: countdown to Friday 4 December 2026, live cumulative all-time Order of Merit, and clickable four PPC tournaments plus the B2Cup. The player roster and Americano scoring tools remain available inside the collapsible Club HQ panel to keep the public homepage uncluttered.
 
 The Order of Merit sums scored points from **individual PPC events with verified final standings** (PPC I–IV), not the 48-point team B2Cup. It shows appearances and titles separately. The all-time totals at launch include Gavin Keohane 467, Kennedy Murphy 433, James O'Leary 432, and Daniel McCarthy 389 points. Historic tournament dates are not invented.
+
+## Roll of Honour
+
+The homepage now shows the **Roll of Honour** before Order of Merit. Individual PPC title winners are calculated from the verified archive: James O'Leary **3 titles** (PPC I, II, IV) and Daniel McCarthy / Dan **1 title** (PPC III). The HipEx v Poly B2Cup is a separate team contest, excluded from individual title counts. The cards update when future tournaments are archived; the cup badges open the original match archive.

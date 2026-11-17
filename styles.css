@@ -238,3 +238,36 @@ input:not([type=checkbox]),select,textarea{display:block;width:100%;margin-top:8
 @media(max-width:870px){.desktop-nav,.nav-cta{display:none}.menu-toggle{display:block}.hero-content{grid-template-columns:1fr;gap:38px;padding-block:64px}.countdown-card{justify-self:start;max-width:520px}.archive-list{grid-template-columns:1fr}.roster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hq-layout{grid-template-columns:1fr}.hero h1{font-size:clamp(82px,16vw,130px)}}
 @media(max-width:600px){.shell{width:calc(100% - 34px)}.topline-extra{display:none}.site-header{padding:12px 17px;min-height:73px}.mobile-nav{top:104px}.ball-logo{width:43px;height:43px}.brand-text{font-size:21px}.brand-text small{font-size:7px}.hero-content{padding-block:49px 52px;gap:31px}.hero h1{font-size:clamp(74px,17vw,108px);margin:26px 0}.hero-desc{font-size:14px}.event-details{gap:6px}.event-details span{font-size:9px;padding:8px}.hero-bottom{flex-direction:column;font-size:8px;gap:5px}.section-space{padding-block:65px}.section-top{align-items:flex-start;flex-direction:column;gap:12px}.section-top h2{font-size:clamp(48px,13vw,67px)}.intro-sub{font-size:13px}.merit-board{border-radius:9px}.merit-header,.merit-row{grid-template-columns:minmax(0,1fr) 40px 42px 66px}.merit-header{padding:13px 9px;font-size:8px}.merit-row{padding:10px 9px;min-height:72px}.merit-person{gap:7px}.merit-rank{width:19px;font-size:18px}.merit-person img{width:38px;height:38px;border-radius:7px}.merit-names strong{font-size:11px;line-height:1.15}.merit-names small{font-size:7px}.merit-apps,.merit-titles{font-size:11px}.merit-points strong{font-size:21px}.point-bar{max-width:50px}.merit-foot{flex-direction:column;padding:12px;font-size:8px}.archive-entry{min-height:131px;padding:15px;gap:11px}.archive-entry img,.record-icon{width:60px;height:60px}.history-record-info h4{font-size:25px}.history-record-info p{font-size:10px}.history-date,.archive-open{font-size:8px}.tools-drawer>summary{padding:16px;gap:10px}.tools-symbol{width:38px;height:38px}.tools-drawer>summary strong{font-size:25px}.tools-drawer>summary small{font-size:8px}.tools-indicator{font-size:9px}.tools-inner .shell{width:calc(100% - 25px)}.tools-inner .section-space{padding-block:36px}.roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.player-info h3{font-size:21px}.section-actions{flex-wrap:wrap}.player-picker{grid-template-columns:repeat(3,minmax(0,1fr))}.match-cards{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}.historic-match{grid-template-columns:1fr 60px 1fr;gap:8px;font-size:10px}.historic-court{grid-column:1/-1}.archive-dialog-body{padding:15px}.archive-dialog-header{padding:22px 18px}.archive-hero-score{justify-content:flex-start}.archive-hero-score strong{width:100%}.countdown{padding:25px 9px}.timeunit strong{font-size:65px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* Roll of Honour — individual title holders only */
+.honours-section{background:var(--paper)}
+.honours-section .section-top h2 span{color:var(--blue)}
+.honours-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:18px}
+.honour-card{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 10px 32px #0c55a312;padding:26px;display:flex;flex-direction:column;gap:19px;min-width:0}
+.honour-leader{background:linear-gradient(135deg,var(--deep),var(--blue));color:#fff;border-color:var(--blue);box-shadow:0 12px 34px #06366e36}
+.honour-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font:700 10px var(--fmono);color:var(--blue)}
+.honour-leader .honour-card-top{color:var(--yellow)}
+.honour-icon{font-size:26px;line-height:1;color:#bfa300}
+.honour-leader .honour-icon{color:var(--yellow)}
+.honour-profile{display:flex;align-items:center;gap:19px}
+.honour-profile>img{width:108px;height:108px;object-fit:cover;border-radius:15px;flex-shrink:0;background:var(--ice)}
+.honour-identity{min-width:0}
+.honour-identity h3{font:900 clamp(31px,3.4vw,46px)/.95 var(--fhead);margin:0 0 9px;overflow-wrap:anywhere}
+.honour-identity p{font:700 10px var(--fmono);letter-spacing:.04em;color:var(--blue);margin:0}
+.honour-leader .honour-identity p{color:#d3eaff}
+.honour-count{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.honour-leader .honour-count{border-color:#ffffff40}
+.honour-count strong{font:900 90px/.78 var(--fhead);letter-spacing:-.04em;color:var(--blue)}
+.honour-leader .honour-count strong{color:var(--yellow)}
+.honour-count>span{font:900 23px var(--fhead);letter-spacing:.06em}
+.honour-cups{margin-top:auto}
+.honour-cups>span{display:block;margin-bottom:12px;font:700 10px var(--fmono);color:#728aa3}
+.honour-leader .honour-cups>span{color:#d7e6f9}
+.honour-tournaments{display:flex;gap:8px;flex-wrap:wrap}
+.honour-cup{font:700 11px var(--fmono);border:1px solid #b7cee4;background:var(--ice);border-radius:6px;color:var(--blue);padding:11px 15px;cursor:pointer}
+.honour-cup:hover{background:var(--yellow);border-color:var(--yellow);color:var(--deep)}
+.honour-leader .honour-cup{color:#fff;background:#ffffff15;border-color:#ffffff75}
+.honour-leader .honour-cup:hover{background:var(--yellow);color:var(--deep)}
+.honours-footnote{font-size:12px;color:var(--muted);margin:17px 0 0}
+@media(max-width:870px){.honours-grid{grid-template-columns:1fr 1fr}.honour-profile{flex-direction:column;align-items:flex-start}.honour-profile>img{width:100px;height:100px}}
+@media(max-width:600px){.honours-grid{grid-template-columns:1fr}.honour-card{padding:21px;gap:17px}.honour-profile{flex-direction:row;align-items:center}.honour-profile>img{width:96px;height:96px}.honour-count strong{font-size:78px}.honour-identity h3{font-size:35px}}
