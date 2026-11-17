@@ -78,8 +78,7 @@
           "against": 112,
           "pd": 0,
           "sourceLabel": "GER O'BRIEN",
-          "displayName": "Ger O'Brien",
-          "nickname": "Geraldo"
+          "displayName": "Geraldo O'Brien"
         },
         {
           "id": "p-kennedy",
@@ -1361,7 +1360,6 @@
   "playerAliases": {
     "p-geraldo": {
       "fullName": "Ger O'Brien",
-      "nickname": "Geraldo",
       "verifiedBy": "Club organiser confirmation"
     },
     "p-dan": {

@@ -8,7 +8,7 @@
   const PLAYERS = [
     ['p-gavin', 'Gavin Keohane'], ['p-kennedy', 'Kennedy Murphy'],
     ['p-ciaran', 'Ciaran Kearney'], ['p-luke', 'Luke Murphy'],
-    ['p-geraldo', "Ger O'Brien", 'Geraldo'], ['p-sean', 'Sean Kelly'],
+    ['p-geraldo', "Geraldo O'Brien"], ['p-sean', 'Sean Kelly'],
     ['p-cian', "Cian O'Connor"], ['p-dan', 'Daniel McCarthy', 'Dan'],
     ['p-peter', 'Peter Gilroy'], ['p-james', "James O'Leary"],
     ['p-rob', 'Rob McKenzie'], ['p-gary', 'Gary Foolkes'],
@@ -116,7 +116,7 @@
       getPlayer(a.id).name.localeCompare(getPlayer(b.id).name));
     $('meritList').innerHTML = ranked.map((r,i)=>{
       const p=getPlayer(r.id);
-      const nickname = p.id === 'p-geraldo' || p.id === 'p-dan' ? '' : p.nickname;
+      const nickname = p.id === 'p-dan' ? '' : p.nickname;
       return '<button class="merit-row" type="button" data-player="' + esc(r.id) +
         '" aria-label="View ' + esc(p.name) + ' profile">' +
         '<span class="merit-person"><span class="rank">' + (i+1) + '</span>' +
@@ -282,7 +282,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-gary-framing', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-geraldo-name', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
