@@ -300,3 +300,5 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 
 .event-heading{display:flex;align-items:center;gap:clamp(8px,3vw,18px);margin-top:6px}
 .event-main .event-heading h1{flex:none;margin:0;white-space:nowrap}
+
+.event-heading>p{transform:translateY(2px)}
