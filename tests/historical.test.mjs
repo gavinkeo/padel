@@ -160,7 +160,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   assert.match(nodes.meritList.innerHTML,/Gavin Keohane/);
   assert.match(nodes.archiveList.innerHTML,/PPC 1/);
   assert.match(nodes.archiveList.innerHTML,/PPC 4/);
-  assert.match(nodes.playerList.innerHTML,/Ciaran Barry/);
+  assert.match(nodes.unrankedPlayerList.innerHTML,/Ciaran Barry/);
 });
 
 test('Median rankings require two PPC appearances, keep other players visible',async()=>{
