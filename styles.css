@@ -284,3 +284,11 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
  .serve-icon{width:22px;height:22px}
  .timeblock strong{font-size:27px}
 }
+
+.gallery-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px;background:var(--navy)}
+.gallery-track>a{flex:0 0 100%;min-width:0;scroll-snap-align:start;display:grid;place-items:center}
+.gallery-track>a:focus-visible{outline-offset:-4px}
+.gallery-track img{display:block;width:100%;height:clamp(280px,95vw,520px);object-fit:contain}
+.gallery-controls{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.gallery-controls button{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--navy);font:800 26px/1 var(--heading);cursor:pointer}
+.gallery-controls button:hover{background:var(--navy);color:var(--paper)}

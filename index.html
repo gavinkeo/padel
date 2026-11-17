@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20261117-serve-icon">
-  <script defer src="./portraits.js?v=20261117-serve-icon"></script>
-  <script defer src="./app.js?v=20261117-serve-icon"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261117-gallery">
+  <script defer src="./portraits.js?v=20261117-gallery"></script>
+  <script defer src="./app.js?v=20261117-gallery"></script>
 </head>
 <body>
 <header class="site-header">
@@ -83,6 +83,23 @@
     </div>
   </section>
 
+  <section id="gallery" class="content-section" aria-labelledby="gallery-title">
+    <div class="shell">
+      <div class="section-heading"><h2 id="gallery-title">Gallery</h2></div>
+      <div class="gallery-track" id="gallery-track" tabindex="0" aria-label="PPC photos">
+        <a href="./assets/gallery/christmas.webp" target="_blank" rel="noopener" aria-label="Open Christmas group photo full size">
+          <img src="./assets/gallery/christmas.webp" loading="lazy" alt="Eight players with padel rackets beside a Christmas tree">
+        </a>
+        <a href="./assets/gallery/court.webp" target="_blank" rel="noopener" aria-label="Open court group photo full size">
+          <img src="./assets/gallery/court.webp" loading="lazy" alt="Eight players posing on the blue court at Padel Tennis Ireland">
+        </a>
+      </div>
+      <div class="gallery-controls">
+        <button type="button" data-gallery-step="-1" aria-label="Previous photo" aria-controls="gallery-track">‹</button>
+        <button type="button" data-gallery-step="1" aria-label="Next photo" aria-controls="gallery-track">›</button>
+      </div>
+    </div>
+  </section>
 </main>
 <footer class="site-footer"><div class="shell"><span>PADEL PINNACLE CUP</span></div></footer>
 <dialog id="eventDialog" class="detail-dialog" aria-labelledby="eventDialogTitle">

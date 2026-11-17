@@ -262,13 +262,21 @@
     countdown();
     setInterval(countdown,1000);
     document.addEventListener('click', event=>{
+      const galleryButton=event.target.closest('[data-gallery-step]');
+      if (galleryButton) {
+        const track=$('gallery-track');
+        const current=Math.round(track.scrollLeft/track.clientWidth);
+        const next=(current+Number(galleryButton.dataset.galleryStep)+track.children.length)%track.children.length;
+        track.scrollTo({left:next*track.clientWidth});
+        return;
+      }
       const close=event.target.closest('[data-close]');
       if (close) {$(close.dataset.close).close();return;}
       if (event.target.matches('dialog')) event.target.close();
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-serve-icon', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-gallery', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
