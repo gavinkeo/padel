@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0758aa">
-  <meta name="description" content="Padel Pinnacle Cup — champions, all-time rankings, previous results and player profiles.">
+  <meta name="description" content="Padel Pinnacle Cup — champions, all-time rankings, previous results and player profiles."><meta name="color-scheme" content="light">
   <meta property="og:title" content="Padel Pinnacle Cup">
   <meta property="og:description" content="PPC results, Roll of Honour, Order of Merit and player statistics.">
   <title>Padel Pinnacle Cup | PPC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <script defer src="./portraits.js"></script>
-  <script defer src="./app.js"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261117-fix2">
+  <script defer src="./portraits.js?v=20261117-fix2"></script>
+  <script defer src="./app.js?v=20261117-fix2"></script>
 </head>
 <body>
 <header class="site-header">
@@ -29,7 +29,7 @@
   <section class="next-event" aria-labelledby="next-heading">
     <div class="shell next-layout">
       <div class="event-main">
-        <span class="eyebrow"><span class="dot"></span> NEXT TOURNAMENT · PPC V</span>
+        <span class="eyebrow"><span class="dot"></span> NEXT TOURNAMENT · PPC 5</span>
         <h1 id="next-heading">The return <span>·</span> 4 December 2026</h1>
         <p>Friday, 10:00–12:00 <span class="sep">·</span> Padel Tennis Ireland, Carrigtwohill <span class="sep">·</span> 8 players / 2 courts</p>
       </div>
@@ -46,7 +46,7 @@
   <section id="honours" class="content-section honours-section">
     <div class="shell">
       <div class="section-heading"><div><span class="eyebrow dark">PPC CHAMPIONS</span><h2>Roll of Honour</h2></div><p>Individual tournament titles</p></div>
-      <div class="honours-grid" id="honoursList"><p class="loading">Loading champions…</p></div>
+      <div class="honours-grid" id="honoursList"><p class="loading">James O’Leary · 3 titles; Daniel McCarthy · 1 title — loading profiles…</p></div>
     </div>
   </section>
   <section id="merit" class="content-section merit-section">
@@ -54,21 +54,21 @@
       <div class="section-heading"><div><span class="eyebrow dark">ALL-TIME POINTS</span><h2>Order of Merit</h2></div><p>Individual PPC points only</p></div>
       <div class="merit-panel">
         <div class="merit-head"><span>Player</span><span>Events</span><span>Points</span></div>
-        <div id="meritList" class="merit-list"><p class="loading">Loading rankings…</p></div>
+        <div id="meritList" class="merit-list"><p class="loading">Rankings loading…</p></div>
       </div>
-      <p class="context-note">Ranked by total points scored across PPC I–IV. B2Cup points are excluded.</p>
+      <p class="context-note">Ranked by total points scored across PPC 1–4. B2Cup points are excluded.</p>
     </div>
   </section>
   <section id="history" class="content-section history-section">
     <div class="shell">
       <div class="section-heading"><div><span class="eyebrow dark">THE RECORD BOOK</span><h2>Previous tournaments</h2></div><p>Tap a tournament for full results</p></div>
-      <div id="archiveList" class="archive-grid"><p class="loading">Loading tournaments…</p></div>
+      <div id="archiveList" class="archive-grid"><p class="loading">Tournament history loading…</p></div>
     </div>
   </section>
   <section id="players" class="content-section players-section">
     <div class="shell">
       <div class="section-heading"><div><span class="eyebrow dark">CLUB ROSTER</span><h2>Players</h2></div><p id="playerCount">Tap a profile for career statistics</p></div>
-      <div id="playerList" class="player-grid"><p class="loading">Loading players…</p></div>
+      <div id="playerList" class="player-grid"><p class="loading">Player profiles loading…</p></div>
       <p class="context-note">Median PPC score is used as the typical score to reduce the impact of an unusually poor tournament.</p>
     </div>
   </section>

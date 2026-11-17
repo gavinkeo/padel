@@ -205,3 +205,20 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
   .profile-intro h2{font-size:33px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.player-tile:hover{transform:none}}
+
+/* Mobile layout hardening: four separate navigation targets, no squeezed header text. */
+@media(max-width:700px){
+ .site-header{align-items:stretch;gap:10px}
+ .brand{align-self:flex-start;max-width:100%}
+ .brand>span{font-size:21px;line-height:1;white-space:nowrap}
+ .brand small{font-size:9px;margin-top:4px}
+ .brand-ball{height:39px;width:39px}
+ .main-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;width:100%;overflow:visible;padding-bottom:0;border-top:1px solid var(--line)}
+ .main-nav a{display:flex;justify-content:center;align-items:center;min-width:0;min-height:42px;padding:9px 3px;text-align:center;white-space:normal;line-height:1.15;font-size:11px}
+ .main-nav a:hover{background:var(--ice)}
+ .next-layout{gap:16px}
+ .event-main h1{font-size:clamp(35px,9vw,46px)}
+ .timeblock{min-width:0;flex:1;align-items:center}
+ .countdown-caption{text-align:center}
+}
+@media(max-width:370px){.brand>span{font-size:19px}.main-nav a{font-size:10px}}

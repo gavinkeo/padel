@@ -1,9 +1,9 @@
 {
-  "provenance": "PPC I: original Padelution tournament page and photographed original schedule/standings; all 14 match scores verified against the final totals. PPC III/IV and B2Cup: photographed original score sheets. Ger O'Brien is confirmed by the organiser as Geraldo, with all results linked to player ID p-geraldo. Organiser verified Daniel McCarthy = Dan, Luke Murphy = Luke, Peter Gilroy = Peter, Rob McKenzie = Rob, Cian O'Connor = Cian; Connell McBride played one event. All five historical event dates (PPC I 10 Dec 2024, PPC II 20 Dec 2024, B2Cup 21 Jan 2025, PPC III 11 Feb 2025, PPC IV 14 Mar 2025) supplied by organiser on 17 November 2026. The original Padelution metadata shown for PPC I was 22 Nov 2024, superseded by organiser-confirmed date.",
+  "provenance": "PPC 1: original Padelution tournament page and photographed original schedule/standings; all 14 match scores verified against the final totals. PPC 3/IV and B2Cup: photographed original score sheets. Ger O'Brien is confirmed by the organiser as Geraldo, with all results linked to player ID p-geraldo. Organiser verified Daniel McCarthy = Dan, Luke Murphy = Luke, Peter Gilroy = Peter, Rob McKenzie = Rob, Cian O'Connor = Cian; Connell McBride played one event. All five historical event dates (PPC 1 10 Dec 2024, PPC 2 20 Dec 2024, B2Cup 21 Jan 2025, PPC 3 11 Feb 2025, PPC 4 14 Mar 2025) supplied by organiser on 17 November 2026. The original Padelution metadata shown for PPC 1 was 22 Nov 2024, superseded by organiser-confirmed date.",
   "events": [
     {
       "id": "ppc-1",
-      "name": "Padel Pinnacle Cup I",
+      "name": "Padel Pinnacle Cup 1",
       "number": 1,
       "order": 1,
       "kind": "americano",
@@ -329,13 +329,13 @@
     },
     {
       "id": "ppc-2",
-      "name": "Padel Pinnacle Cup II",
+      "name": "Padel Pinnacle Cup 2",
       "number": 2,
       "order": 2,
       "kind": "americano",
       "date": "2024-12-20",
       "dateLabel": "20 DEC 2024",
-      "source": "PPC II final standings screenshot supplied by the club organiser",
+      "source": "PPC 2 final standings screenshot supplied by the club organiser",
       "sourceNote": "Organiser confirmed date 20 December 2024. Final standings verified; individual match scores and fixtures have not been supplied.",
       "matchScoresVerified": false,
       "fixturesVerified": false,
@@ -439,7 +439,7 @@
       "matches": [],
       "pointsPerMatch": 32,
       "specialReport": {
-        "title": "THE PPC II INQUIRY — THE THREE-MATCH GAUNTLET",
+        "title": "THE PPC 2 INQUIRY — THE THREE-MATCH GAUNTLET",
         "details": "According to the tournament organiser, an administrative scheduling error meant Gavin Keohane faced No. 1 seed and eventual champion James O'Leary three times rather than the intended twice.",
         "medicalNote": "Gavin was also struck down with man flu on tournament day. His 96-point, seventh-place finish therefore came with two mitigating circumstances.",
         "source": "Firsthand account from Gavin Keohane, club organiser and competitor"
@@ -447,7 +447,7 @@
     },
     {
       "id": "ppc-3",
-      "name": "Padel Pinnacle Cup III",
+      "name": "Padel Pinnacle Cup 3",
       "number": 3,
       "order": 3,
       "kind": "americano",
@@ -759,7 +759,7 @@
     },
     {
       "id": "ppc-4",
-      "name": "Padel Pinnacle Cup IV",
+      "name": "Padel Pinnacle Cup 4",
       "number": 4,
       "order": 4,
       "kind": "americano",
@@ -1383,7 +1383,7 @@
     },
     "p-connell-mcbride": {
       "fullName": "Connell McBride",
-      "status": "One event only (PPC II)"
+      "status": "One event only (PPC 2)"
     },
     "p-bean": {
       "fullName": "Ciaran Barry",

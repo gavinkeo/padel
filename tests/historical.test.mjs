@@ -14,7 +14,7 @@ test('The organiser-confirmed dates appear on every record',()=>{
   assert.deepEqual(Object.fromEntries(events.map(e=>[e.id,e.date])),dates);
 });
 
-test('PPC I verified match scores reconcile with all standings',()=>{
+test('PPC 1 verified match scores reconcile with all standings',()=>{
   const e=byId('ppc-1');
   assert.equal(e.matches.length,14);
   const scores={};
@@ -37,7 +37,7 @@ test('PPC I verified match scores reconcile with all standings',()=>{
   assert.equal(e.matches[11].scoreB,23);
 });
 
-test('PPC II has verified standings but no fabricated match scores',()=>{
+test('PPC 2 has verified standings but no fabricated match scores',()=>{
   const e=byId('ppc-2');
   assert.equal(e.matches.length,0);
   assert.equal(e.matchScoresVerified,false);
@@ -48,7 +48,7 @@ test('PPC II has verified standings but no fabricated match scores',()=>{
   assert.equal(e.standings.find(p=>p.id==='p-dan').points,116);
 });
 
-test('PPC III / IV all matches balance to 32 points and standings are correct',()=>{
+test('PPC 3 / IV all matches balance to 32 points and standings are correct',()=>{
   for(const id of ['ppc-3','ppc-4']){
     const e=byId(id);
     assert.equal(e.matches.length,14);
@@ -133,4 +133,32 @@ test('High-resolution portraits remain available, defaults for other players',()
   }
   assert.ok(statSync(new URL('../assets/players/default.svg',import.meta.url)).size>500);
   assert.ok(app.includes("const FALLBACK = './assets/players/default.svg'"));
+});
+
+test('Asset URLs are versioned so new HTML never reuses old CSS or JS',()=>{
+  const match = html.match(/\.\/styles\.css\?v=([^"']+)/);
+  assert.ok(match,'stylesheet must use a cache-busting version');
+  assert.ok(html.includes('./app.js?v='+match[1]));
+  assert.ok(html.includes('./portraits.js?v='+match[1]));
+  assert.ok(app.includes('official-results.json?v='+match[1]));
+});
+
+test('UI uses Arabic numeric cup labels, and live app fills all homepage sections',async()=>{
+  for(const e of events.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup [1-4]$/);
+  assert.ok(!/\bPPC [IVX]+\b/.test(html));
+  assert.ok(!app.includes('const roman ='));
+  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
+  const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
+  const browserDocument={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
+  const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDocument,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
+  vm.runInNewContext(app,browser);
+  await new Promise(resolve=>setImmediate(resolve));
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(nodes.countdown.innerHTML,/Days/);
+  assert.match(nodes.honoursList.innerHTML,/James O/);
+  assert.match(nodes.honoursList.innerHTML,/Daniel McCarthy/);
+  assert.match(nodes.meritList.innerHTML,/Gavin Keohane/);
+  assert.match(nodes.archiveList.innerHTML,/PPC 1/);
+  assert.match(nodes.archiveList.innerHTML,/PPC 4/);
+  assert.match(nodes.playerList.innerHTML,/Ciaran Barry/);
 });

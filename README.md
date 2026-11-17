@@ -4,13 +4,13 @@ A public, read-only archive for a workplace padel group in Cork, Ireland.
 
 **Website:** https://gavinkeo.github.io/padel/
 
-The next tournament, PPC V, is scheduled for **Friday 4 December 2026, 10:00–12:00**, at Padel Tennis Ireland, Carrigtwohill. The homepage features a compact countdown.
+The next tournament, PPC 5, is scheduled for **Friday 4 December 2026, 10:00–12:00**, at Padel Tennis Ireland, Carrigtwohill. The homepage features a compact countdown.
 
 ## Homepage
 
-- Roll of Honour: James O'Leary **3 titles** (PPC I, II, IV); Daniel McCarthy **1 title** (PPC III).
+- Roll of Honour: James O'Leary **3 titles** (PPC 1, II, IV); Daniel McCarthy **1 title** (PPC 3).
 - Order of Merit: all-time individual PPC points (B2Cup excluded because it uses a separate 48-point team format).
-- Previous tournaments: clickable standings, real match results, and the PPC II scheduling note.
+- Previous tournaments: clickable standings, real match results, and the PPC 2 scheduling note.
 - Player profiles: compact avatar cards at the bottom. Clicking shows highest PPC score, number of PPC events, **median** PPC score, tournament-by-tournament results and B2Cup honours.
 
 The **median** of individual PPC event totals is displayed as a robust typical score. A single unusually poor result has less influence on the median than on the arithmetic mean. With two events, it is the average of the two; with one event, it equals that event's score. This does **not** discard actual results from the lifetime Order of Merit.
@@ -23,15 +23,15 @@ The club organiser confirmed the dates below:
 
 | Event | Date | Champion |
 |---|---|---|
-| PPC I | 10 December 2024 | James O'Leary (151 points) |
-| PPC II | 20 December 2024 | James O'Leary (141 points) |
+| PPC 1 | 10 December 2024 | James O'Leary (151 points) |
+| PPC 2 | 20 December 2024 | James O'Leary (141 points) |
 | B2Cup | 21 January 2025 | HipEx, 411–309 |
-| PPC III | 11 February 2025 | Daniel McCarthy (137 points) |
-| PPC IV | 14 March 2025 | James O'Leary (140 points) |
+| PPC 3 | 11 February 2025 | Daniel McCarthy (137 points) |
+| PPC 4 | 14 March 2025 | James O'Leary (140 points) |
 
-**Date discrepancy:** The earlier Padelution screenshot for PPC I displayed *22 November 2024*, which conflicts with the organiser's later confirmation of *10 December 2024*. The website uses the organiser-confirmed date while preserving the original Padelution link and verified scores.
+**Date discrepancy:** The earlier Padelution screenshot for PPC 1 displayed *22 November 2024*, which conflicts with the organiser's later confirmation of *10 December 2024*. The website uses the organiser-confirmed date while preserving the original Padelution link and verified scores.
 
-PPC I includes 14 verified match scores, PPC II has standings only (its individual match sheets were not provided), PPC III and IV each have 14 matches, and B2Cup has 15 matches across five rounds.
+PPC 1 includes 14 verified match scores, PPC 2 has standings only (its individual match sheets were not provided), PPC 3 and IV each have 14 matches, and B2Cup has 15 matches across five rounds.
 
 ## Read-only site
 

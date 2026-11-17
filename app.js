@@ -28,8 +28,7 @@
       day:'numeric', month:'short', year:'numeric', timeZone:'UTC'
     });
   };
-  const roman = n => ['','I','II','III','IV','V','VI','VII','VIII','IX','X'][n] || String(n);
-  const eventLabel = e => e.number ? 'PPC ' + roman(e.number) : e.name;
+  const eventLabel = e => e.number ? 'PPC ' + e.number : e.name;
   const median = scores => {
     if (!scores.length) return null;
     const sorted = [...scores].sort((a,b) => a-b), n = sorted.length;
@@ -203,7 +202,7 @@
       }
     }
     if (e.specialReport) {
-      content+='<div class="incident-note"><h3>' + esc('PPC II — Scheduling note') + '</h3><p>' +
+      content+='<div class="incident-note"><h3>' + esc('PPC 2 — Scheduling note') + '</h3><p>' +
         esc(e.specialReport.details) + '</p><p>' + esc(e.specialReport.medicalNote) + '</p></div>';
     }
     if (e.matches?.length) {
@@ -248,7 +247,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-fix2', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
