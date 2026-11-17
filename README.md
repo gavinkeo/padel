@@ -34,3 +34,10 @@ This is an independent group, not an official site of Johnson & Johnson, DePuy S
 The original Padelution [match record](https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281) identifies the date as **22 November 2024**. The organiser provided a screenshot of all **14 match scores**: seven rounds across Courts 2 and 3, each 32 points. All 14 results have been transcribed and verified mathematically against the eight-player standings. **James O'Leary** won with 151 points (6–1), ahead of Sean Kelly (120) and Gavin Keohane (118). Round 6 Court 3 is **9–23**, which reconciles every player's official totals.
 
 **Confirmed identity:** Ger O'Brien and Geraldo are the same player. His PPC I match and standings entry is **Ger O'Brien**, his nickname is **Geraldo**, and all historic events use the stable `p-geraldo` player ID.
+## PPC II: final standings and the organiser's incident report
+
+PPC II final standings (supplied screenshot): James O'Leary **141 points (7–0)**, Connell McBride **118**, Daniel McCarthy **116**, Gary Foolkes **115**, Sean Kelly **115**, Kennedy Murphy **99**, Gavin Keohane **96**, and Ger O'Brien (“Geraldo”) **96**. All played seven matches; points total 896, points differences sum to zero. The original round-by-round fixtures, scores and event date are **not available** and have not been invented.
+
+The organiser reports that **an administrative scheduling error caused Gavin to face No. 1 seed and eventual champion James O'Leary three times rather than the intended twice**. The organiser also confirms Gavin competed while suffering **man flu**. The archive notes these mitigating circumstances beside the official seventh-place finish without altering the standings.
+
+**Player-identity caution:** Daniel McCarthy (PPC II) may or may not be the “Dan” in PPC III and IV. Kept as a separate record until confirmed.

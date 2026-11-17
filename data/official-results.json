@@ -327,6 +327,124 @@
       "pointsPerMatch": 32
     },
     {
+      "id": "ppc-2",
+      "name": "Pinnacle Padel Cup II",
+      "number": 2,
+      "order": 2,
+      "kind": "americano",
+      "date": null,
+      "dateLabel": "2024–25 · DATE TO CONFIRM",
+      "source": "PPC II final standings screenshot supplied by the club organiser",
+      "sourceNote": "Match-by-match scores and fixtures are not available; the date is unconfirmed.",
+      "matchScoresVerified": false,
+      "fixturesVerified": false,
+      "champions": [
+        "p-james"
+      ],
+      "runnerUpId": "p-connell-mcbride",
+      "winningPoints": 141,
+      "participants": [
+        "p-james",
+        "p-connell-mcbride",
+        "p-daniel-mccarthy",
+        "p-gary",
+        "p-sean",
+        "p-kennedy",
+        "p-gavin",
+        "p-geraldo"
+      ],
+      "standings": [
+        {
+          "id": "p-james",
+          "wins": 7,
+          "draws": 0,
+          "losses": 0,
+          "played": 7,
+          "points": 141,
+          "against": 83,
+          "pd": 58
+        },
+        {
+          "id": "p-connell-mcbride",
+          "wins": 3,
+          "draws": 1,
+          "losses": 3,
+          "played": 7,
+          "points": 118,
+          "against": 106,
+          "pd": 12
+        },
+        {
+          "id": "p-daniel-mccarthy",
+          "wins": 4,
+          "draws": 1,
+          "losses": 2,
+          "played": 7,
+          "points": 116,
+          "against": 108,
+          "pd": 8
+        },
+        {
+          "id": "p-gary",
+          "wins": 4,
+          "draws": 1,
+          "losses": 2,
+          "played": 7,
+          "points": 115,
+          "against": 109,
+          "pd": 6
+        },
+        {
+          "id": "p-sean",
+          "wins": 2,
+          "draws": 2,
+          "losses": 3,
+          "played": 7,
+          "points": 115,
+          "against": 109,
+          "pd": 6
+        },
+        {
+          "id": "p-kennedy",
+          "wins": 1,
+          "draws": 1,
+          "losses": 5,
+          "played": 7,
+          "points": 99,
+          "against": 125,
+          "pd": -26
+        },
+        {
+          "id": "p-gavin",
+          "wins": 2,
+          "draws": 0,
+          "losses": 5,
+          "played": 7,
+          "points": 96,
+          "against": 128,
+          "pd": -32
+        },
+        {
+          "id": "p-geraldo",
+          "wins": 1,
+          "draws": 2,
+          "losses": 4,
+          "played": 7,
+          "points": 96,
+          "against": 128,
+          "pd": -32
+        }
+      ],
+      "matches": [],
+      "pointsPerMatch": 32,
+      "specialReport": {
+        "title": "THE PPC II INQUIRY — THE THREE-MATCH GAUNTLET",
+        "details": "According to the tournament organiser, an administrative scheduling error meant Gavin Keohane faced No. 1 seed and eventual champion James O'Leary three times rather than the intended twice.",
+        "medicalNote": "Gavin was also struck down with man flu on tournament day. His 96-point, seventh-place finish therefore came with two mitigating circumstances.",
+        "source": "Firsthand account from Gavin Keohane, club organiser and competitor"
+      }
+    },
+    {
       "id": "ppc-3",
       "name": "Pinnacle Padel Cup III",
       "number": 3,

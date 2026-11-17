@@ -80,3 +80,11 @@
 
 .historic-source-link{color:#d9fc64;font:800 12px var(--fmono);text-decoration:underline;text-underline-offset:4px}.historic-source-link:hover{color:white}
 @media(max-width:1000px){.legacy-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.legacy-highlights{grid-template-columns:1fr}}
+
+/* Official PPC II organiser footnote: keep fixture dispute distinct from scored results. */
+.archive-incident{background:linear-gradient(145deg,#1e2930,#192422);border:1px solid #83a555;border-left:5px solid #d7ef7d;border-radius:9px;padding:21px;margin:22px 0}
+.archive-incident .incident-eyebrow{font:800 10px var(--fmono,monospace);letter-spacing:1px;color:#d6ec81}
+.archive-incident h4{font:900 clamp(24px,4vw,37px)/1.1 var(--fhead,sans-serif);margin:13px 0 12px;color:#f5f8e7}
+.archive-incident p{color:#e4eddd;font-size:13px;line-height:1.7;margin:10px 0}
+.archive-incident .incident-medical{color:#dbebaa}
+.archive-incident small{display:block;margin-top:12px;font:700 10px var(--fmono,monospace);color:#a2b2a5}
