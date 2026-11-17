@@ -181,7 +181,7 @@
     $('playerDialogBody').innerHTML =
       '<div class="profile-metrics">' +
       '<div><small>Highest PPC score</small><strong>' + (high??'—') + '</strong></div>' +
-      '<div><small>Tournaments played</small><strong>' + (records.length + (team?1:0)) + '</strong></div>' +
+      '<div><small>Tournaments</small><strong>' + (records.length + (team?1:0)) + '</strong></div>' +
       '<div><small>Median PPC score</small><strong>' + (typical===null?'—':number(typical)) + '</strong></div>' +
       '</div>' +
       (team === 'HipEx' ?
@@ -268,7 +268,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-match-lines', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-profile-spacing', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');

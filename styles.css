@@ -142,7 +142,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .profile-metrics small{display:block;font-size:11px;line-height:1.3;color:var(--sub)}
 .profile-metrics strong{display:block;font:900 39px/1 var(--heading);color:var(--blue);margin-top:7px}
 .median-explainer{font-size:11px;color:var(--sub);line-height:1.6;margin:12px 0}
-.b2-honour{background:#eff8d7;border-left:4px solid #b4d04b;border-radius:5px;padding:13px 15px;font-weight:700;line-height:1.5;font-size:12px}
+.b2-honour{margin-top:16px;background:#eff8d7;border-left:4px solid #b4d04b;border-radius:5px;padding:13px 15px;font-weight:700;line-height:1.5;font-size:12px}
 .b2-honour span{color:#679200;margin-right:8px}
 .b2-participant{font-size:12px;color:var(--sub);padding:12px 14px;border-left:3px solid #90afd0;background:#f6faff}
 .profile-event-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;overflow:hidden}
