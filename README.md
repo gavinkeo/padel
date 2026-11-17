@@ -1,4 +1,4 @@
-# Pinnacle Padel Cup (PPC)
+# Padel Pinnacle Cup (PPC)
 
 Independent workplace padel group website. Return event: Friday 4 December 2026, 10:00–12:00, at Padel Tennis Ireland, Carrigtwohill, Cork.
 
@@ -40,4 +40,9 @@ PPC II final standings (supplied screenshot): James O'Leary **141 points (7–0)
 
 The organiser reports that **an administrative scheduling error caused Gavin to face No. 1 seed and eventual champion James O'Leary three times rather than the intended twice**. The organiser also confirms Gavin competed while suffering **man flu**. The archive notes these mitigating circumstances beside the official seventh-place finish without altering the standings.
 
-**Player-identity caution:** Daniel McCarthy (PPC II) may or may not be the “Dan” in PPC III and IV. Kept as a separate record until confirmed.
+**Confirmed by the organiser:** Daniel McCarthy is Dan, combining all his PPC II–IV career points. Connell McBride played PPC II only.
+
+## 2026 Homepage design
+A simplified royal-blue, white and tennis-ball-yellow homepage: countdown to Friday 4 December 2026, live cumulative all-time Order of Merit, and clickable four PPC tournaments plus the B2Cup. The player roster and Americano scoring tools remain available inside the collapsible Club HQ panel to keep the public homepage uncluttered.
+
+The Order of Merit sums scored points from **individual PPC events with verified final standings** (PPC I–IV), not the 48-point team B2Cup. It shows appearances and titles separately. The all-time totals at launch include Gavin Keohane 467, Kennedy Murphy 433, James O'Leary 432, and Daniel McCarthy 389 points. Historic tournament dates are not invented.

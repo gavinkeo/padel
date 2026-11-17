@@ -16,3 +16,16 @@ test("Ger O'Brien is Geraldo in PPC I and all cups",()=>{
 });
 
 test('PPC II final standings and organiser incident report',()=>{const e=x.find(q=>q.id==='ppc-2');assert.ok(e);assert.equal(e.date,null);assert.equal(e.matches.length,0);assert.equal(e.matchScoresVerified,false);assert.deepEqual([e.champions[0],e.winningPoints],['p-james',141]);assert.equal(e.standings.length,8);assert.equal(e.standings.reduce((n,p)=>n+p.points,0),896);assert.equal(e.standings.reduce((n,p)=>n+p.against,0),896);assert.equal(e.standings.reduce((n,p)=>n+p.pd,0),0);for(const p of e.standings){assert.equal(p.played,7);assert.equal(p.wins+p.draws+p.losses,7);assert.equal(p.points-p.against,p.pd)}assert.equal(e.standings.find(p=>p.id==='p-gavin').points,96);assert.ok(e.specialReport.details.includes('three times rather than the intended twice'));assert.ok(e.specialReport.medicalNote.includes('man flu'))});
+
+test('Dan is Daniel McCarthy across PPC II–IV, with no duplicate IDs',()=>{
+ const events=x.filter(e=>e.kind==='americano');const ppc2=events.find(e=>e.id==='ppc-2');
+ assert.equal(ppc2.standings.find(p=>p.id==='p-dan').points,116);
+ assert.ok(!events.some(e=>e.standings.some(p=>p.id==='p-daniel-mccarthy')));
+ assert.equal(events.filter(e=>e.participants.includes('p-dan')).length,3);
+ const all=events.flatMap(e=>e.standings);
+ const totals={}; for(const p of all)totals[p.id]=(totals[p.id]||0)+p.points;
+ assert.equal(totals['p-dan'],389);
+ assert.equal(totals['p-gavin'],467);assert.equal(totals['p-kennedy'],433);assert.equal(totals['p-james'],432);
+ assert.equal(x.find(e=>e.id==='ppc-2').participants.filter(id=>id==='p-connell-mcbride').length,1);
+});
+test('All official tournament records use Padel Pinnacle Cup',()=>{for(const e of x.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup/);});

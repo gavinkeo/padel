@@ -1,9 +1,9 @@
 {
-  "provenance": "PPC I: original Padelution tournament page and photographed original schedule/standings; all 14 match scores verified against the final totals. PPC III/IV and B2Cup: photographed original score sheets. Ger O'Brien is confirmed by the organiser as Geraldo, with all results linked to player ID p-geraldo.",
+  "provenance": "PPC I: original Padelution tournament page and photographed original schedule/standings; all 14 match scores verified against the final totals. PPC III/IV and B2Cup: photographed original score sheets. Ger O'Brien is confirmed by the organiser as Geraldo, with all results linked to player ID p-geraldo. Organiser verified Daniel McCarthy = Dan, Luke Murphy = Luke, Peter Gilroy = Peter, Rob McKenzie = Rob, Cian O'Connor = Cian; Connell McBride played one event.",
   "events": [
     {
       "id": "ppc-1",
-      "name": "Pinnacle Padel Cup I",
+      "name": "Padel Pinnacle Cup I",
       "number": 1,
       "order": 1,
       "kind": "americano",
@@ -328,14 +328,14 @@
     },
     {
       "id": "ppc-2",
-      "name": "Pinnacle Padel Cup II",
+      "name": "Padel Pinnacle Cup II",
       "number": 2,
       "order": 2,
       "kind": "americano",
       "date": null,
       "dateLabel": "2024–25 · DATE TO CONFIRM",
       "source": "PPC II final standings screenshot supplied by the club organiser",
-      "sourceNote": "Match-by-match scores and fixtures are not available; the date is unconfirmed.",
+      "sourceNote": "Match-by-match scores and fixtures have not been supplied; date unconfirmed. Club organiser confirms Daniel McCarthy is the Dan in PPC III and IV, and Connell McBride participated in one PPC event.",
       "matchScoresVerified": false,
       "fixturesVerified": false,
       "champions": [
@@ -346,7 +346,7 @@
       "participants": [
         "p-james",
         "p-connell-mcbride",
-        "p-daniel-mccarthy",
+        "p-dan",
         "p-gary",
         "p-sean",
         "p-kennedy",
@@ -375,7 +375,7 @@
           "pd": 12
         },
         {
-          "id": "p-daniel-mccarthy",
+          "id": "p-dan",
           "wins": 4,
           "draws": 1,
           "losses": 2,
@@ -446,7 +446,7 @@
     },
     {
       "id": "ppc-3",
-      "name": "Pinnacle Padel Cup III",
+      "name": "Padel Pinnacle Cup III",
       "number": 3,
       "order": 3,
       "kind": "americano",
@@ -758,7 +758,7 @@
     },
     {
       "id": "ppc-4",
-      "name": "Pinnacle Padel Cup IV",
+      "name": "Padel Pinnacle Cup IV",
       "number": 4,
       "order": 4,
       "kind": "americano",
@@ -1362,6 +1362,27 @@
       "fullName": "Ger O'Brien",
       "nickname": "Geraldo",
       "verifiedBy": "Club organiser confirmation"
+    },
+    "p-dan": {
+      "fullName": "Daniel McCarthy",
+      "nickname": "Dan",
+      "verifiedBy": "Club organiser confirmation"
+    },
+    "p-luke": {
+      "fullName": "Luke Murphy"
+    },
+    "p-peter": {
+      "fullName": "Peter Gilroy"
+    },
+    "p-rob": {
+      "fullName": "Rob McKenzie"
+    },
+    "p-cian": {
+      "fullName": "Cian O'Connor"
+    },
+    "p-connell-mcbride": {
+      "fullName": "Connell McBride",
+      "status": "One event only (PPC II)"
     }
   }
 }

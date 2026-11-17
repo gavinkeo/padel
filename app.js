@@ -1,5 +1,5 @@
 
-/* PINNACLE//PADEL — offline-first Americano tournament companion.
+/* PADEL//PINNACLE — offline-first Americano tournament companion.
    All 8-player/2-court rounds satisfy: each partnership exactly once;
    each player faces every other player exactly twice. */
 (() => {
@@ -57,7 +57,7 @@
       a:teamA.split('/').map(ID),b:teamB.split('/').map(ID),
       scoreA:PPC1_SCORES[i][0],scoreB:PPC1_SCORES[i][1]
     }));
-    return {id:'ppc-1',name:'Pinnacle Padel Cup I',number:1,order:1,kind:'americano',
+    return {id:'ppc-1',name:'Padel Pinnacle Cup I',number:1,order:1,kind:'americano',
       date:'2024-11-22',dateLabel:'22 NOV 2024',
       source:'Padelution original 22 November 2024 event: match-results screenshot and photographed official standings',
       sourceUrl:'https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281',
@@ -107,25 +107,32 @@
     return {id,name,number,order:number,kind:'americano',date:null,dateLabel:'2024–25 · DATE TO CONFIRM',source:'Photographed original tournament sheet',champions:[standings[0].id],runnerUpId:standings[1].id,winningPoints:standings[0].points,participants:standings.map(t=>t.id),standings,matches,pointsPerMatch:32};
   }
   // PPC II: official final standings only; no invented fixtures or scores.
-  function ppc2Cup(){return {"id":"ppc-2","name":"Pinnacle Padel Cup II","number":2,"order":2,"kind":"americano","date":null,"dateLabel":"2024–25 · DATE TO CONFIRM","source":"PPC II final standings screenshot supplied by the club organiser","sourceNote":"Match-by-match scores and fixtures are not available; the date is unconfirmed.","matchScoresVerified":false,"fixturesVerified":false,"champions":["p-james"],"runnerUpId":"p-connell-mcbride","winningPoints":141,"participants":["p-james","p-connell-mcbride","p-daniel-mccarthy","p-gary","p-sean","p-kennedy","p-gavin","p-geraldo"],"standings":[{"id":"p-james","wins":7,"draws":0,"losses":0,"played":7,"points":141,"against":83,"pd":58},{"id":"p-connell-mcbride","wins":3,"draws":1,"losses":3,"played":7,"points":118,"against":106,"pd":12},{"id":"p-daniel-mccarthy","wins":4,"draws":1,"losses":2,"played":7,"points":116,"against":108,"pd":8},{"id":"p-gary","wins":4,"draws":1,"losses":2,"played":7,"points":115,"against":109,"pd":6},{"id":"p-sean","wins":2,"draws":2,"losses":3,"played":7,"points":115,"against":109,"pd":6},{"id":"p-kennedy","wins":1,"draws":1,"losses":5,"played":7,"points":99,"against":125,"pd":-26},{"id":"p-gavin","wins":2,"draws":0,"losses":5,"played":7,"points":96,"against":128,"pd":-32},{"id":"p-geraldo","wins":1,"draws":2,"losses":4,"played":7,"points":96,"against":128,"pd":-32}],"matches":[],"pointsPerMatch":32,"specialReport":{"title":"THE PPC II INQUIRY — THE THREE-MATCH GAUNTLET","details":"According to the tournament organiser, an administrative scheduling error meant Gavin Keohane faced No. 1 seed and eventual champion James O'Leary three times rather than the intended twice.","medicalNote":"Gavin was also struck down with man flu on tournament day. His 96-point, seventh-place finish therefore came with two mitigating circumstances.","source":"Firsthand account from Gavin Keohane, club organiser and competitor"}};}
+  function ppc2Cup(){return {"id":"ppc-2","name":"Padel Pinnacle Cup II","number":2,"order":2,"kind":"americano","date":null,"dateLabel":"2024–25 · DATE TO CONFIRM","source":"PPC II final standings screenshot supplied by the club organiser","sourceNote":"Match-by-match scores and fixtures are not available; the date is unconfirmed.","matchScoresVerified":false,"fixturesVerified":false,"champions":["p-james"],"runnerUpId":"p-connell-mcbride","winningPoints":141,"participants":["p-james","p-connell-mcbride","p-dan","p-gary","p-sean","p-kennedy","p-gavin","p-geraldo"],"standings":[{"id":"p-james","wins":7,"draws":0,"losses":0,"played":7,"points":141,"against":83,"pd":58},{"id":"p-connell-mcbride","wins":3,"draws":1,"losses":3,"played":7,"points":118,"against":106,"pd":12},{"id":"p-dan","wins":4,"draws":1,"losses":2,"played":7,"points":116,"against":108,"pd":8},{"id":"p-gary","wins":4,"draws":1,"losses":2,"played":7,"points":115,"against":109,"pd":6},{"id":"p-sean","wins":2,"draws":2,"losses":3,"played":7,"points":115,"against":109,"pd":6},{"id":"p-kennedy","wins":1,"draws":1,"losses":5,"played":7,"points":99,"against":125,"pd":-26},{"id":"p-gavin","wins":2,"draws":0,"losses":5,"played":7,"points":96,"against":128,"pd":-32},{"id":"p-geraldo","wins":1,"draws":2,"losses":4,"played":7,"points":96,"against":128,"pd":-32}],"matches":[],"pointsPerMatch":32,"specialReport":{"title":"THE PPC II INQUIRY — THE THREE-MATCH GAUNTLET","details":"According to the tournament organiser, an administrative scheduling error meant Gavin Keohane faced No. 1 seed and eventual champion James O'Leary three times rather than the intended twice.","medicalNote":"Gavin was also struck down with man flu on tournament day. His 96-point, seventh-place finish therefore came with two mitigating circumstances.","source":"Firsthand account from Gavin Keohane, club organiser and competitor"}};}
   function seedArchive(){
-    const a=historicCup('ppc-3','Pinnacle Padel Cup III',PPC3,[2,3],3);
-    const b=historicCup('ppc-4','Pinnacle Padel Cup IV',PPC4,[3,2],4);
+    const a=historicCup('ppc-3','Padel Pinnacle Cup III',PPC3,[2,3],3);
+    const b=historicCup('ppc-4','Padel Pinnacle Cup IV',PPC4,[3,2],4);
     const matches=historicMatches(B2,'b2',[2,3,4]);
     const scores=[0,1,2,3,4].map(i=>({round:i+1,time:['10:00','10:24','10:48','11:12','11:36'][i],a:matches.slice(i*3,i*3+3).reduce((s,m)=>s+m.scoreA,0),b:matches.slice(i*3,i*3+3).reduce((s,m)=>s+m.scoreB,0)}));
     const c={id:'b2-cup',name:'B2Cup · HipEx vs Poly',kind:'team',order:5,date:null,dateLabel:'DATE TO CONFIRM',source:'Photographed original Ryder Cup-style team sheet',winningTeam:'HipEx',losingTeam:'Poly',winningScore:411,losingScore:309,champions:[],participants:[...new Set(matches.flatMap(m=>[...m.a,...m.b]))],matches,rounds:scores,pointsPerMatch:48};
     return [ppc1Cup(),ppc2Cup(),a,b,c];
   }
 
-  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian','Cian'],['Dan','Dan'],['Peter','Peter'],['James',"James O'Leary"],['Rob','Rob'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride'],['Daniel McCarthy','Daniel McCarthy']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Geraldo'?'GERALDO':handle==='James'?'THREE-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Pinnacle Padel Cup competitor. Full profile coming soon.',avatar:i%12+1}));
-  const defaultState = () => ({version:3,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Pinnacle Comeback Cup',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
+  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke Murphy'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian',"Cian O'Connor"],['Dan','Daniel McCarthy'],['Peter','Peter Gilroy'],['James',"James O'Leary"],['Rob','Rob McKenzie'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Connell McBride'?'PPC II · ONE-OFF GUEST':handle==='Geraldo'?'GERALDO':handle==='James'?'THREE-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Padel Pinnacle Cup competitor. Full profile coming soon.',avatar:i%12+1}));
+  const defaultState = () => ({version:4,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Padel Pinnacle Cup · The Big Return',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
   const safeLoad = () => {const defaults=defaultState();try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaults;const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected)){
-    const oldById=new Map(parsed.players.map(p=>[p.id,p]));
+
+    const normalizeId=id=>id==='p-daniel-mccarthy'?'p-dan':id;
+    parsed.selected=[...new Set(parsed.selected.map(normalizeId))];
+    parsed.active.participants=(parsed.active.participants||[]).map(normalizeId);
+    (parsed.active.fixtures||[]).flat().forEach(m=>{m.a=m.a.map(normalizeId);m.b=m.b.map(normalizeId)});
+    parsed.archive.forEach(e=>{if(e.participants)e.participants=e.participants.map(normalizeId);if(e.champions)e.champions=e.champions.map(normalizeId);if(e.runnerUpId)e.runnerUpId=normalizeId(e.runnerUpId);if(e.standings)e.standings.forEach(s=>s.id=normalizeId(s.id));if(e.matches)e.matches.forEach(m=>{m.a=m.a.map(normalizeId);m.b=m.b.map(normalizeId)})});
+    const oldById=new Map();for(const p of parsed.players){const id=normalizeId(p.id);if(!oldById.has(id))oldById.set(id,{...p,id})}
+
     parsed.players=defaults.players.map(p=>{const prev=oldById.get(p.id);if(!prev)return p;const oldName=p.id.slice(2);const defaultOldName=oldName.charAt(0).toUpperCase()+oldName.slice(1);return {...p,...prev,name:prev.name===defaultOldName?p.name:prev.name};})
-      .concat(parsed.players.filter(p=>!defaults.players.some(d=>d.id===p.id)));
+      .concat(parsed.players.filter(p=>p.id!=='p-daniel-mccarthy'&&!defaults.players.some(d=>d.id===p.id)));
     const official=new Set(defaults.archive.map(e=>e.id));
     parsed.archive=[...defaults.archive,...parsed.archive.filter(e=>!official.has(e.id))];
-    parsed.version=3;return parsed;
+    parsed.version=4;return parsed;
     }}catch(e){console.warn('Saved data unavailable:',e)}return defaults;};
   let state = safeLoad();
   let toastTimer;
@@ -175,6 +182,32 @@
   }
   function renderLeaderboard(){const rows=calculate();if(!rows.length){el('leaderboard').innerHTML='<div class="leaderboard-empty">Select eight contenders to activate the leaderboard. The historic championships are already loaded below.</div>';return}el('leaderboard').innerHTML=`<table class="leaderboard-table"><thead><tr><th>#</th><th>PLAYER</th><th>PTS</th><th>W</th><th>PD</th></tr></thead><tbody>${rows.map((t,i)=>{const p=getPlayer(t.id);return `<tr><td><span class="table-rank">${String(i+1).padStart(2,'0')}</span></td><td><span class="leader-identity"><img src="${imgFor(p)}" alt=""/><span title="${esc(p.name)}">${esc(p.name)}</span></span></td><td>${t.points}</td><td>${t.wins}</td><td>${t.pd>0?'+':''}${t.pd}</td></tr>`}).join('')}</tbody></table>`}
 
+
+  function renderMerit(){
+    // Only individual PPC Americanos; B2Cup is a separate 48-point team format.
+    const events=state.archive.filter(e=>e.kind==='americano'&&Array.isArray(e.standings)&&e.standings.length>0);
+    const totals=new Map();
+    for(const event of events){
+      for(const record of event.standings){
+        const id=record.id==='p-daniel-mccarthy'?'p-dan':record.id;
+        if(!Number.isFinite(record.points))continue;
+        if(!totals.has(id))totals.set(id,{id,points:0,appearances:0,titles:0});
+        const t=totals.get(id);t.points+=record.points;t.appearances++;
+        if((event.champions||[]).includes(id))t.titles++;
+      }
+    }
+    const rows=[...totals.values()].sort((a,b)=>b.points-a.points||b.titles-a.titles||getPlayer(a.id).name.localeCompare(getPlayer(b.id).name));
+    const peak=rows[0]?.points||1;
+    el('meritList').innerHTML=rows.map((p,i)=>{
+      const player=getPlayer(p.id);
+      const note=p.id==='p-connell-mcbride'?'ONE EVENT':p.titles? `${p.titles}× CHAMPION`:`${p.appearances} APPEARANCES`;
+      return `<button type="button" class="merit-row ${i===0?'merit-leader':''}" data-merit-player="${esc(p.id)}" aria-label="View player profile for ${esc(player.name)}"><span class="merit-person"><span class="merit-rank">${String(i+1).padStart(2,'0')}</span><img src="${imgFor(player)}" alt=""/><span class="merit-names"><strong>${esc(player.name)}</strong><small>${esc(note)}</small></span></span><span class="merit-apps">${p.appearances}</span><span class="merit-titles">${p.titles?'<span class="trophy-mini">★</span> '+p.titles:'—'}</span><span class="merit-points"><strong>${p.points}</strong><span class="point-bar"><i style="width:${Math.round(100*p.points/peak)}%"></i></span></span></button>`;
+    }).join('');
+    const totalPoints=rows.reduce((sum,p)=>sum+p.points,0);
+    el('meritSummary').textContent=`${events.length} PPC EVENTS · ${rows.length} PLAYERS · ${totalPoints.toLocaleString('en-IE')} POINTS AWARDED`;
+    el('meritList').querySelectorAll('[data-merit-player]').forEach(b=>b.addEventListener('click',()=>openPlayer(b.dataset.meritPlayer)));
+  }
+
   function renderHistory(){
     el('archiveCount').textContent=`${String(state.archive.length).padStart(2,'0')} RECORDS`;
     const records=[...state.archive].sort((a,b)=>(b.order||0)-(a.order||0));
@@ -208,17 +241,17 @@
     el('archiveDialogBody').innerHTML=summary+standings+specialReport+'<div class="archive-detail-title">'+(pending?'ORIGINAL FIXTURES · MATCH SCORES PENDING':'ORIGINAL MATCH RESULTS')+'</div>'+matchHTML+'<p class="archive-caveat">'+provenance+'</p>'+sourceLink;
     el('archiveDialog').showModal();
   }
-  function renderAll(){el('tournamentName').value=state.active.name||'Pinnacle Comeback Cup';el('tournamentDate').value=state.active.date||'2026-12-04';renderRoster();renderPicker();renderRounds();renderLeaderboard();renderHistory()}
+  function renderAll(){el('tournamentName').value=(state.active.name==='Pinnacle Comeback Cup'?'Padel Pinnacle Cup · The Big Return':state.active.name)||'Padel Pinnacle Cup · The Big Return';el('tournamentDate').value=state.active.date||'2026-12-04';renderRoster();renderPicker();renderRounds();renderLeaderboard();renderMerit();renderHistory()}
   function generateTournament(){if(state.selected.length!==8){el('setupMessage').textContent='You need exactly eight players before generating fixtures.';return}
     if(completeMatches()>0&&!confirm('Generate new fixtures? This will clear all existing scores for the current tournament.'))return;
-    const name=el('tournamentName').value.trim()||'Pinnacle Cup';const date=el('tournamentDate').value||'2026-12-04';
+    const name=el('tournamentName').value.trim()||'Padel Pinnacle Cup';const date=el('tournamentDate').value||'2026-12-04';
     state.active={id:`event-${Date.now()}`,name,date,participants:[...state.selected],fixtures:makeFixtures(state.selected),scores:{},completed:false};state.viewRound=0;el('setupMessage').textContent='Seven rounds, fourteen matches — all partnerships and opponent matchups verified.';save();renderAll();notify('Perfectly balanced fixtures generated.')
   }
   function finalize(){if(state.active.completed)return;if(completeMatches()!==14){notify('All 14 match results are required to award the trophy.');return}
     const ranked=calculate();const leader=ranked[0];const champions=ranked.filter(t=>t.points===leader.points&&t.wins===leader.wins&&t.pd===leader.pd).map(t=>t.id);
     const champNames=champions.map(id=>getPlayer(id).name).join(' & ');
     if(!confirm(`Crown ${champNames} as ${champions.length>1?'joint champions':'champion'} with ${leader.points} points? This archives the result and locks the scores.`))return;
-    state.archive.push({id:state.active.id,name:state.active.name,date:state.active.date,champions,winningPoints:leader.points,participants:[...state.active.participants],standings:ranked,completedAt:new Date().toISOString()});state.active.completed=true;save();renderAll();notify(`🏆 ${champNames} ${champions.length>1?'are your champions!':'is your champion!'}`);
+    state.archive.push({id:state.active.id,name:state.active.name,kind:'americano',date:state.active.date,champions,winningPoints:leader.points,participants:[...state.active.participants],standings:ranked,completedAt:new Date().toISOString()});state.active.completed=true;save();renderAll();notify(`🏆 ${champNames} ${champions.length>1?'are your champions!':'is your champion!'}`);
   }
   function openPlayer(id){const p=getPlayer(id);el('editPlayerId').value=p.id;el('editPlayerName').value=p.name;el('editPlayerNick').value=p.nickname||'';el('editPlayerStyle').value=p.style||'THE CHALLENGER';el('editPlayerBio').value=p.bio||'';el('dialogAvatar').src=imgFor(p);const cups=state.archive.filter(e=>e.kind==='americano'&&Array.isArray(e.standings));const points=cups.reduce((n,e)=>n+(e.standings.find(x=>x.id===id)?.points||0),0);const apps=cups.filter(e=>e.participants?.includes(id)).length;const titles=cups.filter(e=>e.champions?.includes(id)).length;const b2=state.archive.find(e=>e.id==='b2-cup');const side=b2?.matches?.some(m=>m.a.includes(id))?'HIPEX':b2?.matches?.some(m=>m.b.includes(id))?'POLY':null;el('playerCareerMetrics').innerHTML=`<div><strong>${titles}</strong><span>PPC TITLES</span></div><div><strong>${apps}</strong><span>PPC APPS</span></div><div><strong>${points}</strong><span>PPC POINTS</span></div>`+(side?`<p>B2CUP · ${side}${side==='HIPEX'?' 🏆':''}</p>`:'');el('editPlayerDialog').showModal()}
   function updatePlayer(event){event.preventDefault();const id=el('editPlayerId').value;const p=state.players.find(x=>x.id===id);if(!p)return;const name=el('editPlayerName').value.trim();if(!name){notify('Player name cannot be blank.');return}p.name=name;p.nickname=el('editPlayerNick').value.trim()||'NEW CHALLENGER';p.style=el('editPlayerStyle').value;p.bio=el('editPlayerBio').value.trim();save();renderAll();el('editPlayerDialog').close();notify(`${p.name}'s player profile updated.`)}
@@ -229,7 +262,7 @@
     state.archive.push({id:`historic-${Date.now()}`,name,date:date||null,dateLabel:'DATE TO CONFIRM',kind:'americano',order:0,champions:[champion],runnerUpId:runner||null,participants:null});save();renderAll();el('historyDialog').close();notify('Real tournament result added to Hall of Fame.')
   }
   function countdown(){const ms=COMEBACK_START.getTime()-Date.now();if(ms<=0){el('countdown').innerHTML='<span class="timeunit"><strong>GAME</strong><small>ON!</small></span>';return}const days=Math.floor(ms/86400000),hours=Math.floor(ms/3600000)%24,minutes=Math.floor(ms/60000)%60;el('countdown').innerHTML=[[days,'D'],[hours,'H'],[minutes,'M']].map(([n,u])=>`<span class="timeunit"><strong>${String(n).padStart(2,'0')}</strong><small>${u}</small></span>`).join('')}
-  function exportClub(){const blob=new Blob([JSON.stringify({app:'PINNACLE//PADEL',exportedAt:new Date().toISOString(),data:state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`shift-smash-backup-${new Date().toISOString().slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);notify('Club data backup downloaded.')}
+  function exportClub(){const blob=new Blob([JSON.stringify({app:'PADEL//PINNACLE',exportedAt:new Date().toISOString(),data:state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`ppc-backup-${new Date().toISOString().slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);notify('Club data backup downloaded.')}
   async function importClub(event){const file=event.target.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const incoming=parsed.data||parsed;if(!incoming||!Array.isArray(incoming.players)||!Array.isArray(incoming.archive)||!incoming.active||!Array.isArray(incoming.active.fixtures)||!Array.isArray(incoming.selected))throw Error('Invalid backup format');if(!confirm('Import this backup? It will replace all player names, tournament scores, and history in this browser.'))return;
     state=incoming;save();renderAll();notify('Club data restored from backup.')
   }catch(e){notify(`Import failed: ${e.message}`)}finally{event.target.value=''}}
