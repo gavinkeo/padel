@@ -2,7 +2,7 @@
 window.PPC_PLAYER_PORTRAITS={
 "p-gavin":"./assets/players/gavin.webp?v=20261117-gavin",
 "p-eric":"./assets/players/eric.webp?v=20261117-eric",
-"p-kennedy":"./assets/players/kennedy.webp?v=20261117-kennedy-v2",
+"p-kennedy":"./assets/players/kennedy.webp?v=20261117-kennedy-v3",
 "p-gary":"./assets/players/gary.webp?v=20261117-gary-v3",
 "p-sean":"./assets/players/sean.webp?v=20261117-sean",
 "p-ciaran":"./assets/players/ciaran.webp?v=20261117-ciaran",
