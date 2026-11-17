@@ -8,7 +8,7 @@ window.PPC_PLAYER_PORTRAITS={
 "p-ciaran":"./assets/players/ciaran.webp?v=20261117-ciaran",
 "p-james":"./assets/players/james.webp?v=20261117-james",
 "p-geraldo":"./assets/players/geraldo.webp?v=20261117-ger",
-"p-dan":"./assets/players/dan.webp",
+"p-dan":"./assets/players/dan.webp?v=20261117-daniel",
 "p-peter":"./assets/players/peter.webp",
 "p-connell-mcbride":"./assets/players/connell.webp"
 };
