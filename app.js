@@ -17,8 +17,8 @@
   ];
   const el = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-  const imgFor = player => window.PPC_PLAYER_PORTRAITS?.[player?.id] || window.PPC_AVATARS[String(((Number(player?.avatar)||1)-1)%12+1).padStart(2,'0')];
-  const getPlayer = id => state.players.find(p => p.id === id) || { id, name:'Unknown player', avatar:1, nickname:'NEW CHALLENGER', style:'THE CHALLENGER' };
+  const imgFor = player => window.PPC_PLAYER_PORTRAITS?.[player?.id] || './assets/players/default.svg';
+  const getPlayer = id => state.players.find(p => p.id === id) || { id, name:'Unknown player', avatar:1, nickname:'PLAYER', style:'THE CHALLENGER' };
   const shortName = p => p.name.length > 20 ? p.name.slice(0,17) + '…' : p.name;
   const dateFormat = iso => {const [y,m,d] = String(iso || '').split('-').map(Number);return y&&m&&d ? new Date(Date.UTC(y,m-1,d)).toLocaleDateString('en-IE',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'}).toUpperCase() : 'DATE TBC';};
   const makeFixtures = selected => CORE_SCHEDULE.map((round,i)=>round.map(([a,b],c)=>({id:`r${i}c${c}`,round:i+1,court:c+1,a:a.map(k=>selected[k]),b:b.map(k=>selected[k])})));
@@ -117,7 +117,7 @@
     return [ppc1Cup(),ppc2Cup(),a,b,c];
   }
 
-  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke Murphy'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian',"Cian O'Connor"],['Dan','Daniel McCarthy'],['Peter','Peter Gilroy'],['James',"James O'Leary"],['Rob','Rob McKenzie'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Connell McBride'?'PPC II · ONE-OFF GUEST':handle==='Geraldo'?'GERALDO':handle==='James'?'THREE-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Padel Pinnacle Cup competitor. Full profile coming soon.',avatar:i%12+1}));
+  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke Murphy'],['Geraldo',"Ger O'Brien"],['Sean','Sean Kelly'],['Cian',"Cian O'Connor"],['Dan','Daniel McCarthy'],['Peter','Peter Gilroy'],['James',"James O'Leary"],['Rob','Rob McKenzie'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy'],['Connell McBride','Connell McBride']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='Connell McBride'?'PPC II · ONE-OFF GUEST':handle==='Geraldo'?'GERALDO':handle==='James'?'3-TIME PPC CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PLAYER',style:'PLAYER',bio:'Padel Pinnacle Cup competitor. ',avatar:i%12+1}));
   const defaultState = () => ({version:4,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Padel Pinnacle Cup · The Big Return',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
   const safeLoad = () => {const defaults=defaultState();try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaults;const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected)){
 
@@ -151,7 +151,7 @@
   function renderRoster(){
     el('rosterCount').textContent=`${state.players.length} HISTORIC PLAYERS`;
     const playerStats=calculate();
-    el('rosterGrid').innerHTML=state.players.map((p,i)=>{const isActive=state.active.participants.includes(p.id);const stats=playerStats.find(t=>t.id===p.id);const c=career(p.id);return `<button type="button" class="player-card" data-edit="${esc(p.id)}" aria-label="Edit ${esc(p.name)} profile"><div class="portrait"><img src="${imgFor(p)}" alt="Arcade-style illustration of ${esc(p.name)}" loading="lazy"/><span class="number">${String(i+1).padStart(2,'0')}</span>${isActive?'<span class="player-indicator">◉ SELECTED CONTENDER</span>':''}</div><div class="player-info"><span class="player-role">${esc(p.style || 'THE CHALLENGER')}</span><h3>${esc(p.name)}</h3><div class="player-bottom"><span>${esc(p.nickname||'NEW CHALLENGER')}</span><span><b>${c.wins}</b> TITLES</span></div></div></button>`}).join('');
+    el('rosterGrid').innerHTML=state.players.map((p,i)=>{const isActive=state.active.participants.includes(p.id);const stats=playerStats.find(t=>t.id===p.id);const c=career(p.id);return `<button type="button" class="player-card" data-edit="${esc(p.id)}" aria-label="View ${esc(p.name)} profile"><div class="portrait"><img src="${imgFor(p)}" alt="Arcade-style illustration of ${esc(p.name)}" loading="lazy"/><span class="number">${String(i+1).padStart(2,'0')}</span>${isActive?'<span class="player-indicator">◉ SELECTED CONTENDER</span>':''}</div><div class="player-info"><h3>${esc(p.name)}</h3><div class="player-bottom"><span>${esc(p.nickname||'PLAYER')}</span><span><b>${c.wins}</b> TITLES</span></div></div></button>`}).join('');
     el('rosterGrid').querySelectorAll('[data-edit]').forEach(node=>node.addEventListener('click',()=>openPlayer(node.dataset.edit)));
   }
   function renderPicker(){
@@ -173,7 +173,7 @@
     el('matchCards').querySelectorAll('[data-score]').forEach(btn=>btn.addEventListener('click',()=>saveScore(btn.dataset.score)));
     el('prevRound').disabled=round===0;el('nextRound').disabled=round===6;
     el('finalizeBtn').disabled=state.active.completed||completeMatches()<14;
-    el('finalizeBtn').textContent=state.active.completed?'CHAMPION CROWNED ★':'CROWN THE CHAMPION ★';
+    el('finalizeBtn').textContent=state.active.completed?'CHAMPION CROWNED ★':'CONFIRM CHAMPION';
   }
   function saveScore(id){if(state.active.completed){notify('Tournament already finalised. Start a new event for new scores.');return}
     const input=el(`score-${id}`);const raw=input?.value?.trim();const num=Number(raw);
@@ -241,7 +241,7 @@
       const tagline=team?`${a.winningScore}–${a.losingScore} · ${a.winningTeam} DEFEAT ${a.losingTeam}`:
         `CHAMPION: ${champ}${a.winningPoints!=null?' · '+a.winningPoints+' POINTS':''}${a.id==='ppc-2'?' · PPC II INCIDENT REPORT':''}${a.runnerUpId?' · RUNNER-UP: '+getPlayer(a.runnerUpId).name:''}`;
       const avatar=team?'<span class="record-icon">⚔</span>':`<img src="${imgFor(getPlayer((a.champions||[])[0]))}" alt="" />`;
-      return `<button type="button" class="history-record archive-entry" data-archive="${esc(a.id)}" aria-label="See full ${esc(a.name)} results">${avatar}<span class="history-record-info"><span class="history-date">${esc(a.date?dateFormat(a.date):a.dateLabel||'DATE TO CONFIRM')} · ${team?'TEAM SHOWDOWN':'AMERICANO'}</span><h4>${esc(a.name)}</h4><p>${esc(tagline)}</p><span class="archive-open">VIEW MATCHES, STANDINGS & SCORES ↗</span></span><span class="medal">${team?'⚡':'★'}</span></button>`;
+      return `<button type="button" class="history-record archive-entry" data-archive="${esc(a.id)}" aria-label="See full ${esc(a.name)} results">${avatar}<span class="history-record-info"><span class="history-date">${esc(a.date?dateFormat(a.date):a.dateLabel||'DATE TO CONFIRM')} · ${team?'TEAM SHOWDOWN':'AMERICANO'}</span><h4>${esc(a.name)}</h4><p>${esc(tagline)}</p><span class="archive-open">VIEW RESULTS ↗</span></span><span class="medal">${team?'⚡':'★'}</span></button>`;
     }).join('');
     el('archiveList').querySelectorAll('[data-archive]').forEach(btn=>btn.addEventListener('click',()=>openArchive(btn.dataset.archive)));
   }
@@ -278,15 +278,37 @@
     if(!confirm(`Crown ${champNames} as ${champions.length>1?'joint champions':'champion'} with ${leader.points} points? This archives the result and locks the scores.`))return;
     state.archive.push({id:state.active.id,name:state.active.name,kind:'americano',date:state.active.date,champions,winningPoints:leader.points,participants:[...state.active.participants],standings:ranked,completedAt:new Date().toISOString()});state.active.completed=true;save();renderAll();notify(`🏆 ${champNames} ${champions.length>1?'are your champions!':'is your champion!'}`);
   }
-  function openPlayer(id){const p=getPlayer(id);el('editPlayerId').value=p.id;el('editPlayerName').value=p.name;el('editPlayerNick').value=p.nickname||'';el('editPlayerStyle').value=p.style||'THE CHALLENGER';el('editPlayerBio').value=p.bio||'';el('dialogAvatar').src=imgFor(p);const cups=state.archive.filter(e=>e.kind==='americano'&&Array.isArray(e.standings));const points=cups.reduce((n,e)=>n+(e.standings.find(x=>x.id===id)?.points||0),0);const apps=cups.filter(e=>e.participants?.includes(id)).length;const titles=cups.filter(e=>e.champions?.includes(id)).length;const b2=state.archive.find(e=>e.id==='b2-cup');const side=b2?.matches?.some(m=>m.a.includes(id))?'HIPEX':b2?.matches?.some(m=>m.b.includes(id))?'POLY':null;el('playerCareerMetrics').innerHTML=`<div><strong>${titles}</strong><span>PPC TITLES</span></div><div><strong>${apps}</strong><span>PPC APPS</span></div><div><strong>${points}</strong><span>PPC POINTS</span></div>`+(side?`<p>B2CUP · ${side}${side==='HIPEX'?' 🏆':''}</p>`:'');el('editPlayerDialog').showModal()}
-  function updatePlayer(event){event.preventDefault();const id=el('editPlayerId').value;const p=state.players.find(x=>x.id===id);if(!p)return;const name=el('editPlayerName').value.trim();if(!name){notify('Player name cannot be blank.');return}p.name=name;p.nickname=el('editPlayerNick').value.trim()||'NEW CHALLENGER';p.style=el('editPlayerStyle').value;p.bio=el('editPlayerBio').value.trim();save();renderAll();el('editPlayerDialog').close();notify(`${p.name}'s player profile updated.`)}
-  function addPlayer(){if(state.players.length>=20){notify('Maximum 20 players in this edition.');return}const i=state.players.length+1;const p={id:`p-${Date.now()}`,name:`Player ${String(i).padStart(2,'0')}`,nickname:'NEW CHALLENGER',style:'THE CHALLENGER',bio:'Your story starts on the court.',avatar:(i-1)%12+1};state.players.push(p);save();renderAll();openPlayer(p.id);notify('New player slot added.')}
+  function openPlayer(id){
+    const p=getPlayer(id);
+    el('editPlayerId').value=p.id;
+    el('editPlayerName').value=p.name;
+    el('editPlayerNick').value=p.nickname||'';
+    el('editPlayerStyle').value=p.style||'THE CHALLENGER';
+    el('editPlayerBio').value=p.bio||'';
+    el('dialogAvatar').src=imgFor(p);el('dialogAvatar').alt='Illustrated portrait of '+p.name;
+    el('profileName').textContent=p.name;
+    const nickname=p.nickname||'';
+    el('profileNick').textContent=['PLAYER','PPC CONTENDER','NEW CHALLENGER'].includes(nickname)?'':nickname;
+    const bio=p.bio||'';
+    el('profileBio').textContent=bio.includes('Full profile coming soon')?'':bio;
+    const cups=state.archive.filter(e=>e.kind==='americano'&&Array.isArray(e.standings));
+    const points=cups.reduce((total,e)=>total+(e.standings.find(x=>x.id===id)?.points||0),0);
+    const appearances=cups.filter(e=>e.participants?.includes(id)).length;
+    const titles=state.archive.filter(e=>e.kind==='americano'&&e.champions?.includes(id)).length;
+    const b2=state.archive.find(e=>e.id==='b2-cup');
+    const side=b2?.matches?.some(m=>m.a.includes(id))?'HipEx':b2?.matches?.some(m=>m.b.includes(id))?'Poly':null;
+    el('playerCareerMetrics').innerHTML=`<div><strong>${titles}</strong><span>PPC Titles</span></div><div><strong>${appearances}</strong><span>Events</span></div><div><strong>${points}</strong><span>Total Points</span></div>`+(side?`<p>B2Cup · ${side}</p>`:'');
+    el('editPlayerDetails').open=false;
+    el('editPlayerDialog').showModal();
+  }
+  function updatePlayer(event){event.preventDefault();const id=el('editPlayerId').value;const p=state.players.find(x=>x.id===id);if(!p)return;const name=el('editPlayerName').value.trim();if(!name){notify('Player name cannot be blank.');return}p.name=name;p.nickname=el('editPlayerNick').value.trim()||'PLAYER';p.style=el('editPlayerStyle').value;p.bio=el('editPlayerBio').value.trim();save();renderAll();el('editPlayerDialog').close();notify(`${p.name}'s player profile updated.`)}
+  function addPlayer(){if(state.players.length>=20){notify('Maximum 20 players in this edition.');return}const i=state.players.length+1;const p={id:`p-${Date.now()}`,name:`Player ${String(i).padStart(2,'0')}`,nickname:'PLAYER',style:'THE CHALLENGER',bio:'',avatar:(i-1)%12+1};state.players.push(p);save();renderAll();openPlayer(p.id);notify('New player slot added.')}
   function openHistory(){el('historyName').value='';el('historyDate').value='';const options=state.players.map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');el('historyWinner').innerHTML='<option value="">Select the champion</option>'+options;el('historyRunner').innerHTML='<option value="">Not recorded</option>'+options;el('historyDialog').showModal()}
   function addHistory(event){event.preventDefault();const name=el('historyName').value.trim(),date=el('historyDate').value,champion=el('historyWinner').value,runner=el('historyRunner').value;
-    if(!name||!champion){notify('Event name, date and champion are required.');return}if(runner===champion){notify('Champion and runner-up must be different players.');return}
+    if(!name||!champion){notify('Event name and champion are required.');return}if(runner===champion){notify('Champion and runner-up must be different players.');return}
     state.archive.push({id:`historic-${Date.now()}`,name,date:date||null,dateLabel:'DATE TO CONFIRM',kind:'americano',order:0,champions:[champion],runnerUpId:runner||null,participants:null});save();renderAll();el('historyDialog').close();notify('Real tournament result added to Hall of Fame.')
   }
-  function countdown(){const ms=COMEBACK_START.getTime()-Date.now();if(ms<=0){el('countdown').innerHTML='<span class="timeunit"><strong>GAME</strong><small>ON!</small></span>';return}const days=Math.floor(ms/86400000),hours=Math.floor(ms/3600000)%24,minutes=Math.floor(ms/60000)%60;el('countdown').innerHTML=[[days,'D'],[hours,'H'],[minutes,'M']].map(([n,u])=>`<span class="timeunit"><strong>${String(n).padStart(2,'0')}</strong><small>${u}</small></span>`).join('')}
+  function countdown(){const ms=COMEBACK_START.getTime()-Date.now();if(ms<=0){el('countdown').innerHTML='<span class="timeunit"><strong>00</strong><small>Days</small></span>';return}const days=Math.floor(ms/86400000),hours=Math.floor(ms/3600000)%24,minutes=Math.floor(ms/60000)%60;el('countdown').innerHTML=[[days,'Days'],[hours,'Hours'],[minutes,'Minutes']].map(([n,u])=>`<span class="timeunit"><strong>${String(n).padStart(2,'0')}</strong><small>${u}</small></span>`).join('')}
   function exportClub(){const blob=new Blob([JSON.stringify({app:'PADEL//PINNACLE',exportedAt:new Date().toISOString(),data:state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`ppc-backup-${new Date().toISOString().slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);notify('Club data backup downloaded.')}
   async function importClub(event){const file=event.target.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const incoming=parsed.data||parsed;if(!incoming||!Array.isArray(incoming.players)||!Array.isArray(incoming.archive)||!incoming.active||!Array.isArray(incoming.active.fixtures)||!Array.isArray(incoming.selected))throw Error('Invalid backup format');if(!confirm('Import this backup? It will replace all player names, tournament scores, and history in this browser.'))return;
     state=incoming;save();renderAll();notify('Club data restored from backup.')

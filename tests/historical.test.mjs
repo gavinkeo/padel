@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,statSync} from 'node:fs';
 const x=JSON.parse(readFileSync(new URL('../data/official-results.json',import.meta.url),'utf8')).events;
 test('PPC I, III and IV champions',()=>{for(const [id,champion,pts] of [['ppc-1','p-james',151],['ppc-3','p-dan',137],['ppc-4','p-james',140]]){const e=x.find(e=>e.id===id);assert.equal(e.champions[0],champion);assert.equal(e.winningPoints,pts)}});
 test('PPC I scores, standings, date, and results reconcile',()=>{const e=x.find(e=>e.id==='ppc-1');assert.equal(e.date,'2024-11-22');assert.equal(e.matchScoresVerified,true);assert.equal(e.matches.length,14);assert.equal(e.standings.length,8);assert.equal(e.standings.reduce((n,p)=>n+p.points,0),896);assert.equal(e.standings.reduce((n,p)=>n+p.against,0),896);const scores={};for(const p of e.participants)scores[p]={points:0,against:0,wins:0,draws:0,losses:0,played:0};for(const m of e.matches){assert.equal(m.scoreA+m.scoreB,32);for(const [team,pf,pa] of [[m.a,m.scoreA,m.scoreB],[m.b,m.scoreB,m.scoreA]])for(const id of team){const v=scores[id];v.points+=pf;v.against+=pa;v.wins+=Number(pf>pa);v.draws+=Number(pf===pa);v.losses+=Number(pf<pa);v.played++}}for(const p of e.standings){const v=scores[p.id];assert.deepEqual([v.points,v.against,v.wins,v.draws,v.losses,v.played],[p.points,p.against,p.wins,p.draws,p.losses,p.played]);assert.equal(p.points-p.against,p.pd)}assert.equal(e.matches[11].scoreA,9);assert.equal(e.matches[11].scoreB,23)});
@@ -38,4 +38,19 @@ test('Roll of Honour shows James three titles and Dan one, excluding B2Cup',()=>
   const js=readFileSync(new URL('../app.js',import.meta.url),'utf8');
   assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
   assert.ok(js.includes('renderHonours();renderMerit();'));
+});
+
+test('Large player portraits, fallback and profile viewer are wired up',()=>{
+ const portraits=readFileSync(new URL('../portraits.js',import.meta.url),'utf8');
+ const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+ const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+ for(const name of ['eric','kennedy','gavin','gary','sean','ciaran','james','geraldo','dan']){
+   assert.ok(statSync(new URL('../assets/players/'+name+'.webp',import.meta.url)).size>10000,name+' image should be high resolution');
+   assert.ok(portraits.includes('p-'+name),name+' has a custom portrait');
+ }
+ assert.ok(statSync(new URL('../assets/players/default.svg',import.meta.url)).size>500);
+ assert.ok(app.includes("window.PPC_PLAYER_PORTRAITS?.[player?.id] || './assets/players/default.svg'"));
+ assert.ok(html.includes('id="profileName"') && html.includes('id="editPlayerDetails"'));
+ assert.ok(app.includes("[days,'Days']")&&app.includes("[hours,'Hours']")&&app.includes("[minutes,'Minutes']"));
+ assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
 });

@@ -50,3 +50,7 @@ The Order of Merit sums scored points from **individual PPC events with verified
 ## Roll of Honour
 
 The homepage now shows the **Roll of Honour** before Order of Merit. Individual PPC title winners are calculated from the verified archive: James O'Leary **3 titles** (PPC I, II, IV) and Daniel McCarthy / Dan **1 title** (PPC III). The HipEx v Poly B2Cup is a separate team contest, excluded from individual title counts. The cards update when future tournaments are archived; the cup badges open the original match archive.
+
+## Profile portrait and interface update (November 2026)
+
+The eight original cartoon illustrations are now their matching 1000×1000 high-resolution sources, with no change of art style. A ninth matching portrait was created for Daniel McCarthy. Players without a custom portrait use the grey anonymous avatar at `assets/players/default.svg`, **not** a random or duplicate player's face. Opening a player card shows a high-resolution portrait and career statistics; editing is now under an optional expandable section. Countdown labels read **Days, Hours, Minutes** and the public homepage language was simplified. All results, Order of Merit, Hall of Fame and club scoring functionality remain intact.
