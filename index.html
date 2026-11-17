@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0758aa">
   <meta name="description" content="Padel Pinnacle Cup — champions, all-time rankings, previous results and player profiles."><meta name="color-scheme" content="light">
   <meta property="og:title" content="Padel Pinnacle Cup">
-  <meta property="og:description" content="PPC results, Roll of Honour, Order of Merit and player statistics.">
+  <meta property="og:description" content="PPC results, Champions, Order of Merit and player statistics.">
   <title>Padel Pinnacle Cup | PPC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     <span>PADEL <b>PINNACLE</b> CUP <small>EST. 2024</small></span>
   </a>
   <nav class="main-nav" aria-label="Site sections">
-    <a href="#players">Provisional Rankings</a><a href="#merit">Order of Merit</a><a href="#honours">Honours</a><a href="#history">Record Book</a>
+    <a href="#players">Rankings</a><a href="#honours">Champions</a><a href="#merit">Order of Merit</a><a href="#history">Tournaments</a>
   </nav>
 </header>
 <main id="top">
@@ -51,7 +51,14 @@
         <div id="playerList" class="rankings-list"><p class="loading">Loading rankings…</p></div>
       </div>
     </div>
-  </section>  <section id="merit" class="content-section merit-section">
+  </section>
+  <section id="honours" class="content-section honours-section">
+    <div class="shell">
+      <div class="section-heading"><h2>Champions</h2></div>
+      <div class="honours-grid" id="honoursList"><p class="loading">James O’Leary · 3 titles; Daniel McCarthy · 1 title — loading profiles…</p></div>
+    </div>
+  </section>
+  <section id="merit" class="content-section merit-section">
     <div class="shell">
       <div class="section-heading"><h2>Order of Merit</h2></div>
       <div class="merit-panel">
@@ -60,15 +67,9 @@
       </div>
     </div>
   </section>
-  <section id="honours" class="content-section honours-section">
-    <div class="shell">
-      <div class="section-heading"><h2>Roll of Honour</h2></div>
-      <div class="honours-grid" id="honoursList"><p class="loading">James O’Leary · 3 titles; Daniel McCarthy · 1 title — loading profiles…</p></div>
-    </div>
-  </section>
   <section id="history" class="content-section history-section">
     <div class="shell">
-      <div class="section-heading"><h2>The Record Book</h2></div>
+      <div class="section-heading"><h2>Tournaments</h2></div>
       <div id="archiveList" class="archive-grid"><p class="loading">Tournament history loading…</p></div>
     </div>
   </section>
