@@ -25,7 +25,7 @@
 
 
 /* HISTORIC PINNACLE CUP */
-.legacy-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:35px}
+.legacy-highlights{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:35px}
 .legacy-stat{text-align:left;border:1px solid #424933;background:linear-gradient(132deg,#1d271c,#111a18);padding:22px 24px;display:flex;flex-direction:column;gap:10px;min-height:169px;color:#eef4e9;transition:.2s}
 .legacy-stat:hover,.archive-entry:hover{border-color:var(--lime);transform:translateY(-2px)}
 .legacy-stat>span{color:var(--lime);font:700 10px var(--fmono);letter-spacing:.5px}
@@ -77,3 +77,6 @@
 .player-career-metrics strong{display:block;font:900 26px var(--fhead);color:var(--lime)}
 .player-career-metrics span{display:block;font:700 8px var(--fmono);color:#9cad9b}
 .player-career-metrics p{grid-column:1/-1;margin:1px 0;color:var(--lime);font:700 10px var(--fmono);text-align:center}
+
+.historic-source-link{color:#d9fc64;font:800 12px var(--fmono);text-decoration:underline;text-underline-offset:4px}.historic-source-link:hover{color:white}
+@media(max-width:1000px){.legacy-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.legacy-highlights{grid-template-columns:1fr}}

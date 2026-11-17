@@ -1,6 +1,329 @@
 {
-  "provenance": "Organizer-provided photographed historic result sheets; dates unknown",
+  "provenance": "PPC I: photographs of historical fixture sheet and standings, plus source link to Padelution. PPC III/IV and B2Cup: photo of original scores. PPC I matches are listed with null scores because exact results were not accessible.",
   "events": [
+    {
+      "id": "ppc-1",
+      "name": "Pinnacle Padel Cup I",
+      "number": 1,
+      "order": 1,
+      "kind": "americano",
+      "date": null,
+      "dateLabel": "2024–25 · DATE TO CONFIRM",
+      "source": "Original photographed fixture sheet and final standings",
+      "sourceUrl": "https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281",
+      "matchScoresVerified": false,
+      "champions": [
+        "p-james"
+      ],
+      "runnerUpId": "p-sean",
+      "winningPoints": 151,
+      "participants": [
+        "p-james",
+        "p-sean",
+        "p-gavin",
+        "p-gary",
+        "p-geraldo",
+        "p-kennedy",
+        "p-eric",
+        "p-ciaran"
+      ],
+      "standings": [
+        {
+          "id": "p-james",
+          "wins": 6,
+          "draws": 0,
+          "losses": 1,
+          "played": 7,
+          "points": 151,
+          "against": 73,
+          "pd": 78
+        },
+        {
+          "id": "p-sean",
+          "wins": 4,
+          "draws": 0,
+          "losses": 3,
+          "played": 7,
+          "points": 120,
+          "against": 104,
+          "pd": 16
+        },
+        {
+          "id": "p-gavin",
+          "wins": 4,
+          "draws": 0,
+          "losses": 3,
+          "played": 7,
+          "points": 118,
+          "against": 106,
+          "pd": 12
+        },
+        {
+          "id": "p-gary",
+          "wins": 5,
+          "draws": 0,
+          "losses": 2,
+          "played": 7,
+          "points": 114,
+          "against": 110,
+          "pd": 4
+        },
+        {
+          "id": "p-geraldo",
+          "wins": 3,
+          "draws": 0,
+          "losses": 4,
+          "played": 7,
+          "points": 112,
+          "against": 112,
+          "pd": 0,
+          "sourceLabel": "GER O'BRIEN (identity to confirm)"
+        },
+        {
+          "id": "p-kennedy",
+          "wins": 3,
+          "draws": 0,
+          "losses": 4,
+          "played": 7,
+          "points": 111,
+          "against": 113,
+          "pd": -2
+        },
+        {
+          "id": "p-eric",
+          "wins": 2,
+          "draws": 0,
+          "losses": 5,
+          "played": 7,
+          "points": 87,
+          "against": 137,
+          "pd": -50
+        },
+        {
+          "id": "p-ciaran",
+          "wins": 1,
+          "draws": 0,
+          "losses": 6,
+          "played": 7,
+          "points": 83,
+          "against": 141,
+          "pd": -58
+        }
+      ],
+      "matches": [
+        {
+          "id": "ppc-1-m1",
+          "round": 1,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-ciaran"
+          ],
+          "b": [
+            "p-gavin",
+            "p-sean"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m2",
+          "round": 1,
+          "court": 3,
+          "a": [
+            "p-james",
+            "p-eric"
+          ],
+          "b": [
+            "p-gary",
+            "p-geraldo"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m3",
+          "round": 2,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-gavin"
+          ],
+          "b": [
+            "p-james",
+            "p-geraldo"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m4",
+          "round": 2,
+          "court": 3,
+          "a": [
+            "p-eric",
+            "p-gary"
+          ],
+          "b": [
+            "p-sean",
+            "p-ciaran"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m5",
+          "round": 3,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-james"
+          ],
+          "b": [
+            "p-eric",
+            "p-ciaran"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m6",
+          "round": 3,
+          "court": 3,
+          "a": [
+            "p-gary",
+            "p-sean"
+          ],
+          "b": [
+            "p-geraldo",
+            "p-gavin"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m7",
+          "round": 4,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-eric"
+          ],
+          "b": [
+            "p-gary",
+            "p-gavin"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m8",
+          "round": 4,
+          "court": 3,
+          "a": [
+            "p-sean",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-ciaran",
+            "p-james"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m9",
+          "round": 5,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-gary"
+          ],
+          "b": [
+            "p-sean",
+            "p-james"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m10",
+          "round": 5,
+          "court": 3,
+          "a": [
+            "p-geraldo",
+            "p-ciaran"
+          ],
+          "b": [
+            "p-gavin",
+            "p-eric"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m11",
+          "round": 6,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-sean"
+          ],
+          "b": [
+            "p-geraldo",
+            "p-eric"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m12",
+          "round": 6,
+          "court": 3,
+          "a": [
+            "p-ciaran",
+            "p-gavin"
+          ],
+          "b": [
+            "p-james",
+            "p-gary"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m13",
+          "round": 7,
+          "court": 2,
+          "a": [
+            "p-kennedy",
+            "p-geraldo"
+          ],
+          "b": [
+            "p-ciaran",
+            "p-gary"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        },
+        {
+          "id": "ppc-1-m14",
+          "round": 7,
+          "court": 3,
+          "a": [
+            "p-gavin",
+            "p-james"
+          ],
+          "b": [
+            "p-eric",
+            "p-sean"
+          ],
+          "scoreA": null,
+          "scoreB": null
+        }
+      ],
+      "pointsPerMatch": 32
+    },
     {
       "id": "ppc-3",
       "name": "Pinnacle Padel Cup III",

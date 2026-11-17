@@ -17,7 +17,7 @@
   ];
   const el = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-  const imgFor = player => window.PPC_AVATARS[String(((Number(player?.avatar)||1)-1)%12+1).padStart(2,'0')];
+  const imgFor = player => window.PPC_PLAYER_PORTRAITS?.[player?.id] || window.PPC_AVATARS[String(((Number(player?.avatar)||1)-1)%12+1).padStart(2,'0')];
   const getPlayer = id => state.players.find(p => p.id === id) || { id, name:'Unknown player', avatar:1, nickname:'NEW CHALLENGER', style:'THE CHALLENGER' };
   const shortName = p => p.name.length > 20 ? p.name.slice(0,17) + '…' : p.name;
   const dateFormat = iso => {const [y,m,d] = String(iso || '').split('-').map(Number);return y&&m&&d ? new Date(Date.UTC(y,m-1,d)).toLocaleDateString('en-IE',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'}).toUpperCase() : 'DATE TBC';};
@@ -26,6 +26,41 @@
   /* Verified from photographs of PPC III, PPC IV and the HipEx v Poly B2Cup.
      Exact event dates are not printed. Keep them unknown until confirmed. */
   const ID = name => 'p-'+name.toLowerCase().replace(/[^a-z0-9]/g,'');
+
+  // PPC I: source images of original fixtures and standings. Individual scores are still unverified.
+  const PPC1_STANDINGS=[
+    ['James',6,0,1,151,73,78],['Sean',4,0,3,120,104,16],
+    ['Gavin',4,0,3,118,106,12],['Gary',5,0,2,114,110,4],
+    ['Geraldo',3,0,4,112,112,0],['Kennedy',3,0,4,111,113,-2],
+    ['Eric',2,0,5,87,137,-50],['Ciaran',1,0,6,83,141,-58]
+  ];
+  const PPC1_FIXTURES=[
+    ['Kennedy/Ciaran','Gavin/Sean'],['James/Eric','Gary/Geraldo'],
+    ['Kennedy/Gavin','James/Geraldo'],['Eric/Gary','Sean/Ciaran'],
+    ['Kennedy/James','Eric/Ciaran'],['Gary/Sean','Geraldo/Gavin'],
+    ['Kennedy/Eric','Gary/Gavin'],['Sean/Geraldo','Ciaran/James'],
+    ['Kennedy/Gary','Sean/James'],['Geraldo/Ciaran','Gavin/Eric'],
+    ['Kennedy/Sean','Geraldo/Eric'],['Ciaran/Gavin','James/Gary'],
+    ['Kennedy/Geraldo','Ciaran/Gary'],['Gavin/James','Eric/Sean']
+  ];
+  function ppc1Cup(){
+    const standings=PPC1_STANDINGS.map(([handle,wins,draws,losses,points,against,pd])=>({
+      id:ID(handle),wins,draws,losses,played:7,points,against,pd,
+      ...(handle==='Geraldo'?{sourceLabel:"GER O'BRIEN (identity to confirm)"}:{})
+    }));
+    const matches=PPC1_FIXTURES.map(([teamA,teamB],i)=>({
+      id:'ppc-1-m'+(i+1),round:Math.floor(i/2)+1,court:i%2===0?2:3,
+      a:teamA.split('/').map(ID),b:teamB.split('/').map(ID),
+      scoreA:null,scoreB:null
+    }));
+    return {id:'ppc-1',name:'Pinnacle Padel Cup I',number:1,order:1,kind:'americano',
+      date:null,dateLabel:'2024–25 · DATE TO CONFIRM',
+      source:'Original photographed fixture sheet and final standings',
+      sourceUrl:'https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281',
+      matchScoresVerified:false,
+      champions:['p-james'],runnerUpId:'p-sean',winningPoints:151,
+      participants:standings.map(p=>p.id),standings,matches,pointsPerMatch:32};
+  }
   const PPC3 = [
     ['Gavin/Kennedy','Ciaran/Luke',17,15],['Geraldo/Sean','Cian/Dan',10,22],
     ['Ciaran/Gavin','Cian/Sean',17,15],['Dan/Geraldo','Kennedy/Luke',22,10],
@@ -73,12 +108,19 @@
     const matches=historicMatches(B2,'b2',[2,3,4]);
     const scores=[0,1,2,3,4].map(i=>({round:i+1,time:['10:00','10:24','10:48','11:12','11:36'][i],a:matches.slice(i*3,i*3+3).reduce((s,m)=>s+m.scoreA,0),b:matches.slice(i*3,i*3+3).reduce((s,m)=>s+m.scoreB,0)}));
     const c={id:'b2-cup',name:'B2Cup · HipEx vs Poly',kind:'team',order:5,date:null,dateLabel:'DATE TO CONFIRM',source:'Photographed original Ryder Cup-style team sheet',winningTeam:'HipEx',losingTeam:'Poly',winningScore:411,losingScore:309,champions:[],participants:[...new Set(matches.flatMap(m=>[...m.a,...m.b]))],matches,rounds:scores,pointsPerMatch:48};
-    return [a,b,c];
+    return [ppc1Cup(),a,b,c];
   }
 
-  const defaultPlayers = ['Gavin','Kennedy','Ciaran','Luke','Geraldo','Sean','Cian','Dan','Peter','James','Rob','Gary','Jack','Bean'].map((name,i)=>({id:ID(name),name,nickname:'PPC CONTENDER',style:'THE CHALLENGER',bio:'Pinnacle Padel Cup competitor. Full profile coming soon.',avatar:i%12+1}));
-  const defaultState = () => ({version:2,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Pinnacle Comeback Cup',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
-  const safeLoad = () => {try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaultState();const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected))return parsed;}catch(e){console.warn('Saved data unavailable:',e)}return defaultState();};
+  const defaultPlayers = [['Gavin','Gavin Keohane'],['Kennedy','Kennedy Murphy'],['Ciaran','Ciaran Kearney'],['Luke','Luke'],['Geraldo','Geraldo'],['Sean','Sean Kelly'],['Cian','Cian'],['Dan','Dan'],['Peter','Peter'],['James',"James O'Leary"],['Rob','Rob'],['Gary','Gary Foolkes'],['Jack','Jack'],['Bean','Bean'],['Eric','Eric Trihy']].map(([handle,name],i)=>({id:ID(handle),name,nickname:handle==='James'?'PPC I & IV CHAMPION':handle==='Dan'?'PPC III CHAMPION':'PPC CONTENDER',style:'THE CHALLENGER',bio:'Pinnacle Padel Cup competitor. Full profile coming soon.',avatar:i%12+1}));
+  const defaultState = () => ({version:3,players:defaultPlayers,selected:[],active:{id:'comeback-2026',name:'Pinnacle Comeback Cup',date:'2026-12-04',participants:[],fixtures:[],scores:{},completed:false},archive:seedArchive(),viewRound:0});
+  const safeLoad = () => {const defaults=defaultState();try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return defaults;const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.players)&&Array.isArray(parsed.archive)&&parsed.active&&Array.isArray(parsed.active.fixtures)&&Array.isArray(parsed.selected)){
+    const oldById=new Map(parsed.players.map(p=>[p.id,p]));
+    parsed.players=defaults.players.map(p=>{const prev=oldById.get(p.id);if(!prev)return p;const oldName=p.id.slice(2);const defaultOldName=oldName.charAt(0).toUpperCase()+oldName.slice(1);return {...p,...prev,name:prev.name===defaultOldName?p.name:prev.name};})
+      .concat(parsed.players.filter(p=>!defaults.players.some(d=>d.id===p.id)));
+    const official=new Set(defaults.archive.map(e=>e.id));
+    parsed.archive=[...defaults.archive,...parsed.archive.filter(e=>!official.has(e.id))];
+    parsed.version=3;return parsed;
+    }}catch(e){console.warn('Saved data unavailable:',e)}return defaults;};
   let state = safeLoad();
   let toastTimer;
   function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){console.warn('Local save unavailable:',e);notify('Could not save — browser storage may be disabled.')}}
@@ -96,7 +138,7 @@
   function renderRoster(){
     el('rosterCount').textContent=`${state.players.length} HISTORIC PLAYERS`;
     const playerStats=calculate();
-    el('rosterGrid').innerHTML=state.players.map((p,i)=>{const isActive=state.active.participants.includes(p.id);const stats=playerStats.find(t=>t.id===p.id);const c=career(p.id);return `<button type="button" class="player-card" data-edit="${esc(p.id)}" aria-label="Edit ${esc(p.name)} profile"><div class="portrait"><img src="${imgFor(p)}" alt="Fictional game-style avatar for ${esc(p.name)}" loading="lazy"/><span class="number">${String(i+1).padStart(2,'0')}</span>${isActive?'<span class="player-indicator">◉ SELECTED CONTENDER</span>':''}</div><div class="player-info"><span class="player-role">${esc(p.style || 'THE CHALLENGER')}</span><h3>${esc(p.name)}</h3><div class="player-bottom"><span>${esc(p.nickname||'NEW CHALLENGER')}</span><span><b>${c.wins}</b> TITLES</span></div></div></button>`}).join('');
+    el('rosterGrid').innerHTML=state.players.map((p,i)=>{const isActive=state.active.participants.includes(p.id);const stats=playerStats.find(t=>t.id===p.id);const c=career(p.id);return `<button type="button" class="player-card" data-edit="${esc(p.id)}" aria-label="Edit ${esc(p.name)} profile"><div class="portrait"><img src="${imgFor(p)}" alt="Arcade-style illustration of ${esc(p.name)}" loading="lazy"/><span class="number">${String(i+1).padStart(2,'0')}</span>${isActive?'<span class="player-indicator">◉ SELECTED CONTENDER</span>':''}</div><div class="player-info"><span class="player-role">${esc(p.style || 'THE CHALLENGER')}</span><h3>${esc(p.name)}</h3><div class="player-bottom"><span>${esc(p.nickname||'NEW CHALLENGER')}</span><span><b>${c.wins}</b> TITLES</span></div></div></button>`}).join('');
     el('rosterGrid').querySelectorAll('[data-edit]').forEach(node=>node.addEventListener('click',()=>openPlayer(node.dataset.edit)));
   }
   function renderPicker(){
@@ -145,15 +187,18 @@
     const roundsCount=team?5:(a.matches?.length?7:0);
     const summary=team?`<div class="archive-hero-score"><span>HIPEX</span><strong>${a.winningScore} <b>—</b> ${a.losingScore}</strong><span>POLY</span></div><p class="archive-caveat">Historic team totals verified against the original score sheet. Each match was played to 48 points.</p>`:
       `<div class="archive-hero-score"><span>CHAMPION</span><strong>${esc(getPlayer(a.champions[0]).name)} · ${a.winningPoints} PTS</strong><span>${roundsCount} ROUNDS</span></div>`;
-    const standings=team?'':`<div class="archive-detail-title">FINAL PLAYER STANDINGS</div><div class="historic-table-wrap"><table class="historic-table"><thead><tr><th>RANK</th><th>PLAYER</th><th>POINTS</th><th>WINS</th><th>+/-</th></tr></thead><tbody>${(a.standings||[]).map((p,i)=>`<tr><td>${i+1}${i===0?' 🏆':''}</td><td>${esc(getPlayer(p.id).name)}</td><td><b>${p.points}</b></td><td>${p.wins}</td><td>${p.pd>0?'+':''}${p.pd}</td></tr>`).join('')}</tbody></table></div>`;
+    const standings=team?'':`<div class="archive-detail-title">FINAL PLAYER STANDINGS</div><div class="historic-table-wrap"><table class="historic-table"><thead><tr><th>RANK</th><th>PLAYER</th><th>POINTS</th><th>W</th><th>D</th><th>L</th><th>AGAINST</th><th>+/-</th></tr></thead><tbody>${(a.standings||[]).map((p,i)=>`<tr><td>${i+1}${i===0?' 🏆':''}</td><td>${esc(getPlayer(p.id).name)}</td><td><b>${p.points}</b></td><td>${p.wins}</td><td>${p.draws||0}</td><td>${p.losses??(p.played-p.wins-(p.draws||0))}</td><td>${p.against}</td><td>${p.pd>0?'+':''}${p.pd}</td></tr>`).join('')}</tbody></table></div>`;
     const rounds=Array.from({length:roundsCount},(_,i)=>(a.matches||[]).filter(m=>m.round===i+1));
     const matchHTML=rounds.length?rounds.map((ms,i)=>{
       const subtotal=team?a.rounds[i]:null;
-      return `<div class="historic-round"><div class="historic-round-head"><b>ROUND ${String(i+1).padStart(2,'0')}</b><span>${team?subtotal.time:['10:00','10:17','10:34','10:51','11:08','11:25','11:42'][i]}</span>${team?`<strong>HIPEx ${subtotal.a} — ${subtotal.b} POLY</strong>`:''}</div>${ms.map(m=>`<div class="historic-match"><span class="historic-court">COURT ${m.court}</span><span>${esc(m.a.map(id=>getPlayer(id).name).join(' / '))}</span><strong class="historic-score">${m.scoreA}<small>–</small>${m.scoreB}</strong><span>${esc(m.b.map(id=>getPlayer(id).name).join(' / '))}</span></div>`).join('')}</div>`;
+      return `<div class="historic-round"><div class="historic-round-head"><b>ROUND ${String(i+1).padStart(2,'0')}</b><span>${team?subtotal.time:['10:00','10:17','10:34','10:51','11:08','11:25','11:42'][i]}</span>${team?`<strong>HIPEx ${subtotal.a} — ${subtotal.b} POLY</strong>`:''}</div>${ms.map(m=>`<div class="historic-match"><span class="historic-court">COURT ${m.court}</span><span>${esc(m.a.map(id=>getPlayer(id).name).join(' / '))}</span><strong class="historic-score">${m.scoreA==null?'—':m.scoreA}<small>–</small>${m.scoreB==null?'—':m.scoreB}</strong><span>${esc(m.b.map(id=>getPlayer(id).name).join(' / '))}</span></div>`).join('')}</div>`;
     }).join(''):'<p class="archive-caveat">The overall winner is recorded; the individual match scores are still to come.</p>';
     el('archiveDialogTitle').textContent=a.name;
     el('archiveDialogMeta').textContent=(a.date?dateFormat(a.date):(a.dateLabel||'DATE NOT RECORDED'))+' · '+(team?'3 COURTS / 5 ROUNDS':'2 COURTS / 7 ROUNDS');
-    el('archiveDialogBody').innerHTML=summary+standings+'<div class=\"archive-detail-title\">ORIGINAL MATCH RESULTS</div>'+matchHTML+'<p class=\"archive-caveat\">Source: photographed original score sheet. Event date has not been verified.</p>';
+    const pending=a.matchScoresVerified===false;
+    const sourceLink=a.sourceUrl?`<p class="archive-caveat"><a class="historic-source-link" href="${esc(a.sourceUrl)}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL PADELUTION EVENT ↗</a></p>`:'';
+    const provenance=pending?'Original pairings and standings transcribed from paper. Individual scores are not yet verified; all scores intentionally left blank.':'Source: photographed original score sheet. Event date not verified.';
+    el('archiveDialogBody').innerHTML=summary+standings+'<div class="archive-detail-title">'+(pending?'ORIGINAL FIXTURES · MATCH SCORES PENDING':'ORIGINAL MATCH RESULTS')+'</div>'+matchHTML+'<p class="archive-caveat">'+provenance+'</p>'+sourceLink;
     el('archiveDialog').showModal();
   }
   function renderAll(){el('tournamentName').value=state.active.name||'Pinnacle Comeback Cup';el('tournamentDate').value=state.active.date||'2026-12-04';renderRoster();renderPicker();renderRounds();renderLeaderboard();renderHistory()}

@@ -28,3 +28,11 @@ Open **Settings → Pages → Build and deployment → Source: GitHub Actions**,
 The site is static, with no backend. Player edits and new scores save **to the organiser's current browser only**, not to GitHub or other phones. Use EXPORT/IMPORT data backup after each event. A hosted database and authentication will be needed for shared real-time leaderboards and administrator controls.
 
 This is an independent group, not an official site of Johnson & Johnson, DePuy Synthes, or the venue. Cartoon portraits are fictional and **not likenesses**. Obtain player permission before sharing real photos or full names publicly.
+
+## PPC I recovered
+
+The first championship's photographic standings and fixture sheet show James O'Leary winning with 151 points, 6 wins and 1 loss; Sean Kelly finished second on 120, Gavin Keohane third on 118. All 8 complete standings and 14 pairings are preserved. Individual match scores are unknown; the Padelution source has been linked but its content could not be fetched. Unverified match scores are intentionally blank. The recorded date remains unconfirmed.
+
+Source: https://www.padelution.com/americano/9d8c91c7-8ad4-4ce8-8df9-7e5c8c425281
+
+Eight arcade-style portraits derived from a labelled group photograph are in `assets/players/`. `portraits.js` maps them to the eight identified colleagues, while unidentified players keep generic illustrations. Confirm whether the original paper standings name “Ger O'Brien” corresponds to the colleague known as “Geraldo” before treating that alias as definitive.

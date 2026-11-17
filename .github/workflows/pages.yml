@@ -23,7 +23,8 @@ jobs:
       - name: Assemble static site
         run: |
           mkdir -p dist
-          cp index.html styles.css avatars.js app.js dist/
+          cp index.html styles.css avatars.js portraits.js app.js dist/
+          cp -r assets dist/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
