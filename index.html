@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20261117-fix2">
-  <script defer src="./portraits.js?v=20261117-fix2"></script>
-  <script defer src="./app.js?v=20261117-fix2"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261117-rankings1">
+  <script defer src="./portraits.js?v=20261117-rankings1"></script>
+  <script defer src="./app.js?v=20261117-rankings1"></script>
 </head>
 <body>
 <header class="site-header">
@@ -22,7 +22,7 @@
     <span>PADEL <b>PINNACLE</b> CUP <small>EST. 2024</small></span>
   </a>
   <nav class="main-nav" aria-label="Site sections">
-    <a href="#honours">Honours</a><a href="#merit">Order of Merit</a><a href="#history">Results</a><a href="#players">Players</a>
+    <a href="#honours">Honours</a><a href="#merit">Order of Merit</a><a href="#history">Results</a><a href="#players">Rankings</a>
   </nav>
 </header>
 <main id="top">
@@ -53,7 +53,7 @@
     <div class="shell">
       <div class="section-heading"><div><span class="eyebrow dark">ALL-TIME POINTS</span><h2>Order of Merit</h2></div><p>Individual PPC points only</p></div>
       <div class="merit-panel">
-        <div class="merit-head"><span>Player</span><span>Events</span><span>Points</span></div>
+        <div class="merit-head"><span>Player</span><span>Total points</span></div>
         <div id="meritList" class="merit-list"><p class="loading">Rankings loading…</p></div>
       </div>
       <p class="context-note">Ranked by total points scored across PPC 1–4. B2Cup points are excluded.</p>
@@ -67,9 +67,12 @@
   </section>
   <section id="players" class="content-section players-section">
     <div class="shell">
-      <div class="section-heading"><div><span class="eyebrow dark">CLUB ROSTER</span><h2>Players</h2></div><p id="playerCount">Tap a profile for career statistics</p></div>
-      <div id="playerList" class="player-grid"><p class="loading">Player profiles loading…</p></div>
-      <p class="context-note">Median PPC score is used as the typical score to reduce the impact of an unusually poor tournament.</p>
+      <div class="section-heading"><div><span class="eyebrow dark">MEDIAN POINTS PER PPC EVENT</span><h2>PPC Rankings</h2></div><p id="playerCount">Minimum 2 PPC appearances</p></div>
+      <div class="ranking-group-heading"><h3>Ranked players</h3><span id="rankedCount">2+ PPC events required</span></div>
+      <div id="playerList" class="player-grid"><p class="loading">Loading rankings…</p></div>
+      <div class="ranking-group-heading unranked-heading"><h3>Not yet ranked</h3><span>Fewer than 2 PPC events</span></div>
+      <div id="unrankedPlayerList" class="player-grid unranked-grid"><p class="loading">Loading player profiles…</p></div>
+      <p class="context-note">Rankings use each player's median tournament score, recalculated as PPC results are added. A very low result has less impact than it would on a mean average. The B2Cup is excluded; every player remains available to view.</p>
     </div>
   </section>
 </main>

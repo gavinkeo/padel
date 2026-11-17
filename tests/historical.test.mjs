@@ -162,3 +162,28 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   assert.match(nodes.archiveList.innerHTML,/PPC 4/);
   assert.match(nodes.playerList.innerHTML,/Ciaran Barry/);
 });
+
+test('Median rankings require two PPC appearances, keep other players visible',async()=>{
+  const ids=['countdown','honoursList','meritList','archiveList','playerList','unrankedPlayerList','playerCount','rankedCount'];
+  const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
+  const browserDoc={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
+  const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDoc,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
+  vm.runInNewContext(app,browser);
+  await new Promise(resolve=>setImmediate(resolve));
+  await new Promise(resolve=>setImmediate(resolve));
+  const {ranked,unranked}=browser.window.PPCStats.calculateRankings();
+  assert.equal(ranked.length,10);
+  assert.equal(unranked.length,6);
+  assert.deepEqual(Array.from(ranked.slice(0,3),r=>r.player.id),['p-james','p-dan','p-gavin']);
+  assert.deepEqual(Array.from(ranked.slice(0,3),r=>r.score),[141,136,119.5]);
+  assert.ok(ranked.every(p=>p.events>=2));
+  assert.ok(unranked.every(p=>p.events<2));
+  assert.ok(unranked.some(p=>p.player.id==='p-connell-mcbride'));
+  assert.ok(unranked.some(p=>p.player.id==='p-bean'));
+  assert.ok(nodes.playerList.innerHTML.includes('Median 119.5 pts'));
+  assert.ok(nodes.unrankedPlayerList.innerHTML.includes('Connell McBride'));
+  assert.ok(nodes.unrankedPlayerList.innerHTML.includes('Ciaran Barry'));
+  assert.ok(!nodes.meritList.innerHTML.includes('merit-played'));
+  assert.ok(!html.includes('<span>Events</span><span>Points</span>'));
+  assert.ok(html.includes('<h2>PPC Rankings</h2>'));
+});

@@ -110,7 +110,7 @@
         '<span class="merit-person"><span class="rank">' + (i+1) + '</span>' +
         '<img src="' + esc(portrait(r.id)) + '" alt="" loading="lazy">' +
         '<span>' + esc(p.name) + (p.nickname?'<small>'+esc(p.nickname)+'</small>':'') + '</span></span>' +
-        '<span class="merit-played">' + r.played + '</span><strong class="merit-points">' + r.points + '</strong></button>';
+        '<strong class="merit-points">' + r.points + '</strong></button>';
     }).join('');
   }
 
@@ -130,16 +130,35 @@
     }).join('');
   }
 
+  function calculateRankings() {
+    const rows=PLAYERS.map(player=>{
+      const records=pointList(events,player.id);
+      const scores=records.map(item=>item.row.points);
+      return {player,events:scores.length,score:median(scores),best:scores.length?Math.max(...scores):null};
+    });
+    // Highest median first; a best single-event score breaks equal medians, then name.
+    const ranked=rows.filter(r=>r.events>=2)
+      .sort((a,b)=>b.score-a.score||b.best-a.best||a.player.name.localeCompare(b.player.name));
+    const unranked=rows.filter(r=>r.events<2).sort((a,b)=>
+      b.events-a.events||a.player.name.localeCompare(b.player.name));
+    return {ranked,unranked};
+  }
   function renderPlayers() {
-    const sorted = [...PLAYERS].sort((a,b)=>a.name.localeCompare(b.name));
-    $('playerCount').textContent = PLAYERS.length + ' players · Tap to view stats';
-    $('playerList').innerHTML=sorted.map(p => {
-      const apps=pointList(events,p.id).length + (b2Team(events,p.id)?1:0);
-      return '<button class="player-tile" type="button" data-player="' + esc(p.id) + '">' +
-        '<img src="' + esc(portrait(p.id)) + '" alt="" loading="lazy">' +
-        '<span class="player-title"><strong>' + esc(p.name) + '</strong>' +
-        '<small>' + apps + ' ' + (apps===1?'tournament':'tournaments') + '</small></span></button>';
-    }).join('');
+    const {ranked,unranked}=calculateRankings();
+    $('playerCount').textContent=ranked.length+' ranked · '+unranked.length+' unranked';
+    $('rankedCount').textContent=ranked.length+' eligible players · Median PPC points';
+    const card=(r,index,eligible)=>{
+      const p=r.player;
+      const tag=eligible?'#'+String(index+1).padStart(2,'0'):'—';
+      const stats=eligible?'Median '+number(r.score)+' pts':(r.events===1?'1 PPC event':'No PPC events');
+      return '<button class="player-tile'+(eligible?' ranked-tile':' unranked-tile')+
+        '" type="button" data-player="'+esc(p.id)+'" aria-label="View '+esc(p.name)+' player statistics">'+
+        '<span class="tile-avatar"><img src="'+esc(portrait(p.id))+'" alt="" loading="lazy">'+
+        '<span class="player-rank'+(eligible?'':' pending-rank')+'">'+tag+'</span></span>'+
+        '<span class="player-title"><strong>'+esc(p.name)+'</strong><small>'+stats+'</small></span></button>';
+    };
+    $('playerList').innerHTML=ranked.map((r,i)=>card(r,i,true)).join('');
+    $('unrankedPlayerList').innerHTML=unranked.map((r,i)=>card(r,i,false)).join('');
   }
 
   function profile(id) {
@@ -247,7 +266,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-fix2', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-rankings1', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
@@ -260,6 +279,6 @@
     }
   }
   // Read-only helpers used by the site tests. No browser editing or score-entry functionality.
-  window.PPCStats={median,pointList,b2Team};
+  window.PPCStats={median,pointList,b2Team,calculateRankings};
   init();
 })();
