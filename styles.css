@@ -252,3 +252,35 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
  .ranking-name{font-size:12px}
  .ranking-points{font-size:23px}
 }
+
+/* 2026-11-17: compact next-tournament ribbon and provisional ranking language */
+.next-event{border-bottom-width:3px}
+.next-layout{grid-template-columns:minmax(0,1fr) 305px;gap:24px;padding-block:19px}
+.event-main h1{font-size:clamp(30px,3.1vw,43px);line-height:1.02;margin:6px 0 8px}
+.event-main p{font-size:12px;line-height:1.55;max-width:none}
+.event-main p strong{font-weight:800;color:#fff}
+.event-venue{color:#d7eaff}
+.event-mobile-break{display:none}
+.event-countdown{padding:11px 15px;border-radius:9px;max-width:305px}
+.countdown-caption{font-size:9px;letter-spacing:.11em;margin:0 0 6px}
+.countdown{gap:5px}
+.timeblock{min-width:0;align-items:center;flex:1;gap:1px}
+.timeblock strong{font-size:36px;line-height:1}
+.timeblock small{font-size:10px}
+@media(max-width:700px){
+ .next-layout{grid-template-columns:minmax(0,1fr);gap:12px;padding-block:18px}
+ .event-main h1{font-size:38px;margin:7px 0 6px}
+ .event-main p{font-size:12px;line-height:1.45}
+ .event-venue{display:block;margin-top:2px}
+ .event-countdown{max-width:none;display:flex;align-items:center;gap:14px;padding:9px 12px;border-radius:8px}
+ .countdown-caption{margin:0;min-width:64px;max-width:64px;line-height:1.3;font-size:9px;text-align:left}
+ .countdown{flex:1;gap:3px}
+ .timeblock strong{font-size:29px}
+ .timeblock small{font-size:9px}
+}
+@media(max-width:400px){
+ .event-main h1{font-size:34px}
+ .event-countdown{gap:8px}
+ .countdown-caption{min-width:51px;max-width:51px;font-size:8px}
+ .timeblock strong{font-size:27px}
+}

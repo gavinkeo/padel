@@ -185,5 +185,16 @@ test('Median rankings require two PPC appearances, keep other players visible',a
   assert.ok(!nodes.playerList.innerHTML.includes('Ciaran Barry'));
   assert.ok(!nodes.meritList.innerHTML.includes('merit-played'));
   assert.ok(!html.includes('<span>Events</span><span>Points</span>'));
-  assert.ok(html.includes('<h2>Rankings</h2>'));
+  assert.ok(html.includes('<h2>Provisional Rankings</h2>'));
+});
+
+test('Compact tournament banner and provisional rankings text',()=>{
+  assert.ok(html.includes('<h2>Provisional Rankings</h2>'));
+  assert.ok(html.includes('>Provisional Rankings</a>'));
+  assert.ok(html.includes('PPC 5 <span>·</span> The Return'));
+  assert.ok(html.includes('Friday 4 December 2026'));
+  assert.ok(!html.includes('The return <span>·</span> 4 December 2026'));
+  const css=readFileSync(new URL('../styles.css',import.meta.url),'utf8');
+  assert.ok(css.includes('.next-layout{grid-template-columns:minmax(0,1fr) 305px'));
+  assert.ok(css.includes('.event-countdown{max-width:none;display:flex;align-items:center'));
 });

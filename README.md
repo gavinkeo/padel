@@ -65,3 +65,7 @@ The Order of Merit is unchanged in its scoring but no longer displays the appear
 ## Homepage ordering
 
 Below the countdown: **Rankings** (one row per eligible player), **Order of Merit** (lifetime points), **Roll of Honour** (tournament titles), and **The Record Book** (past tournaments). There is no unranked-players section. Rankings show rank, portrait, name and median PPC points only.
+
+## Visual update: provisional rankings and compact return banner
+
+The rankings heading and main navigation now say **Provisional Rankings** to reflect the small sample of historical tournaments. The PPC 5 blue area is a slim, responsive event ribbon (date, venue, and days/hours/minutes) rather than a large hero. It remains scheduled for 4 December 2026.
