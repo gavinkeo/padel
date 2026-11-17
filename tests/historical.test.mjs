@@ -110,9 +110,9 @@ test('Median is robust to a single low tournament',()=>{
 });
 
 test('Public homepage is read-only with profiles at bottom and compact countdown',()=>{
-  assert.ok(html.indexOf('id="players"')<html.indexOf('id="merit"'));
-  assert.ok(html.indexOf('id="merit"')<html.indexOf('id="honours"'));
-  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="history"'));
+  assert.ok(html.indexOf('id="players"')<html.indexOf('id="honours"'));
+  assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
+  assert.ok(html.indexOf('id="merit"')<html.indexOf('id="history"'));
   assert.ok(html.includes('Days')&&html.includes('Hours')&&html.includes('Minutes'));
   assert.ok(html.includes('id="playerDialog"'));
   for(const legacy of ['generateBtn','finalizeBtn','addPlayerBtn','addHistoryBtn','importBtn','exportBtn','score-input','match-centre'])
@@ -190,7 +190,11 @@ test('Median rankings require two PPC appearances, keep other players visible',a
 
 test('Compact tournament banner and provisional rankings text',()=>{
   assert.ok(html.includes('<h2>Provisional Rankings</h2>'));
-  assert.ok(html.includes('>Provisional Rankings</a>'));
+  assert.ok(html.includes('>Rankings</a>'));
+  assert.ok(html.includes('<h2>Champions</h2>'));
+  assert.ok(html.includes('<h2>Tournaments</h2>'));
+  assert.ok(html.includes('>Champions</a>'));
+  assert.ok(html.includes('>Tournaments</a>'));
   assert.ok(html.includes('PPC 5 <span>·</span> The Return'));
   assert.ok(html.includes('Friday 4 December 2026'));
   assert.ok(!html.includes('The return <span>·</span> 4 December 2026'));
