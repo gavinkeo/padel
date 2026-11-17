@@ -13,7 +13,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-off
 h1,h2,h3,p{margin-top:0}
 h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .shell{width:min(1120px,calc(100% - 44px));margin-inline:auto}
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:22px;background:var(--paper);min-height:83px;padding:13px max(24px,calc((100vw - 1120px)/2));border-bottom:1px solid var(--line)}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:22px;background:var(--yellow);min-height:83px;padding:13px max(24px,calc((100vw - 1120px)/2));border-bottom:1px solid var(--line)}
+.site-header a:focus-visible{outline-color:var(--navy)}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .brand-ball{width:49px;height:49px;flex:none}
 .brand>span{font:900 25px/.93 var(--heading);color:var(--navy);letter-spacing:.01em}
