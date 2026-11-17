@@ -202,3 +202,11 @@ test('Compact tournament banner and provisional rankings text',()=>{
   assert.ok(css.includes('.next-layout{grid-template-columns:minmax(0,1fr) 305px'));
   assert.ok(css.includes('.event-countdown{max-width:none;display:flex;align-items:center'));
 });
+
+test('Connell and Peter have approved full-resolution blue padel profile portraits',()=>{
+ const portraits=readFileSync(new URL('../portraits.js',import.meta.url),'utf8');
+ assert.ok(portraits.includes('"p-connell-mcbride":"./assets/players/connell.webp"'));
+ assert.ok(portraits.includes('"p-peter":"./assets/players/peter.webp"'));
+ for(const name of ['connell','peter'])assert.ok(statSync(new URL('../assets/players/'+name+'.webp',import.meta.url)).size>40000,name);
+ assert.ok(html.includes('portraits.js?v=20261117-portraits5'));
+});

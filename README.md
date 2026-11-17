@@ -69,3 +69,6 @@ Below the countdown: **Rankings** (one row per eligible player), **Order of Meri
 ## Visual update: provisional rankings and compact return banner
 
 The rankings heading and main navigation now say **Provisional Rankings** to reflect the small sample of historical tournaments. The PPC 5 blue area is a slim, responsive event ribbon (date, venue, and days/hours/minutes) rather than a large hero. It remains scheduled for 4 December 2026.
+
+## Custom portraits
+Connell McBride and Peter Gilroy now have original high-resolution cartoon portraits with the same royal-blue padel-racket, ball, and net background as the established group avatars. Their images are in `assets/players/connell.webp` and `assets/players/peter.webp`; mapping is maintained in `portraits.js`.
