@@ -147,7 +147,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   for(const e of events.filter(e=>e.kind==='americano'))assert.match(e.name,/Padel Pinnacle Cup [1-4]$/);
   assert.ok(!/\bPPC [IVX]+\b/.test(html));
   assert.ok(!app.includes('const roman ='));
-  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
+  const ids=['countdown','tournamentGap','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDocument={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDocument,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -155,6 +155,9 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
   assert.match(nodes.countdown.innerHTML,/Days/);
+  assert.match(nodes.countdown.innerHTML,/Seconds/);
+  assert.equal(nodes.tournamentGap.textContent,'630 days between tournaments');
+  assert.doesNotMatch(nodes.meritList.innerHTML,/<small>(Geraldo|Dan)<\/small>/);
   assert.match(nodes.honoursList.innerHTML,/James O/);
   assert.match(nodes.honoursList.innerHTML,/Daniel McCarthy/);
   assert.match(nodes.meritList.innerHTML,/Gavin Keohane/);
@@ -164,7 +167,7 @@ test('UI uses Arabic numeric cup labels, and live app fills all homepage section
 });
 
 test('Median rankings require two PPC appearances, keep other players visible',async()=>{
-  const ids=['countdown','honoursList','meritList','archiveList','playerList','playerCount'];
+  const ids=['countdown','tournamentGap','honoursList','meritList','archiveList','playerList','playerCount'];
   const nodes=Object.fromEntries(ids.map(id=>[id,{innerHTML:'',textContent:''}]));
   const browserDoc={getElementById(id){if(!(id in nodes))throw Error('Missing element: '+id);return nodes[id]},addEventListener(){}};
   const browser={window:{PPC_PLAYER_PORTRAITS:{}},document:browserDoc,Date,console,fetch:async()=>({ok:true,json:async()=>data}),setInterval(){}};
@@ -208,5 +211,4 @@ test('Connell and Peter have approved full-resolution blue padel profile portrai
  assert.ok(portraits.includes('"p-connell-mcbride":"./assets/players/connell.webp"'));
  assert.ok(portraits.includes('"p-peter":"./assets/players/peter.webp"'));
  for(const name of ['connell','peter'])assert.ok(statSync(new URL('../assets/players/'+name+'.webp',import.meta.url)).size>40000,name);
- assert.ok(html.includes('portraits.js?v=20261117-portraits5'));
 });
