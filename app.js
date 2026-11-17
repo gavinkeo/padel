@@ -145,7 +145,6 @@
   }
   function renderPlayers() {
     const {ranked}=calculateRankings();
-    $('playerCount').textContent=ranked.length+' players eligible · 2 PPC events minimum';
     $('playerList').innerHTML=ranked.map((r,i)=>{
       const p=r.player;
       return '<button class="ranking-row" type="button" data-player="'+esc(p.id)+
@@ -173,10 +172,6 @@
       '<div><small>Tournaments played</small><strong>' + (records.length + (team?1:0)) + '</strong></div>' +
       '<div><small>Median PPC score</small><strong>' + (typical===null?'—':number(typical)) + '</strong></div>' +
       '</div>' +
-      '<p class="median-explainer">' + (scores.length===0?'No PPC individual scores recorded.':
-        scores.length===1?'One tournament recorded; median and highest score are identical.':
-        'Median is the middle PPC score' + (scores.length%2===0?' (or average of the middle two)':'') +
-        ', reducing the effect of one unusually low result.') + '</p>' +
       (team === 'HipEx' ?
         '<p class="b2-honour"><span aria-hidden="true">★</span> Member of the HipEx team who won the B2Cup in 2025.</p>' :
         team === 'Poly' ? '<p class="b2-participant">Represented Poly in the B2Cup on 21 January 2025.</p>' : '') +
@@ -200,8 +195,7 @@
     let content='';
     if (team) {
       content='<div class="event-result"><span>HIPEX</span><strong>' + e.winningScore + '–' + e.losingScore +
-        '</strong><span>POLY</span></div><p class="context-note">HipEx won by ' +
-        (e.winningScore-e.losingScore) + ' points. Five rounds across three courts.</p>';
+        '</strong><span>POLY</span></div>';
     } else {
       const winner=(e.champions||[]).map(id=>getPlayer(id).name).join(' & ');
       content='<div class="event-winner"><span>Champion</span><strong>' + esc(winner) +
@@ -234,7 +228,7 @@
             '<span>' + esc(m.b.map(id=>getPlayer(id).name).join(' / ')) + '</span></div>').join('') +
           '</div>';
       }
-    } else content+='<p class="empty-note">Individual match scores were not recorded for this tournament.</p>';
+    }
     if (e.sourceUrl) content+='<p class="source-link"><a href="' + esc(e.sourceUrl) +
       '" target="_blank" rel="noopener noreferrer">Original Padelution record ↗</a></p>';
     $('eventDialogBody').innerHTML=content;
@@ -262,7 +256,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-compact3', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-cleannotes4', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
