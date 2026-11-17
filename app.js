@@ -235,9 +235,9 @@
         content+='<div class="round-block"><div class="round-label">Round ' + round +
           (detail?' · '+esc(detail.time)+' · HipEx '+detail.a+'–'+detail.b+' Poly':'') + '</div>' +
           matches.map(m=>'<div class="match-line"><small>Court ' + m.court + '</small>' +
-            '<span>' + esc(m.a.map(id=>getPlayer(id).name).join(' / ')) + '</span>' +
+            '<span>' + m.a.map(id => esc(getPlayer(id).name)).join('<br>') + '</span>' +
             '<strong>' + (m.scoreA??'—') + ' – ' + (m.scoreB??'—') + '</strong>' +
-            '<span>' + esc(m.b.map(id=>getPlayer(id).name).join(' / ')) + '</span></div>').join('') +
+            '<span>' + m.b.map(id => esc(getPlayer(id).name)).join('<br>') + '</span></div>').join('') +
           '</div>';
       }
     }
@@ -268,7 +268,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-countdown', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261117-match-lines', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
