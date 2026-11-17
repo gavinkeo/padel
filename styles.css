@@ -15,7 +15,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .shell{width:min(1120px,calc(100% - 44px));margin-inline:auto}
 .site-header{--header-gutter:max(24px,calc((100vw - 1120px)/2));display:grid;background:var(--yellow);border-bottom:1px solid var(--line)}
 .site-header a:focus-visible{outline-color:var(--navy)}
-.brand{justify-self:start;margin:13px var(--header-gutter);display:flex;align-items:center;min-width:0}
+.brand{justify-self:center;text-align:center;margin:13px var(--header-gutter);display:flex;align-items:center;min-width:0}
 .brand>span{font:900 25px/.93 var(--heading);color:var(--navy);letter-spacing:.01em}
 .brand>span>b{color:var(--blue)}
 .brand small{display:block;font:700 10px var(--body);letter-spacing:.13em;color:var(--sub);margin-top:6px}
@@ -207,7 +207,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 
 /* Mobile layout hardening: four separate navigation targets, no squeezed header text. */
 @media(max-width:700px){
- .brand{align-self:flex-start;max-width:100%}
+ 
  .brand>span{font-size:21px;line-height:1;white-space:nowrap}
  .brand small{font-size:9px;margin-top:4px}
  .main-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;overflow:visible}
