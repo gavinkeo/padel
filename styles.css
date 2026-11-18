@@ -43,26 +43,9 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .section-heading h2{font:900 clamp(38px,4.4vw,53px)/.98 var(--heading);color:var(--navy);margin:7px 0 0}
 .section-heading>p{font-size:12px;color:var(--sub);margin:0 0 3px;text-align:right}
 .honours-section{background:#fff}
-.honours-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}
-.honour-card{display:grid;grid-template-columns:1fr auto;gap:17px 12px;padding:19px 20px;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:0}
-.honour-card.honours-first{background:linear-gradient(120deg,#083b77,#0a66b7);color:#fff;border-color:#126bb7}
-.honour-identity{display:flex;align-items:center;gap:14px;min-width:0}
-.honour-identity img{width:92px;height:92px;object-fit:cover;border-radius:10px;background:var(--ice);flex-shrink:0}
-.honour-identity h3{font:900 clamp(24px,2.8vw,34px)/1 var(--heading);margin:5px 0 7px;overflow-wrap:anywhere}
 .small-label{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--blue)}
-.honours-first .small-label{color:var(--yellow)}
 .text-link{border:0;background:transparent;padding:0;color:var(--blue);font-size:11px;font-weight:700;text-align:left}
-.honours-first .text-link{color:#e5f2ff}
 .text-link:hover{text-decoration:underline}
-.honour-total{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-width:67px}
-.honour-total strong{font:900 67px/.85 var(--heading);color:var(--blue)}
-.honours-first .honour-total strong{color:var(--yellow)}
-.honour-total span{font:800 11px var(--body);letter-spacing:.06em}
-.honour-cups{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line)}
-.honours-first .honour-cups{border-color:#ffffff3d}
-.honour-cups button{border:1px solid #b3d0ed;background:var(--ice);color:var(--blue);font-size:11px;font-weight:800;border-radius:5px;padding:8px 10px}
-.honours-first .honour-cups button{background:#ffffff18;color:#fff;border-color:#ffffff60}
-.honour-cups button:hover{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
 .merit-section{background:#f5f8fd}
 .merit-panel{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .merit-head,.merit-row{display:grid;grid-template-columns:minmax(0,1fr) 70px 95px;align-items:center}
@@ -171,7 +154,6 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
   .section-heading{align-items:flex-start;flex-direction:column;gap:5px;margin-bottom:18px}
   .section-heading h2{font-size:43px}
   .section-heading>p{text-align:left}
-  .honours-grid{grid-template-columns:1fr}
   .merit-head,.merit-row{grid-template-columns:minmax(0,1fr) 50px 73px}
   .merit-head{padding:10px 12px}
   .merit-row{padding:9px 12px}
@@ -197,9 +179,6 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 @media (max-width:420px) {
   .shell{width:calc(100% - 28px)}
   .player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .honour-identity img{height:76px;width:76px}
-  .honour-identity h3{font-size:28px}
-  .honour-total strong{font-size:58px}
   .profile-avatar{width:118px;height:118px}
   .profile-intro h2{font-size:33px}
 }
@@ -302,3 +281,13 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .event-main .event-heading h1{flex:none;margin:0;white-space:nowrap}
 
 .event-heading>p{transform:translateY(2px)}
+
+.champions-list{margin:0;padding:0;list-style:none;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.champion-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(8px,2.5vw,20px);padding:8px 12px}
+.champion-row+.champion-row{border-top:1px solid var(--line)}
+.champion-cup,.champion-player{border:0;background:none;text-align:left;cursor:pointer;font:700 13px var(--body)}
+.champion-cup{color:var(--blue);white-space:nowrap;padding:10px 2px}
+.champion-player{display:flex;align-items:center;gap:8px;color:var(--navy);padding:2px}
+.champion-player img{flex:none;border-radius:8px;object-fit:cover}
+.champion-cup:hover,.champion-player:hover span{text-decoration:underline}
+.champion-score{color:var(--blue);font:900 24px/1 var(--heading);font-variant-numeric:tabular-nums}

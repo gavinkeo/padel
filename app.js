@@ -68,27 +68,20 @@
   }
 
   function renderHonours() {
-    const tally = new Map();
-    for (const e of events.filter(x => x.kind === 'americano')) {
-      for (const id of e.champions || []) {
-        if (!tally.has(id)) tally.set(id, {id, titles:[]});
-        tally.get(id).titles.push(e);
-      }
-    }
-    const rows = [...tally.values()].sort((a,b) => b.titles.length-a.titles.length ||
-      getPlayer(a.id).name.localeCompare(getPlayer(b.id).name));
-    $('honoursList').innerHTML = rows.map((r,i) => {
-      const p = getPlayer(r.id);
-      return '<article class="honour-card' + (i===0?' honours-first':'') + '">' +
-        '<div class="honour-identity"><img src="' + esc(portrait(r.id)) + '" alt="" loading="lazy">' +
-        '<div><span class="small-label">' + (i===0?'Most titles':'PPC champion') + '</span>' +
-        '<h3>' + esc(p.name) + '</h3><button class="text-link" type="button" data-player="' + esc(r.id) +
-        '">View player profile <span aria-hidden="true">↗</span></button></div></div>' +
-        '<div class="honour-total"><strong>' + r.titles.length + '</strong><span>' +
-        (r.titles.length===1?'TITLE':'TITLES') + '</span></div>' +
-        '<div class="honour-cups">' + r.titles.sort((a,b)=>a.number-b.number).map(e =>
-          '<button type="button" data-event="' + esc(e.id) + '">' + esc(eventLabel(e)) + ' ↗</button>'
-        ).join('') + '</div></article>';
+    const cups = events.filter(event => event.kind === 'americano' && event.champions?.length)
+      .sort((a,b) => a.number - b.number);
+    $('honoursList').innerHTML = cups.map(event => {
+      const winners = event.champions.map(id => {
+        const player = getPlayer(id);
+        return '<button class="champion-player" type="button" data-player="' + esc(id) +
+          '"><img src="' + esc(portrait(id)) + '" alt="" width="40" height="40" loading="lazy">' +
+          '<span>' + esc(player.name) + '</span></button>';
+      }).join('');
+      const score = event.standings?.find(row => row.id === event.champions[0])?.points;
+      return '<li class="champion-row"><button class="champion-cup" type="button" data-event="' +
+        esc(event.id) + '">' + esc(eventLabel(event)) + '</button><div class="champion-winners">' +
+        winners + '</div><strong class="champion-score">' + (Number.isFinite(score) ? number(score) : '—') +
+        '</strong></li>';
     }).join('');
   }
 
@@ -273,7 +266,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261117-est-centred', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261118-champions', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
