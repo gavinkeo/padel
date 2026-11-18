@@ -110,9 +110,9 @@ test('Median is robust to a single low tournament',()=>{
 });
 
 test('Public homepage is read-only with profiles at bottom and compact countdown',()=>{
-  assert.ok(html.indexOf('id="players"')<html.indexOf('id="honours"'));
+  assert.ok(html.indexOf('id="players"')<html.indexOf('id="history"'));
   assert.ok(html.indexOf('id="honours"')<html.indexOf('id="merit"'));
-  assert.ok(html.indexOf('id="merit"')<html.indexOf('id="history"'));
+  assert.ok(html.indexOf('id="history"')<html.indexOf('id="honours"'));
   assert.ok(html.includes('Days')&&html.includes('Hours')&&html.includes('Minutes'));
   assert.ok(html.includes('id="playerDialog"'));
   for(const legacy of ['generateBtn','finalizeBtn','addPlayerBtn','addHistoryBtn','importBtn','exportBtn','score-input','match-centre'])
