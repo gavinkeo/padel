@@ -40,8 +40,6 @@
       .map(event => ({event, row: event.standings.find(x => x.id === id)}))
       .filter(x => x.row && Number.isFinite(x.row.points))
       .sort((a,b) => (a.event.date||'').localeCompare(b.event.date||''));
-  const champs = (events, id) =>
-    events.filter(e => e.kind === 'americano' && (e.champions||[]).includes(id));
   const b2Team = (events,id) => {
     const event = events.find(e => e.id === 'b2-cup');
     if (!event) return null;
@@ -160,13 +158,12 @@
   function profile(id) {
     const p=getPlayer(id), records=pointList(events,id), scores=records.map(x=>x.row.points);
     const typical=median(scores), high=scores.length?Math.max(...scores):null;
-    const titles=champs(events,id).length, team=b2Team(events,id);
+    const team=b2Team(events,id);
     $('playerDialogAvatar').src=portrait(id);
     $('playerDialogAvatar').alt='Portrait of '+p.name;
     $('playerDialogName').textContent=p.name;
     $('playerDialogNick').textContent=p.nickname || '';
     $('playerDialogNick').hidden=!p.nickname;
-    $('playerDialogSub').textContent=titles + ' PPC ' + (titles===1?'title':'titles');
     $('playerDialogBody').innerHTML =
       '<div class="profile-metrics">' +
       '<div><small>Highest PPC score</small><strong>' + (high??'—') + '</strong></div>' +
@@ -272,7 +269,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261118-title-count', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261118-ireland', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');

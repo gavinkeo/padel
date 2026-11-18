@@ -293,3 +293,5 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .champion-player img{flex:none;border-radius:8px;object-fit:cover}
 .champion-cup:hover,.champion-player:hover span{text-decoration:underline}
 .champion-score{color:var(--blue);font:900 24px/1 var(--heading);font-variant-numeric:tabular-nums}
+
+.profile-flag{display:block;width:32px;height:16px;margin-top:6px;border-radius:2px;box-shadow:0 0 0 1px #0002;background:linear-gradient(90deg,#169b62 33.333%,#fff 33.333% 66.667%,#ff883e 66.667%)}
