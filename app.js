@@ -70,12 +70,18 @@
   function renderHonours() {
     const cups = events.filter(event => event.kind === 'americano' && event.champions?.length)
       .sort((a,b) => a.number - b.number);
+    const titleCounts = new Map();
+    const ordinal = new Intl.PluralRules('en-IE', {type:'ordinal'});
+    const suffixes = {one:'st', two:'nd', few:'rd', other:'th'};
     $('honoursList').innerHTML = cups.map(event => {
       const winners = event.champions.map(id => {
         const player = getPlayer(id);
+        const title = (titleCounts.get(id) || 0) + 1;
+        titleCounts.set(id, title);
+        const titleLabel = title + suffixes[ordinal.select(title)];
         return '<button class="champion-player" type="button" data-player="' + esc(id) +
           '"><img src="' + esc(portrait(id)) + '" alt="" width="40" height="40" loading="lazy">' +
-          '<span>' + esc(player.name) + '</span></button>';
+          '<span>' + esc(player.name) + ' (' + titleLabel + ')</span></button>';
       }).join('');
       const score = event.standings?.find(row => row.id === event.champions[0])?.points;
       return '<li class="champion-row"><button class="champion-cup" type="button" data-event="' +
@@ -266,7 +272,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261118-table-columns', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261118-title-count', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
