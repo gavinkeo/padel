@@ -12,7 +12,7 @@
     ['p-cian', "Cian O'Connor"], ['p-dan', 'Daniel McCarthy', 'Dan'],
     ['p-peter', 'Peter Gilroy'], ['p-james', "James O'Leary"],
     ['p-rob', 'Rob McKenzie'], ['p-gary', 'Gary Foolkes'],
-    ['p-jack', 'Jack'], ['p-bean', 'Ciaran Barry', 'Bean'],
+    ['p-jack', 'Jack Lonergan'], ['p-bean', 'Ciaran Barry', 'Bean'],
     ['p-eric', 'Eric Trihy'], ['p-connell-mcbride', 'Connell McBride']
   ].map(([id, name, nickname]) => ({id, name, nickname: nickname || ''}));
   const playerById = new Map(PLAYERS.map(p => [p.id, p]));
@@ -269,7 +269,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261118-poly-spacing', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261118-jack', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
