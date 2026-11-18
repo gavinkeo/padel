@@ -129,7 +129,7 @@ h1,h2,h3{font-family:var(--heading);letter-spacing:-.012em}
 .median-explainer{font-size:11px;color:var(--sub);line-height:1.6;margin:12px 0}
 .b2-honour{margin-top:16px;background:#eff8d7;border-left:4px solid #b4d04b;border-radius:5px;padding:13px 15px;font-weight:700;line-height:1.5;font-size:12px}
 .b2-honour span{color:#679200;margin-right:8px}
-.b2-participant{font-size:12px;color:var(--sub);padding:12px 14px;border-left:3px solid #90afd0;background:#f6faff}
+.b2-participant{margin-top:16px;font-size:12px;color:var(--sub);padding:12px 14px;border-left:3px solid #90afd0;background:#f6faff}
 .profile-event-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .profile-event-list button{background:#fff;border:0;border-bottom:1px solid var(--line);padding:13px 16px;display:flex;justify-content:space-between;align-items:center;text-align:left;gap:12px}
 .profile-event-list button:last-child{border-bottom:0}
