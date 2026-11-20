@@ -409,7 +409,7 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 /* Overhead court keeps player portraits legible on a phone. */
 .draw-round{padding:14px;border-radius:12px;background:#ffffff08;box-shadow:none}
 .draw-match{aspect-ratio:1.18;max-width:520px;overflow:hidden;border:2px solid #c3eaff;border-radius:4px;background:#087db9;box-shadow:0 4px 14px #002d5333}
-.draw-match::before{content:"";position:absolute;inset:16% 0;border-block:2px solid #c3eaff;background:linear-gradient(90deg,transparent calc(50% - 1px),#c3eaff calc(50% - 1px),#c3eaff calc(50% + 1px),transparent calc(50% + 1px)));z-index:0;pointer-events:none}
+.draw-match::before{content:"";position:absolute;inset:16% 0;border-block:2px solid #c3eaff;background:linear-gradient(90deg,transparent calc(50% - 1px),#c3eaff calc(50% - 1px),#c3eaff calc(50% + 1px),transparent calc(50% + 1px));z-index:0;pointer-events:none}
 .draw-match::after{content:none}
 .court-net{position:absolute;top:calc(50% - 4px);left:0;right:0;height:8px;z-index:1;border-block:2px solid #e8f7ff;background:repeating-linear-gradient(90deg,#c3eaff 0 1px,#04466c 1px 5px);box-shadow:0 4px 4px #00365344}
 .draw-team--far,.draw-team--near{left:12%;width:76%;height:auto;z-index:2}
