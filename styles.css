@@ -346,45 +346,28 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 
 
 
-/* Compact swipeable round cards. */
+
+/* Schedule pairs share a consistent three-column layout. */
 .ppc-draw{padding-top:18px}
-.draw-format{font-weight:700;font-size:12px;line-height:1.55;margin:0 0 16px;color:#dff0ff}
-.draw-rounds{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;scrollbar-width:none;padding:0 0 8px;margin:0;list-style:none}
-.draw-rounds>li{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
-.draw-round{display:flex;flex-direction:column;gap:18px;max-width:660px;margin-inline:auto;padding:16px 10px;background:#ffffff08;border:1px solid #ffffff27;border-radius:12px}
-.draw-start{display:flex;flex-direction:row;justify-content:center;align-items:center;gap:8px;width:100%;text-align:center}
-.draw-start>.draw-round-label{font:800 15px/1.2 var(--heading);color:#fff;text-transform:none}
-.draw-start time{font:900 22px/1 var(--heading);color:var(--yellow)}
-.draw-start>.draw-rest{display:block;font-size:11px;font-weight:400;text-transform:none;letter-spacing:normal;color:#d0e8ff}
-.draw-start>.draw-rest b{font-size:11px}
-.draw-match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);position:static;width:100%;gap:0;padding:0;min-height:0;aspect-ratio:auto;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible}
+.draw-format{display:flex;flex-wrap:wrap;gap:4px 0;font-size:11px;line-height:1.5;color:#d2e6fc;margin:10px 0 18px;font-weight:500}
+.draw-format span+span::before{content:"·";padding:0 7px;color:#ddf568}
+.draw-rounds{display:block;list-style:none;padding:0;margin:0}
+.draw-rounds>li{min-width:0}
+.draw-rounds>li+li{border-top:1px solid #ffffff20}
+.draw-round{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:center;gap:6px;max-width:660px;margin:auto;padding:14px 0;border:0;border-radius:0;background:none}
+.draw-start{position:static;transform:none;grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;width:auto;margin-top:-18px}
+.draw-start time{font:800 19px/1 var(--heading);color:var(--yellow);font-variant-numeric:tabular-nums;white-space:nowrap;padding:6px 4px;border-radius:5px;background:#ffffff0a}
+.draw-match{display:contents}
 .draw-match::before,.draw-match::after{content:none}
-.draw-team{position:static;display:flex;flex-direction:column;align-items:center;gap:8px;width:auto;min-height:0;margin:0;padding:0 6px;border:0;background:none}
-.draw-team+.draw-team{border-left:1px solid #ffffff35}
-.pair-portraits{display:flex;justify-content:center;gap:6px}
+.draw-team{position:static;grid-row:1;display:flex;flex-direction:column;align-items:center;gap:7px;width:auto;min-height:0;margin:0;padding:0;border:0;background:none}
+.draw-team--far{grid-column:1}
+.draw-team--near{grid-column:3}
+.pair-portraits{display:flex;justify-content:center;gap:5px}
 .draw-player{display:block;padding:0;border:0;background:none;cursor:pointer}
-.draw-player img{display:block;width:clamp(40px,12vw,62px);height:clamp(40px,12vw,62px);border:1px solid #ffffff65;border-radius:8px;object-fit:cover;box-shadow:none}
+.draw-player img{display:block;width:clamp(34px,10.5vw,54px);height:clamp(34px,10.5vw,54px);border:1px solid #ffffff48;border-radius:9px;object-fit:cover;box-shadow:0 2px 4px #002c5225}
 .draw-player span{display:none}
 .draw-player:hover img{border-color:var(--yellow)}
-.pair-label{font:700 11px/1.4 var(--body);color:#fff;text-align:center}
-.round-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:8px;font-size:11px;color:#d0e8ff}
-.round-controls button{width:34px;height:34px;border:1px solid #ffffff50;border-radius:50%;background:#ffffff12;color:#fff;font-size:22px;cursor:pointer}
-@media(max-width:380px){.draw-start{gap:5px}.draw-start>.draw-round-label{font-size:13px}.draw-start>.draw-rest,.draw-start>.draw-rest b{font-size:10px}.pair-label{font-size:10px}}
-
-.draw-rounds{display:flex;flex-direction:column;overflow:visible;gap:12px;scroll-snap-type:none;padding:0}
-.draw-rounds>li{flex:none;width:100%}
-
-.draw-rounds{gap:0}
-.draw-round{gap:8px;padding:10px 0 12px;border:0;border-radius:0;background:none}
-.draw-rounds>li+li{border-top:1px solid #ffffff29}
-.draw-start{gap:0}
-.draw-start time{font-size:20px}
-.draw-team{gap:5px}
-.pair-portraits{gap:6px}
-
-.draw-round{position:relative;display:block}
-.draw-start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:auto;z-index:1}
-.draw-start time{font-size:20px;white-space:nowrap}
-.draw-match{column-gap:58px;align-items:center}
-.draw-team+.draw-team{border-left:0}
-@media(max-width:380px){.draw-match{column-gap:48px}.draw-start time{font-size:18px}.draw-team{padding:0 2px}.draw-player img{width:36px;height:36px}.pair-portraits{gap:4px}}
+.pair-label{font:600 11px/1.3 var(--body);color:#eef6ff;text-align:center}
+.confirmed-lineup ul{max-width:400px}
+.confirmed-lineup img{border-color:#ffffff48}
+@media(max-width:380px){.draw-round{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);gap:3px}.draw-start time{font-size:17px}.pair-label{font-size:10px}.draw-format{font-size:10px}}
