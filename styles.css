@@ -343,3 +343,17 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .draw-start{display:flex;flex-direction:column;align-items:center;gap:5px}
 .draw-start>span:first-child{text-transform:none;font-size:11px}
 .draw-start>.draw-rest{font-size:10px;font-weight:400;letter-spacing:normal;text-transform:none}
+
+/* Court boundaries, service boxes and a centre net frame each pairing. */
+.draw-match{position:relative;isolation:isolate;width:100%;max-width:520px;min-height:200px;padding:14px 8px;border:2px solid #d5f3ff;border-radius:3px;gap:20px;background:linear-gradient(90deg,transparent calc(25% - 1px),#bde9fbbb calc(25% - 1px),#bde9fbbb calc(25% + 1px),transparent calc(25% + 1px),transparent calc(75% - 1px),#bde9fbbb calc(75% - 1px),#bde9fbbb calc(75% + 1px),transparent calc(75% + 1px)),#0877bd;box-shadow:0 0 0 5px #073f7460,inset 0 0 20px #004b7c55}
+.draw-match::before{content:"";position:absolute;z-index:-1;left:25%;right:25%;top:50%;height:2px;background:#bde9fbbb;pointer-events:none}
+.draw-match::after{content:"";position:absolute;left:calc(50% - 3px);top:-5px;bottom:-5px;width:6px;border-inline:1px solid #e5f7ff;background:repeating-linear-gradient(0deg,#e5f7ff 0 1px,#093b65 1px 5px);box-shadow:3px 0 3px #002d5240;pointer-events:none}
+.draw-team{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-around;gap:14px;min-height:172px}
+.draw-player{position:relative;gap:3px}
+.draw-player img{width:52px;height:52px;border:2px solid #e7f6ff;box-shadow:0 2px 6px #00345880}
+.draw-player span{padding:2px 6px;border-radius:3px;background:#064576e8;color:#fff}
+@media(max-width:600px){
+ .draw-match{gap:16px;min-height:208px;padding:12px 6px}
+ .draw-team{gap:12px;min-height:180px}
+ .draw-player img{width:48px;height:48px}
+}
