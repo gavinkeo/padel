@@ -381,3 +381,10 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .draw-start time{font-size:20px}
 .draw-team{gap:5px}
 .pair-portraits{gap:6px}
+
+.draw-round{position:relative;display:block}
+.draw-start{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:auto;z-index:1}
+.draw-start time{font-size:20px;white-space:nowrap}
+.draw-match{column-gap:58px;align-items:center}
+.draw-team+.draw-team{border-left:0}
+@media(max-width:380px){.draw-match{column-gap:48px}.draw-start time{font-size:18px}.draw-team{padding:0 2px}.draw-player img{width:36px;height:36px}.pair-portraits{gap:4px}}
