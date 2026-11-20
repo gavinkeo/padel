@@ -388,3 +388,20 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
  .draw-team--far .draw-player img{width:30px;height:30px}
  .draw-format{font-size:11px}
 }
+
+.draw-rounds{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;scrollbar-width:none;padding:0 0 8px}
+.draw-rounds>li{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
+.draw-round{max-width:660px;margin-inline:auto}
+.draw-start{flex-direction:row;flex-wrap:nowrap;gap:8px}
+.draw-start time{font-size:22px}
+.draw-start>.draw-round-label{font-size:15px}
+.draw-start>.draw-rest{font-size:11px}
+.draw-team--far{top:24%;left:31%;width:38%}
+.draw-team--near{bottom:17%;left:25%;width:50%}
+.round-controls{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:8px;font-size:11px;color:#d0e8ff}
+.round-controls button{width:40px;height:40px;border:1px solid #ffffff50;border-radius:50%;background:#ffffff12;color:#fff;font-size:26px;cursor:pointer}
+@media(max-width:600px){
+ .draw-team--far{top:25%;left:29%;width:42%}
+ .draw-team--near{bottom:18%;left:25%;width:50%}
+ .draw-start{gap:6px}
+}
