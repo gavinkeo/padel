@@ -373,3 +373,11 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 
 .draw-rounds{display:flex;flex-direction:column;overflow:visible;gap:12px;scroll-snap-type:none;padding:0}
 .draw-rounds>li{flex:none;width:100%}
+
+.draw-rounds{gap:0}
+.draw-round{gap:8px;padding:10px 0 12px;border:0;border-radius:0;background:none}
+.draw-rounds>li+li{border-top:1px solid #ffffff29}
+.draw-start{gap:0}
+.draw-start time{font-size:20px}
+.draw-team{gap:5px}
+.pair-portraits{gap:6px}
