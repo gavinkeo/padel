@@ -342,3 +342,7 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .draw-start{display:flex;align-items:center;justify-content:center;gap:8px}
 .draw-match{width:100%}
 .draw-rest{display:flex;justify-content:center;align-items:center;gap:5px;text-align:center}
+
+.draw-start{display:flex;flex-direction:column;align-items:center;gap:5px}
+.draw-start>span:first-child{text-transform:none;font-size:11px}
+.draw-start>.draw-rest{font-size:10px;font-weight:400;letter-spacing:normal;text-transform:none}
