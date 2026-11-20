@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20261120-courts">
-  <script defer src="./portraits.js?v=20261120-courts"></script>
-  <script defer src="./app.js?v=20261120-courts"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261120-perspective">
+  <script defer src="./portraits.js?v=20261120-perspective"></script>
+  <script defer src="./app.js?v=20261120-perspective"></script>
 </head>
 <body>
 <header class="site-header">
@@ -57,13 +57,92 @@
       </div>
       <div class="ppc-draw" aria-labelledby="draw-title">
         <h2 id="draw-title">SCHEDULE</h2>
-        <p class="draw-format">40 Points • 10 Serve Rotations</p>
+        <p class="draw-format">40 Points • 10 Serve Rotations • 20 Min Matches • 3 Min Breaks</p>
+        <svg class="draw-court-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="0" height="0">
+<defs>
+  <linearGradient id="ppc-turf" x1="0" y1="0" x2=".15" y2="1"><stop stop-color="#1593db"/><stop offset=".55" stop-color="#0b7ac9"/><stop offset="1" stop-color="#045eae"/></linearGradient>
+  <linearGradient id="ppc-glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#80cde9" stop-opacity=".28"/><stop offset="1" stop-color="#d5f3ff" stop-opacity=".05"/></linearGradient>
+  <linearGradient id="ppc-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0b284e"/><stop offset="1" stop-color="#07192f"/></linearGradient>
+  <pattern id="ppc-mesh" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0L7 7M7 0L0 7" stroke="#d8eefe" stroke-opacity=".46" stroke-width=".5"/></pattern>
+  <symbol id="ppc-court" viewBox="0 0 600 380">
+    <rect width="600" height="380" rx="10" fill="url(#ppc-sky)"/>
+    <ellipse cx="300" cy="362" rx="280" ry="20" fill="#041326" opacity=".8"/>
+    <!-- Far glass back wall and side enclosures -->
+    <path d="M162 16H438L430 50H170Z" fill="url(#ppc-glass)" stroke="#6a9fbe" stroke-opacity=".55" stroke-width="1.5"/>
+    <path d="M162 16L170 50L30 355L7 325Z" fill="url(#ppc-glass)" stroke="#6a9fbe" stroke-opacity=".35" stroke-width="1.5"/>
+    <path d="M438 16L430 50L570 355L593 325Z" fill="url(#ppc-glass)" stroke="#6a9fbe" stroke-opacity=".35" stroke-width="1.5"/>
+    <g stroke="#4e7fa5" stroke-opacity=".6" stroke-width="2">
+      <path d="M220 16L220 47M300 16V48M380 16L380 47"/>
+      <path d="M140 70L122 152M101 153L70 240M62 265L33 354"/>
+      <path d="M460 70L478 152M499 153L530 240M538 265L567 354"/>
+    </g>
+    <!-- Blue artificial turf, seen lengthways from the baseline -->
+    <path d="M170 50H430L570 355H30Z" fill="url(#ppc-turf)" stroke="#9bc8e4" stroke-width="2"/>
+    <path d="M170 50H430L570 355H30Z" fill="none" stroke="#001d4a" stroke-width="10" stroke-opacity=".22"/>
+    <g stroke="#d6f6ff" stroke-width="2.8" stroke-linecap="round" opacity=".96">
+      <path d="M170 50H430M30 355H570"/>
+      <!-- Service lines -->
+      <path d="M135 130H465M77 295H523"/>
+      <!-- Two centre service lines form the Ts on either side of the net -->
+      <path d="M300 130V201M300 213V295"/>
+    </g>
+    <g stroke="#eaf9ff" opacity=".18" stroke-width="1">
+      <path d="M124 160H476M108 190H492M91 238H509M64 327H536"/>
+    </g>
+    <!-- Glass-panel reflections -->
+    <path d="M160 25L168 52L45 324L35 325Z" fill="#e4fbff" opacity=".08"/>
+    <path d="M440 25L432 52L555 324L565 325Z" fill="#e4fbff" opacity=".08"/>
+    <!-- Centre net with top white cord, posts and visible mesh -->
+    <path d="M101 202H499V222H101Z" fill="#061f37" opacity=".85"/>
+    <path d="M101 202H499V222H101Z" fill="url(#ppc-mesh)"/>
+    <path d="M101 202H499" fill="none" stroke="#f1fcff" stroke-width="5"/>
+    <path d="M101 199V225M499 199V225" stroke="#d0e9f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M106 225H494" stroke="#092644" stroke-width="3" opacity=".8"/>
+    <path d="M30 355H570" stroke="#bfeaff" stroke-opacity=".45" stroke-width="2"/>
+  </symbol>
+</defs>
+</svg>
         <ol class="draw-rounds">
-          <li><div class="draw-round"><div class="draw-start"><span>Round 1</span><time>10:00</time><span class="draw-rest">Rest: <b>Sean</b></span></div><div class="draw-match"><div class="draw-team"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button></div><div class="draw-team"><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div></div></div><div class="draw-break">10:20–10:23 · Break</div></li>
-          <li><div class="draw-round"><div class="draw-start"><span>Round 2</span><time>10:23</time><span class="draw-rest">Rest: <b>Geraldo</b></span></div><div class="draw-match"><div class="draw-team"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div><div class="draw-team"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button></div></div></div><div class="draw-break">10:43–10:46 · Break</div></li>
-          <li><div class="draw-round"><div class="draw-start"><span>Round 3</span><time>10:46</time><span class="draw-rest">Rest: <b>Gary</b></span></div><div class="draw-match"><div class="draw-team"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button></div><div class="draw-team"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div></div></div><div class="draw-break">11:06–11:09 · Break</div></li>
-          <li><div class="draw-round"><div class="draw-start"><span>Round 4</span><time>11:09</time><span class="draw-rest">Rest: <b>James</b></span></div><div class="draw-match"><div class="draw-team"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div><div class="draw-team"><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div></div></div><div class="draw-break">11:29–11:32 · Break</div></li>
-          <li><div class="draw-round"><div class="draw-start"><span>Round 5</span><time>11:32</time><span class="draw-rest">Rest: <b>Gavin</b></span></div><div class="draw-match"><div class="draw-team"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div><div class="draw-team"><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div></div></div></li>
+          <li><div class="draw-round">
+  <div class="draw-start"><span class="draw-round-label">Round 1</span><time datetime="10:00">10:00</time><span class="draw-rest">Rest: <b>Sean</b></span></div>
+  <div class="draw-match" role="group" aria-label="Gavin and Geraldo versus James and Gary">
+    <svg class="draw-court-art" viewBox="0 0 600 380" preserveAspectRatio="none" focusable="false" aria-hidden="true"><use href="#ppc-court"></use></svg>
+    <div class="draw-team draw-team--far"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div>
+    <div class="draw-team draw-team--near"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div>
+  </div>
+</div></li>
+<li><div class="draw-round">
+  <div class="draw-start"><span class="draw-round-label">Round 2</span><time datetime="10:23">10:23</time><span class="draw-rest">Rest: <b>Gary</b></span></div>
+  <div class="draw-match" role="group" aria-label="Gavin and James versus Sean and Geraldo">
+    <svg class="draw-court-art" viewBox="0 0 600 380" preserveAspectRatio="none" focusable="false" aria-hidden="true"><use href="#ppc-court"></use></svg>
+    <div class="draw-team draw-team--far"><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div>
+    <div class="draw-team draw-team--near"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button></div>
+  </div>
+</div></li>
+<li><div class="draw-round">
+  <div class="draw-start"><span class="draw-round-label">Round 3</span><time datetime="10:46">10:46</time><span class="draw-rest">Rest: <b>James</b></span></div>
+  <div class="draw-match" role="group" aria-label="Gavin and Sean versus Gary and Geraldo">
+    <svg class="draw-court-art" viewBox="0 0 600 380" preserveAspectRatio="none" focusable="false" aria-hidden="true"><use href="#ppc-court"></use></svg>
+    <div class="draw-team draw-team--far"><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div>
+    <div class="draw-team draw-team--near"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button></div>
+  </div>
+</div></li>
+<li><div class="draw-round">
+  <div class="draw-start"><span class="draw-round-label">Round 4</span><time datetime="11:09">11:09</time><span class="draw-rest">Rest: <b>Geraldo</b></span></div>
+  <div class="draw-match" role="group" aria-label="Gavin and Gary versus James and Sean">
+    <svg class="draw-court-art" viewBox="0 0 600 380" preserveAspectRatio="none" focusable="false" aria-hidden="true"><use href="#ppc-court"></use></svg>
+    <div class="draw-team draw-team--far"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button></div>
+    <div class="draw-team draw-team--near"><button class="draw-player" type="button" data-player="p-gavin" aria-label="View Gavin's profile"><img src="./assets/players/gavin.webp?v=20261117-gavin" alt="" width="52" height="52" loading="lazy"><span>Gavin</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div>
+  </div>
+</div></li>
+<li><div class="draw-round">
+  <div class="draw-start"><span class="draw-round-label">Round 5</span><time datetime="11:32">11:32</time><span class="draw-rest">Rest: <b>Gavin</b></span></div>
+  <div class="draw-match" role="group" aria-label="James and Geraldo versus Sean and Gary">
+    <svg class="draw-court-art" viewBox="0 0 600 380" preserveAspectRatio="none" focusable="false" aria-hidden="true"><use href="#ppc-court"></use></svg>
+    <div class="draw-team draw-team--far"><button class="draw-player" type="button" data-player="p-sean" aria-label="View Sean's profile"><img src="./assets/players/sean.webp?v=20261117-sean" alt="" width="52" height="52" loading="lazy"><span>Sean</span></button><button class="draw-player" type="button" data-player="p-gary" aria-label="View Gary's profile"><img src="./assets/players/gary.webp?v=20261117-gary-v3" alt="" width="52" height="52" loading="lazy"><span>Gary</span></button></div>
+    <div class="draw-team draw-team--near"><button class="draw-player" type="button" data-player="p-james" aria-label="View James's profile"><img src="./assets/players/james.webp?v=20261117-james" alt="" width="52" height="52" loading="lazy"><span>James</span></button><button class="draw-player" type="button" data-player="p-geraldo" aria-label="View Geraldo's profile"><img src="./assets/players/geraldo.webp?v=20261117-ger" alt="" width="52" height="52" loading="lazy"><span>Geraldo</span></button></div>
+  </div>
+</div></li>
         </ol>
       </div>
     </div>
