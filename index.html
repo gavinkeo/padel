@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20261118-points">
-  <script defer src="./portraits.js?v=20261118-points"></script>
-  <script defer src="./app.js?v=20261118-points"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261120-draw">
+  <script defer src="./portraits.js?v=20261120-draw"></script>
+  <script defer src="./app.js?v=20261120-draw"></script>
 </head>
 <body>
 <header class="site-header">
@@ -54,6 +54,18 @@
       <div class="confirmed-lineup">
         <h2>Confirmed Players</h2>
         <ul id="confirmedPlayers"></ul>
+      </div>
+      <div class="ppc-draw" aria-labelledby="draw-title">
+        <h2 id="draw-title">PPC 5 · The draw</h2>
+        <p class="draw-session">09:45 warm-up <span>·</span> 10:00–12:00 tournament</p>
+        <p class="draw-format">40 points per match · 10 serves per rotation · 3-minute breaks</p>
+        <ol class="draw-rounds">
+          <li><div class="draw-round"><div class="draw-start"><span>Round 1</span><time>10:00</time></div><div class="draw-match"><strong>Gavin + James</strong><span class="draw-vs">vs</span><strong>Gary + Geraldo</strong></div><span class="draw-rest">Rest <b>Sean</b></span></div><div class="draw-break">10:20–10:23 · Break</div></li>
+          <li><div class="draw-round"><div class="draw-start"><span>Round 2</span><time>10:23</time></div><div class="draw-match"><strong>Gavin + Gary</strong><span class="draw-vs">vs</span><strong>James + Sean</strong></div><span class="draw-rest">Rest <b>Geraldo</b></span></div><div class="draw-break">10:43–10:46 · Break</div></li>
+          <li><div class="draw-round"><div class="draw-start"><span>Round 3</span><time>10:46</time></div><div class="draw-match"><strong>Gavin + Sean</strong><span class="draw-vs">vs</span><strong>James + Geraldo</strong></div><span class="draw-rest">Rest <b>Gary</b></span></div><div class="draw-break">11:06–11:09 · Break</div></li>
+          <li><div class="draw-round"><div class="draw-start"><span>Round 4</span><time>11:09</time></div><div class="draw-match"><strong>Gavin + Geraldo</strong><span class="draw-vs">vs</span><strong>Sean + Gary</strong></div><span class="draw-rest">Rest <b>James</b></span></div><div class="draw-break">11:29–11:32 · Break</div></li>
+          <li><div class="draw-round"><div class="draw-start"><span>Round 5</span><time>11:32</time></div><div class="draw-match"><strong>James + Gary</strong><span class="draw-vs">vs</span><strong>Sean + Geraldo</strong></div><span class="draw-rest">Rest <b>Gavin</b></span></div></li>
+        </ol>
       </div>
     </div>
   </section>
