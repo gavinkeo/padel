@@ -370,3 +370,6 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .round-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:8px;font-size:11px;color:#d0e8ff}
 .round-controls button{width:34px;height:34px;border:1px solid #ffffff50;border-radius:50%;background:#ffffff12;color:#fff;font-size:22px;cursor:pointer}
 @media(max-width:380px){.draw-start{gap:5px}.draw-start>.draw-round-label{font-size:13px}.draw-start>.draw-rest,.draw-start>.draw-rest b{font-size:10px}.pair-label{font-size:10px}}
+
+.draw-rounds{display:flex;flex-direction:column;overflow:visible;gap:12px;scroll-snap-type:none;padding:0}
+.draw-rounds>li{flex:none;width:100%}

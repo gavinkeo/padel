@@ -255,14 +255,6 @@
     countdown();
     setInterval(countdown,1000);
     document.addEventListener('click', event=>{
-      const roundButton=event.target.closest('[data-round-step]');
-      if (roundButton) {
-        const track=$('round-track');
-        const step=track.children[1].offsetLeft-track.children[0].offsetLeft;
-        const next=(Math.round(track.scrollLeft/step)+Number(roundButton.dataset.roundStep)+track.children.length)%track.children.length;
-        track.scrollTo({left:next*step,behavior:'smooth'});
-        return;
-      }
       const galleryButton=event.target.closest('[data-gallery-step]');
       if (galleryButton) {
         const track=$('gallery-track');
@@ -277,7 +269,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261120-simple-pairs', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261120-all-rounds', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
