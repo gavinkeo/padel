@@ -422,3 +422,13 @@ img[src*="/players/gary.webp"]{object-view-box:inset(3% 7.5% 12%)}
 .round-controls{gap:12px}
 .round-controls button{width:34px;height:34px;font-size:22px}
 @media(max-width:380px){.draw-round{padding:10px}.draw-start{gap:5px}.draw-start>.draw-round-label{font-size:13px}.draw-start>.draw-rest,.draw-start>.draw-rest b{font-size:10px}}
+
+.draw-team--far,.draw-team--near{left:18%;width:64%;padding:8px 8px 6px;border:1px solid;border-radius:10px;display:flex;flex-direction:column;gap:6px}
+.draw-team--far{top:9%;bottom:auto;background:#092f65e8;border-color:#a6d9ff}
+.draw-team--near{top:auto;bottom:9%;background:#214b40ed;border-color:var(--yellow)}
+.pair-portraits{display:flex;align-items:center;justify-content:center;gap:14px}
+.draw-player span{display:none}
+.pair-label{font:800 12px/1.3 var(--body);color:#fff;text-align:center}
+.draw-team--near .pair-label{color:var(--yellow)}
+.draw-team--far .draw-player img,.draw-team--near .draw-player img{width:clamp(44px,13vw,64px);height:clamp(44px,13vw,64px)}
+@media(max-width:380px){.draw-team--far,.draw-team--near{left:14%;width:72%;padding:6px}.pair-label{font-size:11px}}

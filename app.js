@@ -277,7 +277,7 @@
       delegateClicks(event);
     });
     try {
-      const response=await fetch('./data/official-results.json?v=20261120-clean-court', {cache:'no-store'});
+      const response=await fetch('./data/official-results.json?v=20261120-clear-pairs', {cache:'no-store'});
       if (!response.ok) throw new Error('HTTP '+response.status);
       const json=await response.json();
       if (!Array.isArray(json.events)) throw new Error('Invalid archive format');
